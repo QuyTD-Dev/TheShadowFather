@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 98c6cda4e85c02047aa05cf38730bec6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7771182894727739087
+    second: wisp2-removebg-preview_0
+  - first:
+      213: -5322169354977936185
+    second: wisp2-removebg-preview_1
+  - first:
+      213: -3334899378396104486
+    second: wisp2-removebg-preview_2
+  - first:
+      213: 7892986903119463756
+    second: wisp2-removebg-preview_3
+  - first:
+      213: -5464768874008724588
+    second: wisp2-removebg-preview_4
+  - first:
+      213: -4914352686093115029
+    second: wisp2-removebg-preview_5
+  - first:
+      213: 945668924797504409
+    second: wisp2-removebg-preview_6
+  - first:
+      213: -1989982167213219479
+    second: wisp2-removebg-preview_7
+  - first:
+      213: -1208579044316819982
+    second: wisp2-removebg-preview_8
+  - first:
+      213: -5757218282216034690
+    second: wisp2-removebg-preview_9
+  - first:
+      213: 4187716403372284965
+    second: wisp2-removebg-preview_10
+  - first:
+      213: -10560004682300328
+    second: wisp2-removebg-preview_11
+  - first:
+      213: 8870625269031013945
+    second: wisp2-removebg-preview_12
+  - first:
+      213: 6576111519475884268
+    second: wisp2-removebg-preview_13
+  - first:
+      213: -2281400086245018738
+    second: wisp2-removebg-preview_14
+  - first:
+      213: -6496255435805541376
+    second: wisp2-removebg-preview_15
+  - first:
+      213: -3596075212564652578
+    second: wisp2-removebg-preview_16
+  - first:
+      213: -1629428710211389091
+    second: wisp2-removebg-preview_17
+  - first:
+      213: -2709398087647711917
+    second: wisp2-removebg-preview_18
+  - first:
+      213: 3418934397327608152
+    second: wisp2-removebg-preview_19
+  - first:
+      213: -4131251205009289817
+    second: wisp2-removebg-preview_20
+  - first:
+      213: 121608366676562084
+    second: wisp2-removebg-preview_21
+  - first:
+      213: -2061728762712626912
+    second: wisp2-removebg-preview_22
+  - first:
+      213: 2443481768976991321
+    second: wisp2-removebg-preview_23
+  - first:
+      213: 1408186439039580589
+    second: wisp2-removebg-preview_24
+  - first:
+      213: -8056833248774763772
+    second: wisp2-removebg-preview_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 339
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 139492ba456372490800000000000000
+      internalID: -7771182894727739087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 222
+        width: 118
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ccf1127b2bd326b0800000000000000
+      internalID: -5322169354977936185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 306
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad877053fae08b1d0800000000000000
+      internalID: -3334899378396104486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 192
+        width: 119
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c450f3105c5898d60800000000000000
+      internalID: 7892986903119463756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 314
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49b3915a9ad3924b0800000000000000
+      internalID: -5464768874008724588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 314
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b61ee64f446bccbb0800000000000000
+      internalID: -4914352686093115029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 313
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b4ea170e0bf1d00800000000000000
+      internalID: 945668924797504409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 316
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 961e4e523c92264e0800000000000000
+      internalID: -1989982167213219479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 165
+        width: 117
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fdc38433c34a3fe0800000000000000
+      internalID: -1208579044316819982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 289
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7ee022b9704a10b0800000000000000
+      internalID: -5757218282216034690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 295
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52cd413a1e1cd1a30800000000000000
+      internalID: 4187716403372284965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 293
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854c5105bbb7adff0800000000000000
+      internalID: -10560004682300328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 277
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93e82300faaca1b70800000000000000
+      internalID: 8870625269031013945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 267
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce0e6b1d59a034b50800000000000000
+      internalID: 6576111519475884268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 277
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e83f1dc75b6d650e0800000000000000
+      internalID: -2281400086245018738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 281
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00c3c9a891aa8d5a0800000000000000
+      internalID: -6496255435805541376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 248
+        width: 22
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edd1f71a5ac281ec0800000000000000
+      internalID: -3596075212564652578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 254
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d59f60d983b1369e0800000000000000
+      internalID: -1629428710211389091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 255
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35da2a65bc8466ad0800000000000000
+      internalID: -2709398087647711917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 255
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859831758be727f20800000000000000
+      internalID: 3418934397327608152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 234
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ad4487dae8daa6c0800000000000000
+      internalID: -4131251205009289817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 216
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a0d8794a2a00b100800000000000000
+      internalID: 121608366676562084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 219
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 029ee432d944363e0800000000000000
+      internalID: -2061728762712626912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 187
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954440709bdf8e120800000000000000
+      internalID: 2443481768976991321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 165
+        width: 68
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9f97cfa12ea8310800000000000000
+      internalID: 1408186439039580589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wisp2-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 165
+        width: 65
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40b4930e8d0603090800000000000000
+      internalID: -8056833248774763772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wisp2-removebg-preview_0: -7771182894727739087
+      wisp2-removebg-preview_1: -5322169354977936185
+      wisp2-removebg-preview_10: 4187716403372284965
+      wisp2-removebg-preview_11: -10560004682300328
+      wisp2-removebg-preview_12: 8870625269031013945
+      wisp2-removebg-preview_13: 6576111519475884268
+      wisp2-removebg-preview_14: -2281400086245018738
+      wisp2-removebg-preview_15: -6496255435805541376
+      wisp2-removebg-preview_16: -3596075212564652578
+      wisp2-removebg-preview_17: -1629428710211389091
+      wisp2-removebg-preview_18: -2709398087647711917
+      wisp2-removebg-preview_19: 3418934397327608152
+      wisp2-removebg-preview_2: -3334899378396104486
+      wisp2-removebg-preview_20: -4131251205009289817
+      wisp2-removebg-preview_21: 121608366676562084
+      wisp2-removebg-preview_22: -2061728762712626912
+      wisp2-removebg-preview_23: 2443481768976991321
+      wisp2-removebg-preview_24: 1408186439039580589
+      wisp2-removebg-preview_25: -8056833248774763772
+      wisp2-removebg-preview_3: 7892986903119463756
+      wisp2-removebg-preview_4: -5464768874008724588
+      wisp2-removebg-preview_5: -4914352686093115029
+      wisp2-removebg-preview_6: 945668924797504409
+      wisp2-removebg-preview_7: -1989982167213219479
+      wisp2-removebg-preview_8: -1208579044316819982
+      wisp2-removebg-preview_9: -5757218282216034690
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

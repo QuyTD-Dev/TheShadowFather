@@ -1,0 +1,1755 @@
+fileFormatVersion: 2
+guid: a777f3f91d1c0754fbe92f44a66b079e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8824447273357767068
+    second: alltile_0
+  - first:
+      213: 4149832742446877537
+    second: alltile_1
+  - first:
+      213: 5202954745268812160
+    second: alltile_2
+  - first:
+      213: -4360049879079443204
+    second: alltile_3
+  - first:
+      213: -2992336302691628947
+    second: alltile_4
+  - first:
+      213: 4819231449648678336
+    second: alltile_5
+  - first:
+      213: -4153303391352410627
+    second: alltile_6
+  - first:
+      213: -1094899066009559773
+    second: alltile_7
+  - first:
+      213: 7362951755182165735
+    second: alltile_8
+  - first:
+      213: 7095301793267660104
+    second: alltile_9
+  - first:
+      213: -1011326342412333122
+    second: alltile_10
+  - first:
+      213: -2418017009022235457
+    second: alltile_11
+  - first:
+      213: 2955248316640399693
+    second: alltile_12
+  - first:
+      213: 549072630164530201
+    second: alltile_13
+  - first:
+      213: 5235571263392727943
+    second: alltile_14
+  - first:
+      213: 1854004909434757302
+    second: alltile_15
+  - first:
+      213: 8370767034722245483
+    second: alltile_16
+  - first:
+      213: 4760778102072570952
+    second: alltile_17
+  - first:
+      213: 3202683488272317746
+    second: alltile_18
+  - first:
+      213: 8979323211596851581
+    second: alltile_19
+  - first:
+      213: -6711790427147917969
+    second: alltile_20
+  - first:
+      213: -1443764075040039435
+    second: alltile_21
+  - first:
+      213: 7345481984358816543
+    second: alltile_22
+  - first:
+      213: -1906518386547293530
+    second: alltile_23
+  - first:
+      213: -5231662474229051207
+    second: alltile_24
+  - first:
+      213: -5954735845365466252
+    second: alltile_25
+  - first:
+      213: -8345657304792611788
+    second: alltile_26
+  - first:
+      213: 5382600088493654871
+    second: alltile_27
+  - first:
+      213: -6464960092652320853
+    second: alltile_28
+  - first:
+      213: -5447685080056257518
+    second: alltile_29
+  - first:
+      213: -2296512206536958563
+    second: alltile_30
+  - first:
+      213: -4427332968222049227
+    second: alltile_31
+  - first:
+      213: 4212183945349863444
+    second: alltile_32
+  - first:
+      213: 8953477891661577792
+    second: alltile_33
+  - first:
+      213: -1586087642096538640
+    second: alltile_34
+  - first:
+      213: 5696251571598876535
+    second: alltile_35
+  - first:
+      213: -3647988993382680233
+    second: alltile_36
+  - first:
+      213: 4950245228857250229
+    second: alltile_37
+  - first:
+      213: 6994758860839452203
+    second: alltile_38
+  - first:
+      213: 5167375754797775240
+    second: alltile_39
+  - first:
+      213: 8467570858096510691
+    second: alltile_40
+  - first:
+      213: 5998547464376607833
+    second: alltile_41
+  - first:
+      213: 1057119670401067724
+    second: alltile_42
+  - first:
+      213: -1498171624166158496
+    second: alltile_43
+  - first:
+      213: -654055516798387652
+    second: alltile_44
+  - first:
+      213: 4642833413448747446
+    second: alltile_45
+  - first:
+      213: 4309068509878556595
+    second: alltile_46
+  - first:
+      213: -7555109126905457078
+    second: alltile_47
+  - first:
+      213: 4484663849661915623
+    second: alltile_48
+  - first:
+      213: 4087722629775400911
+    second: alltile_49
+  - first:
+      213: -1286181653517395525
+    second: alltile_50
+  - first:
+      213: 8875457348926532529
+    second: alltile_51
+  - first:
+      213: 8178485487921200139
+    second: alltile_52
+  - first:
+      213: -5371852601348363937
+    second: alltile_53
+  - first:
+      213: -8424936055174887742
+    second: alltile_54
+  - first:
+      213: 697518158651670594
+    second: alltile_55
+  - first:
+      213: 6694816146521917391
+    second: alltile_56
+  - first:
+      213: -2330856531199337156
+    second: alltile_57
+  - first:
+      213: -4386561451887552015
+    second: alltile_58
+  - first:
+      213: -5235838251161908786
+    second: alltile_59
+  - first:
+      213: 1379815791063814132
+    second: alltile_60
+  - first:
+      213: -4463434944595816525
+    second: alltile_61
+  - first:
+      213: 8016400241791427166
+    second: alltile_62
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: alltile_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 496
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46e885475f3498580800000000000000
+      internalID: -8824447273357767068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 496
+        width: 202
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16bc4da74ea279930800000000000000
+      internalID: 4149832742446877537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_2
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 496
+        width: 332
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0893e2e36cb943840800000000000000
+      internalID: 5202954745268812160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 496
+        width: 265
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf42c7a4cbdfd73c0800000000000000
+      internalID: -4360049879079443204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_4
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 496
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d684f8d9cf51976d0800000000000000
+      internalID: -2992336302691628947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_5
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 496
+        width: 200
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c543b6587951e240800000000000000
+      internalID: 4819231449648678336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 425
+        width: 202
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfda30a12908c56c0800000000000000
+      internalID: -4153303391352410627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_7
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 425
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32dd799b9132ec0f0800000000000000
+      internalID: -1094899066009559773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_8
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 425
+        width: 133
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eec8f95c957e2660800000000000000
+      internalID: 7362951755182165735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_9
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 357
+        width: 67
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84539e17363977260800000000000000
+      internalID: 7095301793267660104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_10
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 428
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebf8480cc0c07f1f0800000000000000
+      internalID: -1011326342412333122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_11
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 428
+        width: 66
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc806c675a717ed0800000000000000
+      internalID: -2418017009022235457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_12
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 429
+        width: 67
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d411c68bfa6230920800000000000000
+      internalID: 2955248316640399693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_13
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 424
+        width: 133
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 914a8d4e5a2be9700800000000000000
+      internalID: 549072630164530201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_14
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 425
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78344c6235c78a840800000000000000
+      internalID: 5235571263392727943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_15
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 425
+        width: 134
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b060b664afbab910800000000000000
+      internalID: 1854004909434757302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_16
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 357
+        width: 68
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b5b229440fa2470800000000000000
+      internalID: 8370767034722245483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_17
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 357
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8447e7cc57ea11240800000000000000
+      internalID: 4760778102072570952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_18
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 357
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23dfa7ef9a7327c20800000000000000
+      internalID: 3202683488272317746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_19
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 357
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7966aee2e6fc9c70800000000000000
+      internalID: 8979323211596851581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_20
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 357
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f652bf6ca2eead2a0800000000000000
+      internalID: -6711790427147917969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_21
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 357
+        width: 66
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd94cf1938b6fbe0800000000000000
+      internalID: -1443764075040039435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_22
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 357
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1b1dbd52f460f560800000000000000
+      internalID: 7345481984358816543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_23
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 357
+        width: 64
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2091ce0afaa85e0800000000000000
+      internalID: -1906518386547293530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_24
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 357
+        width: 65
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b016deb2b66567b0800000000000000
+      internalID: -5231662474229051207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_25
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 357
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47bb4b55c478c5da0800000000000000
+      internalID: -5954735845365466252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_26
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 357
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43441b206e44e2c80800000000000000
+      internalID: -8345657304792611788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_27
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 357
+        width: 66
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75386a22346d2ba40800000000000000
+      internalID: 5382600088493654871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_28
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 357
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7c16e6c09d746a0800000000000000
+      internalID: -6464960092652320853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_29
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 357
+        width: 67
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2142d03684fe564b0800000000000000
+      internalID: -5447685080056257518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_30
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 357
+        width: 68
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d140bc0562120e0800000000000000
+      internalID: -2296512206536958563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_31
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 252
+        width: 532
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53cbfb65f14fe82c0800000000000000
+      internalID: -4427332968222049227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_32
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 324
+        width: 220
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4189e2f2bfea47a30800000000000000
+      internalID: 4212183945349863444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_33
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 253
+        width: 264
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e3dc474b4214c70800000000000000
+      internalID: 8953477891661577792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_34
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 252
+        width: 67
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fbe23661b51df9e0800000000000000
+      internalID: -1586087642096538640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_35
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 180
+        width: 202
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f5964df962d0f40800000000000000
+      internalID: 5696251571598876535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_36
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 180
+        width: 202
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 759f3e0a65dbf5dc0800000000000000
+      internalID: -3647988993382680233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_37
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 180
+        width: 133
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1db11eecdc2b440800000000000000
+      internalID: 4950245228857250229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_38
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 180
+        width: 134
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ef9d5cf10621160800000000000000
+      internalID: 6994758860839452203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_39
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 180
+        width: 66
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 889ffadfed436b740800000000000000
+      internalID: 5167375754797775240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_40
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 180
+        width: 65
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6ca4315dad28570800000000000000
+      internalID: 8467570858096510691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_41
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 180
+        width: 66
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 954ec7e132f1f3350800000000000000
+      internalID: 5998547464376607833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_42
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 180
+        width: 68
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca65574db4abae00800000000000000
+      internalID: 1057119670401067724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_43
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 180
+        width: 66
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f810178dc653be0800000000000000
+      internalID: -1498171624166158496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_44
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 180
+        width: 67
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3af8d909f35ce6f0800000000000000
+      internalID: -654055516798387652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_45
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 145
+        width: 198
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b94de70468ae6040800000000000000
+      internalID: 4642833413448747446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_46
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 6
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b71224baf2eccb30800000000000000
+      internalID: 4309068509878556595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_47
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 6
+        width: 135
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a461d7b174cd62790800000000000000
+      internalID: -7555109126905457078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_48
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 6
+        width: 199
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e16220b20abc3e30800000000000000
+      internalID: 4484663849661915623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_49
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 76
+        width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcf9618f2128ab830800000000000000
+      internalID: 4087722629775400911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_50
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 75
+        width: 64
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb99871c990962ee0800000000000000
+      internalID: -1286181653517395525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_51
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 6
+        width: 67
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb65e54f65fb2b70800000000000000
+      internalID: 8875457348926532529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_52
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 93
+        width: 67
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0cfa344831df7170800000000000000
+      internalID: 8178485487921200139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_53
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 80
+        width: 66
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f596fd635885375b0800000000000000
+      internalID: -5371852601348363937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_54
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 73
+        width: 68
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c68be78b4d941b80800000000000000
+      internalID: -8424936055174887742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_55
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 6
+        width: 68
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24041d6d1151ea900800000000000000
+      internalID: 697518158651670594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_56
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 6
+        width: 68
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc70df980d3c8ec50800000000000000
+      internalID: 6694816146521917391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_57
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 6
+        width: 68
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3dd673955227afd0800000000000000
+      internalID: -2330856531199337156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_58
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 6
+        width: 64
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f912dab99dcf13c0800000000000000
+      internalID: -4386561451887552015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_59
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 6
+        width: 64
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec9871ae9d09657b0800000000000000
+      internalID: -5235838251161908786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_60
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 6
+        width: 68
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ff45d1c627162310800000000000000
+      internalID: 1379815791063814132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_61
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 6
+        width: 65
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf0d41f091be02c0800000000000000
+      internalID: -4463434944595816525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: alltile_62
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 6
+        width: 65
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5265551c89ff3f60800000000000000
+      internalID: 8016400241791427166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      alltile_0: -8824447273357767068
+      alltile_1: 4149832742446877537
+      alltile_10: -1011326342412333122
+      alltile_11: -2418017009022235457
+      alltile_12: 2955248316640399693
+      alltile_13: 549072630164530201
+      alltile_14: 5235571263392727943
+      alltile_15: 1854004909434757302
+      alltile_16: 8370767034722245483
+      alltile_17: 4760778102072570952
+      alltile_18: 3202683488272317746
+      alltile_19: 8979323211596851581
+      alltile_2: 5202954745268812160
+      alltile_20: -6711790427147917969
+      alltile_21: -1443764075040039435
+      alltile_22: 7345481984358816543
+      alltile_23: -1906518386547293530
+      alltile_24: -5231662474229051207
+      alltile_25: -5954735845365466252
+      alltile_26: -8345657304792611788
+      alltile_27: 5382600088493654871
+      alltile_28: -6464960092652320853
+      alltile_29: -5447685080056257518
+      alltile_3: -4360049879079443204
+      alltile_30: -2296512206536958563
+      alltile_31: -4427332968222049227
+      alltile_32: 4212183945349863444
+      alltile_33: 8953477891661577792
+      alltile_34: -1586087642096538640
+      alltile_35: 5696251571598876535
+      alltile_36: -3647988993382680233
+      alltile_37: 4950245228857250229
+      alltile_38: 6994758860839452203
+      alltile_39: 5167375754797775240
+      alltile_4: -2992336302691628947
+      alltile_40: 8467570858096510691
+      alltile_41: 5998547464376607833
+      alltile_42: 1057119670401067724
+      alltile_43: -1498171624166158496
+      alltile_44: -654055516798387652
+      alltile_45: 4642833413448747446
+      alltile_46: 4309068509878556595
+      alltile_47: -7555109126905457078
+      alltile_48: 4484663849661915623
+      alltile_49: 4087722629775400911
+      alltile_5: 4819231449648678336
+      alltile_50: -1286181653517395525
+      alltile_51: 8875457348926532529
+      alltile_52: 8178485487921200139
+      alltile_53: -5371852601348363937
+      alltile_54: -8424936055174887742
+      alltile_55: 697518158651670594
+      alltile_56: 6694816146521917391
+      alltile_57: -2330856531199337156
+      alltile_58: -4386561451887552015
+      alltile_59: -5235838251161908786
+      alltile_6: -4153303391352410627
+      alltile_60: 1379815791063814132
+      alltile_61: -4463434944595816525
+      alltile_62: 8016400241791427166
+      alltile_7: -1094899066009559773
+      alltile_8: 7362951755182165735
+      alltile_9: 7095301793267660104
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

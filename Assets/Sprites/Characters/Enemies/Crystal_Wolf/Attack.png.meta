@@ -137,199 +137,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Attack-removebg-preview_0
+      name: Attack_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 187
-        width: 168
-        height: 113
+        x: 0
+        y: 184
+        width: 194
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 02e3681a51595a960800000000000000
-      internalID: 7612654665276472864
+      spriteID: 24082c29d05a78c4faac896e6f90af24
+      internalID: 439905666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack-removebg-preview_1
+      name: Attack_1
       rect:
         serializedVersion: 2
-        x: 180
-        y: 192
-        width: 163
-        height: 119
+        x: 243
+        y: 179
+        width: 252
+        height: 149
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 40a2722b402a7f890800000000000000
-      internalID: -7424287319644493308
+      spriteID: eb3b9c4af45ca164496df0b11ba87db9
+      internalID: 1562680572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack-removebg-preview_2
+      name: Attack_2
       rect:
         serializedVersion: 2
-        x: 343
-        y: 192
-        width: 161
-        height: 111
+        x: 503
+        y: 184
+        width: 225
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: aa6da8afa523a1850800000000000000
-      internalID: 6348441991063983786
+      spriteID: 73c4f0fa367ecc547867a91073f315b2
+      internalID: -1368325900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Attack-removebg-preview_3
+      name: Attack_3
       rect:
         serializedVersion: 2
-        x: 506
-        y: 192
-        width: 163
-        height: 112
+        x: 253
+        y: 0
+        width: 230
+        height: 139
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 09aab5d9bff85a490800000000000000
-      internalID: -7735618474099365232
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack-removebg-preview_4
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 26
-        width: 167
-        height: 109
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: badc95251bc7182e0800000000000000
-      internalID: -2125280448109490773
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack-removebg-preview_5
-      rect:
-        serializedVersion: 2
-        x: 141
-        y: 24
-        width: 23
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bbfb95e99f3d0d8c0800000000000000
-      internalID: -3976445401911148613
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack-removebg-preview_6
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 20
-        width: 165
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c33811dc74b0fc140800000000000000
-      internalID: 4742021335655482172
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack-removebg-preview_7
-      rect:
-        serializedVersion: 2
-        x: 344
-        y: 19
-        width: 158
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aae7d01d8353fd200800000000000000
-      internalID: 206942626024095402
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Attack-removebg-preview_8
-      rect:
-        serializedVersion: 2
-        x: 499
-        y: 22
-        width: 171
-        height: 115
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6c0f48d881e0ee5d0800000000000000
-      internalID: -3031470000557461306
+      spriteID: af5994cf8e2e3634288c402f9eca9ec1
+      internalID: 1455442233
       vertices: []
       indices: 
       edges: []
@@ -338,7 +228,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6f98468697a16e34e850862dd653e010
     internalID: 0
     vertices: []
     indices: 
@@ -357,6 +247,10 @@ TextureImporter:
       Attack-removebg-preview_6: 4742021335655482172
       Attack-removebg-preview_7: 206942626024095402
       Attack-removebg-preview_8: -3031470000557461306
+      Attack_0: 439905666
+      Attack_1: 1562680572
+      Attack_2: -1368325900
+      Attack_3: 1455442233
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

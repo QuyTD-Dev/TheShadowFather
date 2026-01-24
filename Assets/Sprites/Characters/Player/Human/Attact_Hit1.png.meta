@@ -118,10 +118,10 @@ TextureImporter:
       name: Attact_Hit1_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 371
-        width: 149
-        height: 174
+        x: 11
+        y: 372
+        width: 147
+        height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +140,10 @@ TextureImporter:
       name: Attact_Hit1_1
       rect:
         serializedVersion: 2
-        x: 218
-        y: 374
-        width: 228
-        height: 149
+        x: 219
+        y: 375
+        width: 226
+        height: 147
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: Attact_Hit1_3
       rect:
         serializedVersion: 2
-        x: 93
-        y: 198
-        width: 274
-        height: 145
+        x: 94
+        y: 199
+        width: 272
+        height: 143
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: Attact_Hit1_4
       rect:
         serializedVersion: 2
-        x: 6
-        y: 9
-        width: 290
-        height: 164
+        x: 7
+        y: 10
+        width: 288
+        height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,10 +206,10 @@ TextureImporter:
       name: Attact_Hit1_5
       rect:
         serializedVersion: 2
-        x: 302
-        y: 7
-        width: 142
-        height: 165
+        x: 303
+        y: 8
+        width: 140
+        height: 163
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -220,6 +220,28 @@ TextureImporter:
       bones: []
       spriteID: a83b9a867d63b30d0800000000000000
       internalID: -3442097191392791670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attact_Hit1_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 288
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8c3c1a0077abe24cb9042b3279c7c62
+      internalID: 6377599481055910967
       vertices: []
       indices: 
       edges: []
@@ -236,7 +258,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Attact_Hit1_0: -5266482322324738732
       Attact_Hit1_1: -2902782221841516303

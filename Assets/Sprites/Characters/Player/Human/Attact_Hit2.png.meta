@@ -121,10 +121,10 @@ TextureImporter:
       name: Attact_Hit2_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 372
-        width: 97
-        height: 112
+        x: 6
+        y: 373
+        width: 95
+        height: 110
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,10 +143,10 @@ TextureImporter:
       name: Attact_Hit2_1
       rect:
         serializedVersion: 2
-        x: 131
-        y: 370
-        width: 95
-        height: 173
+        x: 133
+        y: 371
+        width: 93
+        height: 171
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +165,10 @@ TextureImporter:
       name: Attact_Hit2_2
       rect:
         serializedVersion: 2
-        x: 239
-        y: 373
-        width: 215
-        height: 172
+        x: 240
+        y: 374
+        width: 213
+        height: 170
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,9 +188,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 189
-        width: 191
-        height: 172
+        y: 190
+        width: 190
+        height: 170
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -209,10 +209,10 @@ TextureImporter:
       name: Attact_Hit2_5
       rect:
         serializedVersion: 2
-        x: 182
-        y: 196
-        width: 77
-        height: 173
+        x: 9
+        y: 10
+        width: 123
+        height: 144
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,10 +231,10 @@ TextureImporter:
       name: Attact_Hit2_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 9
-        width: 125
-        height: 146
+        x: 183
+        y: 195
+        width: 75
+        height: 171
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,6 +245,28 @@ TextureImporter:
       bones: []
       spriteID: 0e0c92fb9a56d5360800000000000000
       internalID: 7159990762320019680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attact_Hit2_6
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 11
+        width: 224
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e5780dde75a5f4e8f5e3dd88e0a3b4
+      internalID: -752986973
       vertices: []
       indices: 
       edges: []
@@ -261,7 +283,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Attact_Hit2_0: 1570916750821982244
       Attact_Hit2_1: 869395774289150538
@@ -269,6 +293,7 @@ TextureImporter:
       Attact_Hit2_3: 7409336712348876782
       Attact_Hit2_4: 7159990762320019680
       Attact_Hit2_5: -691831396406254883
+      Attact_Hit2_6: -752986973
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

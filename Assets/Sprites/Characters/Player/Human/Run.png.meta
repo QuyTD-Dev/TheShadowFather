@@ -124,10 +124,10 @@ TextureImporter:
       name: Run_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 193
-        width: 143
-        height: 159
+        x: 16
+        y: 194
+        width: 141
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: Run_1
       rect:
         serializedVersion: 2
-        x: 170
-        y: 194
-        width: 157
-        height: 158
+        x: 171
+        y: 195
+        width: 155
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Run_2
       rect:
         serializedVersion: 2
-        x: 342
-        y: 193
-        width: 157
-        height: 159
+        x: 343
+        y: 194
+        width: 155
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: Run_3
       rect:
         serializedVersion: 2
-        x: 513
-        y: 195
-        width: 157
-        height: 157
+        x: 514
+        y: 196
+        width: 155
+        height: 155
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: Run_4
       rect:
         serializedVersion: 2
-        x: 8
-        y: 7
-        width: 156
-        height: 165
+        x: 9
+        y: 8
+        width: 154
+        height: 163
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: Run_5
       rect:
         serializedVersion: 2
-        x: 175
-        y: 7
-        width: 158
-        height: 165
+        x: 176
+        y: 8
+        width: 156
+        height: 163
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: Run_6
       rect:
         serializedVersion: 2
-        x: 344
-        y: 7
-        width: 159
-        height: 165
+        x: 345
+        y: 8
+        width: 157
+        height: 163
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,6 +270,28 @@ TextureImporter:
       bones: []
       spriteID: 8d784876d7f2062c0800000000000000
       internalID: -4440497016933152808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 6
+        width: 167
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 521a04bd9ac1ae146b5382dc891a63ad
+      internalID: 8676454946275842879
       vertices: []
       indices: 
       edges: []
@@ -286,7 +308,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Run_0: 4944230376442633554
       Run_1: -2274363484027164459

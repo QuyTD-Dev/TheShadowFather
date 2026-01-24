@@ -134,177 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_0
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 193
-        width: 126
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb3f75d74d31db7e0800000000000000
-      internalID: -1748219276992973892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 203
-        y: 193
-        width: 125
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 689ff61a327253e60800000000000000
-      internalID: 7941296551923546502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_2
-      rect:
-        serializedVersion: 2
-        x: 361
-        y: 193
-        width: 128
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 130ced0687f570c90800000000000000
-      internalID: -7203684108329893839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_3
-      rect:
-        serializedVersion: 2
-        x: 524
-        y: 192
-        width: 126
-        height: 82
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 31dae1e0001e604a0800000000000000
-      internalID: -6627362411275965165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_4
+      name: Idle_0
       rect:
         serializedVersion: 2
         x: 41
-        y: 64
-        width: 123
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 397bfe2bc36e52260800000000000000
-      internalID: 7072311938229712787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_5
-      rect:
-        serializedVersion: 2
-        x: 202
-        y: 64
+        y: 194
         width: 124
         height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c834616e9b708ecf0800000000000000
-      internalID: -222919686544276596
+      spriteID: fec677e5a6ac55a42953c7e4c8fcf80d
+      internalID: -407851529
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_6
+      name: Idle_1
       rect:
         serializedVersion: 2
-        x: 359
-        y: 67
-        width: 127
-        height: 76
+        x: 204
+        y: 194
+        width: 123
+        height: 80
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4d398bc75ec17fa40800000000000000
-      internalID: 5401818050019759060
+      spriteID: 92b1f5f7ffa898e41a12e52816041920
+      internalID: 1317167878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Idle_Rat-removebg-preview_7
+      name: Idle_2
       rect:
         serializedVersion: 2
-        x: 520
+        x: 362
+        y: 194
+        width: 126
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb99ee399f85a964ca74d384a1b1e109
+      internalID: 2068128012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_3
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 193
+        width: 124
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff70799563bd8747a0a27da0252bc6f
+      internalID: -1539409504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_4
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 65
+        width: 121
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d0d2c72623dfa4a97e20400b4fd8ab
+      internalID: 1913764488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_5
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 65
+        width: 122
+        height: 78
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ec3bdd52604b4499b2eae4e3123322
+      internalID: 1947534466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_6
+      rect:
+        serializedVersion: 2
+        x: 360
         y: 68
-        width: 132
-        height: 75
+        width: 125
+        height: 74
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f8db7a064658a2e20800000000000000
-      internalID: 3326617940931362191
+      spriteID: 9ed6a9a5402e82c4690e622de4a6a792
+      internalID: -2021871551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle_7
+      rect:
+        serializedVersion: 2
+        x: 521
+        y: 69
+        width: 130
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b558b8a35bba88a4abdfb0fea375f71a
+      internalID: 1708892418
       vertices: []
       indices: 
       edges: []
@@ -313,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 26e203ba47088e84b8bc3de553189bff
     internalID: 0
     vertices: []
     indices: 
@@ -321,16 +321,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Idle_Rat-removebg-preview_0: -1748219276992973892
-      Idle_Rat-removebg-preview_1: 7941296551923546502
-      Idle_Rat-removebg-preview_2: -7203684108329893839
-      Idle_Rat-removebg-preview_3: -6627362411275965165
-      Idle_Rat-removebg-preview_4: 7072311938229712787
-      Idle_Rat-removebg-preview_5: -222919686544276596
-      Idle_Rat-removebg-preview_6: 5401818050019759060
-      Idle_Rat-removebg-preview_7: 3326617940931362191
+      Idle_0: -407851529
+      Idle_1: 1317167878
+      Idle_2: 2068128012
+      Idle_3: -1539409504
+      Idle_4: 1913764488
+      Idle_5: 1947534466
+      Idle_6: -2021871551
+      Idle_7: 1708892418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

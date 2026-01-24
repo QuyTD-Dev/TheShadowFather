@@ -128,133 +128,133 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Run_Rat-removebg-preview_0
+      name: Run_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 2
+        y: 150
+        width: 127
+        height: 61
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c0475c83ac630f4680ea284f5406146
+      internalID: 1410445404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_1
+      rect:
+        serializedVersion: 2
+        x: 134
         y: 149
-        width: 129
+        width: 112
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa05851073353a642a6fbdb6eeac8a8d
+      internalID: -785607559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_2
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 157
+        width: 110
         height: 63
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 50a190452a5ca1680800000000000000
-      internalID: -8783490822247474683
+      spriteID: d6c1adbfb2ba3c84e98e6ba6e64dbf2b
+      internalID: -17230406
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Run_Rat-removebg-preview_1
+      name: Run_3
       rect:
         serializedVersion: 2
-        x: 133
-        y: 148
+        x: 361
+        y: 149
+        width: 94
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4114747e59983a947b1859716acb5b31
+      internalID: -619112252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_4
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 149
+        width: 93
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f9bf580f3033047b0ae7b4630ce8e5
+      internalID: -583476642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Run_5
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 149
         width: 114
-        height: 56
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1e2cd79b0b9deb820800000000000000
-      internalID: 2936023360141640417
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_Rat-removebg-preview_2
-      rect:
-        serializedVersion: 2
-        x: 247
-        y: 156
-        width: 112
-        height: 65
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 108644db9ca5a1250800000000000000
-      internalID: 5916140883014871041
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_Rat-removebg-preview_3
-      rect:
-        serializedVersion: 2
-        x: 360
-        y: 148
-        width: 96
-        height: 55
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d6733b0a9ea21bd20800000000000000
-      internalID: 3292459985496389485
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_Rat-removebg-preview_4
-      rect:
-        serializedVersion: 2
-        x: 460
-        y: 148
-        width: 95
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 619dc31308d00e1b0800000000000000
-      internalID: -5629484689980073706
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Run_Rat-removebg-preview_5
-      rect:
-        serializedVersion: 2
-        x: 562
-        y: 148
-        width: 116
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4975429a47aee1d00800000000000000
-      internalID: 945450758569219988
+      spriteID: db6b432e4dbd72d4ab4f15ec70be0285
+      internalID: -305068368
       vertices: []
       indices: 
       edges: []
@@ -263,7 +263,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 678acd9d88980804ea3e31eb95f9ca9e
     internalID: 0
     vertices: []
     indices: 
@@ -271,14 +271,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Run_Rat-removebg-preview_0: -8783490822247474683
-      Run_Rat-removebg-preview_1: 2936023360141640417
-      Run_Rat-removebg-preview_2: 5916140883014871041
-      Run_Rat-removebg-preview_3: 3292459985496389485
-      Run_Rat-removebg-preview_4: -5629484689980073706
-      Run_Rat-removebg-preview_5: 945450758569219988
+      Run_0: 1410445404
+      Run_1: -785607559
+      Run_2: -17230406
+      Run_3: -619112252
+      Run_4: -583476642
+      Run_5: -305068368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

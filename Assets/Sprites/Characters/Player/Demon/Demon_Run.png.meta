@@ -61,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -99,7 +99,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -127,10 +127,10 @@ TextureImporter:
       name: Demon_Run_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 173
-        width: 126
-        height: 174
+        x: 19
+        y: 174
+        width: 124
+        height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: Demon_Run_1
       rect:
         serializedVersion: 2
-        x: 206
-        y: 173
-        width: 127
-        height: 174
+        x: 207
+        y: 174
+        width: 125
+        height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: Demon_Run_2
       rect:
         serializedVersion: 2
-        x: 394
-        y: 175
-        width: 126
-        height: 172
+        x: 395
+        y: 176
+        width: 124
+        height: 171
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +193,10 @@ TextureImporter:
       name: Demon_Run_3
       rect:
         serializedVersion: 2
-        x: 580
-        y: 173
-        width: 126
-        height: 174
+        x: 581
+        y: 174
+        width: 124
+        height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,10 +215,10 @@ TextureImporter:
       name: Demon_Run_4
       rect:
         serializedVersion: 2
-        x: 19
-        y: 3
-        width: 125
-        height: 171
+        x: 20
+        y: 4
+        width: 123
+        height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +237,10 @@ TextureImporter:
       name: Demon_Run_5
       rect:
         serializedVersion: 2
-        x: 207
-        y: 5
-        width: 127
-        height: 169
+        x: 208
+        y: 6
+        width: 125
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -259,10 +259,10 @@ TextureImporter:
       name: Demon_Run_7
       rect:
         serializedVersion: 2
-        x: 395
-        y: 4
-        width: 126
-        height: 169
+        x: 396
+        y: 5
+        width: 124
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +281,10 @@ TextureImporter:
       name: Demon_Run_8
       rect:
         serializedVersion: 2
-        x: 580
-        y: 3
-        width: 125
-        height: 171
+        x: 581
+        y: 4
+        width: 123
+        height: 169
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -311,7 +311,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Demon_Run_0: -2029234902290868702
       Demon_Run_1: -1472473351114526436

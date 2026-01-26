@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,10 +124,10 @@ TextureImporter:
       name: Fire_Walk_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 188
-        width: 149
-        height: 158
+        x: 9
+        y: 189
+        width: 147
+        height: 156
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: Fire_Walk_1
       rect:
         serializedVersion: 2
-        x: 185
-        y: 188
-        width: 148
-        height: 160
+        x: 186
+        y: 189
+        width: 146
+        height: 158
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Fire_Walk_4
       rect:
         serializedVersion: 2
-        x: 6
+        x: 7
         y: 0
-        width: 152
-        height: 158
+        width: 150
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: Fire_Walk_5
       rect:
         serializedVersion: 2
-        x: 182
+        x: 183
         y: 0
-        width: 154
-        height: 159
+        width: 152
+        height: 158
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: Fire_Walk_6
       rect:
         serializedVersion: 2
-        x: 361
+        x: 362
         y: 0
-        width: 154
-        height: 158
+        width: 152
+        height: 157
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,6 +226,72 @@ TextureImporter:
       bones: []
       spriteID: 137d8a4e461d49720800000000000000
       internalID: 2852134695295571761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 189
+        width: 146
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3fbb4f14a995640800a3104dc01564
+      internalID: 1025597632362806688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 189
+        width: 148
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e30f11bcb5094564199dcdf429fa9c6c
+      internalID: -508705512483450899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 0
+        width: 150
+        height: 158
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcabb0cc074f5ca4a93ec6cd7f6a6d36
+      internalID: 659688927832215819
       vertices: []
       indices: 
       edges: []
@@ -242,7 +308,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fire_Walk_0: 90825440305779627
       Fire_Walk_1: 2240969128111332541

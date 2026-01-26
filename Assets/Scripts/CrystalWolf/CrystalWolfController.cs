@@ -4,111 +4,121 @@ public class CrystalWolfController : MonoBehaviour
 {
     private Animator animator;
     private SpriteRenderer spriteRenderer;
+    private Transform player;
 
-    [Header("Cài đặt Di Chuyển")]
-    public float moveSpeed = 2f;        // Tốc độ chạy
-    public float moveDistance = 3f;     // Quãng đường chạy
+    [Header("Cảm Biến Môi Trường")]
+    public float detectRange = 6f;      // Tầm nhìn: Thấy Player từ xa 6m
+    public float attackRange = 1.5f;    // Tầm đánh: Đứng cách 1.5m là cắn được
+    public float heightTolerance = 1f;  // Độ cao chênh lệch cho phép (Sói chỉ đuổi nếu Player không đứng quá cao/thấp hơn nó 1m)
 
-    [Header("Cài đặt Demo")]
-    public float waitBeforeAttack = 1f; // Chạy xong đứng thở 1 giây rồi mới đánh
-    public float waitAfterAttack = 1f;  // Đánh xong đứng nghỉ 1 giây rồi mới quay đầu
+    [Header("Chỉ Số Chiến Đấu")]
+    public float moveSpeed = 3f;        // Tốc độ đuổi bắt
+    public float attackCooldown = 2f;   // Đánh xong nghỉ 2 giây
+    private float lastAttackTime = -999f; // Thời điểm đánh lần cuối (khởi tạo số âm để vào game đánh được ngay)
 
-    // Các biến nội bộ để xử lý logic
+    [Header("Tuần Tra (Idle Mode)")]
+    public Transform[] patrolPoints;    // (Nâng cao) Các điểm đi tuần, tạm thời để trống cũng được
     private Vector3 startPos;
-    private bool movingRight = true;    // Đang đi sang phải hay trái
-    private bool isWaiting = false;     // Có đang đứng yên không
-    private bool hasAttacked = false;   // Đã thực hiện cú đánh trong lần đứng yên này chưa
-    private float timer = 0f;           // Đồng hồ đếm giờ
 
     void Start()
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         startPos = transform.position;
+
+        // Tìm Player tự động
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null) player = p.transform;
     }
 
     void Update()
     {
-        // LOGIC TRẠNG THÁI: ĐANG ĐỨNG YÊN (WAITING)
-        if (isWaiting)
+        if (player == null) return;
+
+        // Tính khoảng cách theo các trục
+        float distanceX = Mathf.Abs(transform.position.x - player.position.x); // Khoảng cách ngang
+        float distanceY = Mathf.Abs(transform.position.y - player.position.y); // Khoảng cách dọc (độ cao)
+        float totalDistance = Vector2.Distance(transform.position, player.position);
+
+        // LOGIC TRÍ TUỆ NHÂN TẠO (AI)
+        // Điều kiện 1: Player phải ở trong tầm nhìn
+        // Điều kiện 2: Player phải đứng cùng mặt đất với Sói (chênh lệch độ cao < heightTolerance)
+        bool canSeePlayer = totalDistance < detectRange;
+        bool sameGroundLevel = distanceY < heightTolerance;
+
+        if (canSeePlayer && sameGroundLevel)
         {
-            HandleWaitingSequence();
-            return;
-        }
-
-        // LOGIC TRẠNG THÁI: ĐANG DI CHUYỂN (MOVING)
-        HandleMovement();
-    }
-
-    // Xử lý việc chạy qua lại
-    void HandleMovement()
-    {
-        animator.SetBool("IsRunning", true); // Bật animation chạy
-
-        float currentDist = transform.position.x - startPos.x;
-
-        if (movingRight)
-        {
-            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-            spriteRenderer.flipX = false; // Mặt hướng phải
-
-            // Nếu đi quá quãng đường -> Chuyển sang chế độ Chờ
-            if (currentDist > moveDistance)
-            {
-                StartWaiting();
-            }
+            EngageTarget(distanceX);
         }
         else
         {
-            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
-            spriteRenderer.flipX = true; // Lật mặt sang trái (nếu sprite gốc hướng phải)
+            ReturnToPatrol();
+        }
+    }
 
-            // Nếu đi lùi quá quãng đường -> Chuyển sang chế độ Chờ
-            if (currentDist < -moveDistance)
+    void EngageTarget(float xDist)
+    {
+        // Luôn quay mặt về phía Player
+        FaceTarget();
+
+        // Nếu khoảng cách X lớn hơn tầm đánh -> CHẠY LẠI GẦN
+        // (Trừ đi 0.1f để sói dừng lại sát tầm đánh chứ không đi xuyên qua người)
+        if (xDist > attackRange - 0.2f)
+        {
+            animator.SetBool("IsRunning", true);
+
+            // Di chuyển chỉ trên trục X (Không bay lên trời)
+            // Mathf.Sign lấy dấu: nếu Player bên phải trả về 1, bên trái trả về -1
+            float direction = Mathf.Sign(player.position.x - transform.position.x);
+            transform.Translate(Vector2.right * direction * moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // Đã vào tầm đánh -> ĐỨNG LẠI VÀ TẤN CÔNG
+            animator.SetBool("IsRunning", false);
+
+            if (Time.time >= lastAttackTime + attackCooldown)
             {
-                StartWaiting();
+                Attack();
             }
         }
     }
 
-    // Bắt đầu vào trạng thái đứng yên
-    void StartWaiting()
+    void ReturnToPatrol()
     {
-        isWaiting = true;
-        hasAttacked = false; // Reset trạng thái chưa đánh
-        timer = 0f;          // Reset đồng hồ
-        animator.SetBool("IsRunning", false); // Chuyển về Idle
+        // Tạm thời cho đứng yên thở nếu mất dấu Player
+        animator.SetBool("IsRunning", false);
     }
 
-    // Xử lý chuỗi hành động: Đứng -> Đánh -> Đứng -> Quay đầu
-    void HandleWaitingSequence()
+    void Attack()
     {
-        timer += Time.deltaTime; // Đếm giờ
-
-        // GIAI ĐOẠN 1: Đợi một chút rồi Tấn Công
-        if (!hasAttacked && timer >= waitBeforeAttack)
-        {
-            PerformAttack();
-            hasAttacked = true; // Đánh dấu là đã đánh rồi, không đánh lại liên tục
-        }
-
-        // GIAI ĐOẠN 2: Đánh xong, đợi thêm chút nữa rồi Quay Đầu
-        // Tổng thời gian chờ = (thời gian trước đánh) + (thời gian sau đánh)
-        if (hasAttacked && timer >= (waitBeforeAttack + waitAfterAttack))
-        {
-            FlipAndMove();
-        }
-    }
-
-    void PerformAttack()
-    {
-        // Kích hoạt Trigger tấn công trong Animator
         animator.SetTrigger("Attack");
+        lastAttackTime = Time.time; // Ghi lại giờ vừa đánh xong
     }
 
-    void FlipAndMove()
+    void FaceTarget()
     {
-        movingRight = !movingRight; // Đổi hướng
-        isWaiting = false;          // Hết chờ, đi tiếp thôi!
+        if (player.position.x > transform.position.x)
+        {
+            spriteRenderer.flipX = false; // Player bên phải -> Mặt quay phải
+        }
+        else
+        {
+            spriteRenderer.flipX = true;  // Player bên trái -> Lật mặt sang trái
+        }
+    }
+
+    // Vẽ vùng nhìn thấy trong Scene để dễ chỉnh
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectRange);
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        // Vẽ giới hạn độ cao
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position + Vector3.up * heightTolerance, transform.position + Vector3.down * heightTolerance);
     }
 }

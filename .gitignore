@@ -10,3 +10,7 @@
 .vs/
 *.csproj
 *.sln
+
+# Unity Recovery folders (Tránh file rác khi crash/autosave)
+_Recovery/
+**/_Recovery/

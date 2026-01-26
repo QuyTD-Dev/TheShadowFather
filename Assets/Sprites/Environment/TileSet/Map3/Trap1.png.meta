@@ -1,10 +1,28 @@
 fileFormatVersion: 2
-guid: b91d14319f3c07b4e9ac79c061f36950
+guid: 8236050511345df4baa3c10d51cba9d4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5214001031631612967
-    second: BackGr3_0
+      213: 209865082185218111
+    second: Trap1_0
+  - first:
+      213: 8291630910164914116
+    second: Trap1_1
+  - first:
+      213: 6289636171332077316
+    second: Trap1_2
+  - first:
+      213: 9191297385686533169
+    second: Trap1_3
+  - first:
+      213: 6454599659669134217
+    second: Trap1_4
+  - first:
+      213: 4380243626357205050
+    second: Trap1_5
+  - first:
+      213: 4379762795771746776
+    second: Trap1_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +118,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BackGr3_0
+      name: Trap1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1142
-        height: 616
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 16
+        y: 300
+        width: 210
+        height: 48
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 72c2ce4305adb5840800000000000000
-      internalID: 5214001031631612967
+      spriteID: f38786a2e2799e200800000000000000
+      internalID: 209865082185218111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap1_1
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 184
+        width: 202
+        height: 74
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cf4701c16ac11370800000000000000
+      internalID: 8291630910164914116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap1_3
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 108
+        width: 219
+        height: 147
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40742be16c6494750800000000000000
+      internalID: 6289636171332077316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trap1_2
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 16
+        width: 210
+        height: 110
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38a0b2ee50c9cc30800000000000000
+      internalID: 4380243626357205050
       vertices: []
       indices: 
       edges: []
@@ -125,7 +209,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: bb7c1b91446a46f4dbd40859e573480d
+    spriteID: 6eca38a3f8aaae94ca047c82999d83e8
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +219,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BackGr3_0: 5214001031631612967
+      Trap1_0: 209865082185218111
+      Trap1_1: 8291630910164914116
+      Trap1_2: 4380243626357205050
+      Trap1_3: 6289636171332077316
+      Trap1_4: 6454599659669134217
+      Trap1_6: 4379762795771746776
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

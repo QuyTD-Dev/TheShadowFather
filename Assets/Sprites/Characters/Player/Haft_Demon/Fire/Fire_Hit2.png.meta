@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -102,7 +102,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -130,10 +130,10 @@ TextureImporter:
       name: Fire_Hit2_2
       rect:
         serializedVersion: 2
-        x: 147
+        x: 282
         y: 228
-        width: 129
-        height: 214
+        width: 267
+        height: 208
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: Fire_Hit2_3
       rect:
         serializedVersion: 2
-        x: 281
-        y: 229
-        width: 269
-        height: 210
+        x: 0
+        y: 230
+        width: 114
+        height: 139
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +174,10 @@ TextureImporter:
       name: Fire_Hit2_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 229
-        width: 115
-        height: 141
+        x: 147
+        y: 227
+        width: 127
+        height: 212
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,10 +196,10 @@ TextureImporter:
       name: Fire_Hit2_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 8
-        width: 225
-        height: 206
+        x: 8
+        y: 368
+        width: 7
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: Fire_Hit2_5
       rect:
         serializedVersion: 2
-        x: 291
-        y: 7
-        width: 270
-        height: 201
+        x: 546
+        y: 284
+        width: 6
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,6 +232,116 @@ TextureImporter:
       bones: []
       spriteID: c4f2fd7f6a927b2f0800000000000000
       internalID: -957250598693032116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Hit2_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 383
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b73c39244853c643841b10b6e680ccb
+      internalID: -7197565478459301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Hit2_6
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 263
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641a69eae79e4564bb66517edc380122
+      internalID: 3119436728432869830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Hit2_7
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 265
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 151bd9cb8b022c442869e002b8919ff4
+      internalID: 3996480504637572804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Hit2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 9
+        width: 224
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5efc0b6e61949e48a0e17fce412a327
+      internalID: -762394534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Hit2_9
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 8
+        width: 268
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d96fb4354c96fcd478beecd4d14ab160
+      internalID: 1883936539
       vertices: []
       indices: 
       edges: []
@@ -248,7 +358,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fire_Hit2_0: -7197565478459301
       Fire_Hit2_1: 7209173760734780395
@@ -258,6 +370,8 @@ TextureImporter:
       Fire_Hit2_5: -957250598693032116
       Fire_Hit2_6: 3119436728432869830
       Fire_Hit2_7: 3996480504637572804
+      Fire_Hit2_8: -762394534
+      Fire_Hit2_9: 1883936539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

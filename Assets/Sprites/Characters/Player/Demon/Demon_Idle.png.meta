@@ -52,7 +52,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -90,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -120,7 +120,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 2
-        width: 252
+        width: 232
         height: 265
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -142,7 +142,7 @@ TextureImporter:
         serializedVersion: 2
         x: 246
         y: 1
-        width: 220
+        width: 193
         height: 269
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -168,7 +168,7 @@ TextureImporter:
         height: 267
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 17, w: 0}
+      border: {x: 0, y: 0, z: 1, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -184,9 +184,9 @@ TextureImporter:
       name: Demon_Idle_5
       rect:
         serializedVersion: 2
-        x: 659
+        x: 709
         y: 0
-        width: 256
+        width: 185
         height: 271
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

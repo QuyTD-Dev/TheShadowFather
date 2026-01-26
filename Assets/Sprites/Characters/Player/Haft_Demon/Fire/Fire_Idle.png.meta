@@ -49,7 +49,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -87,7 +87,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -115,10 +115,10 @@ TextureImporter:
       name: Fire_Idle_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 11
-        width: 209
-        height: 229
+        x: 10
+        y: 12
+        width: 207
+        height: 227
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,10 +137,10 @@ TextureImporter:
       name: Fire_Idle_1
       rect:
         serializedVersion: 2
-        x: 254
-        y: 11
-        width: 228
-        height: 230
+        x: 255
+        y: 12
+        width: 226
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,10 +159,10 @@ TextureImporter:
       name: Fire_Idle_2
       rect:
         serializedVersion: 2
-        x: 501
-        y: 11
-        width: 244
-        height: 230
+        x: 502
+        y: 12
+        width: 242
+        height: 228
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: Fire_Idle_4
       rect:
         serializedVersion: 2
-        x: 762
-        y: 11
-        width: 242
-        height: 229
+        x: 763
+        y: 12
+        width: 241
+        height: 227
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,6 +195,28 @@ TextureImporter:
       bones: []
       spriteID: faf715cfe9609c920800000000000000
       internalID: 3010945105781686191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 232
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b35b9384747e044a1b731dd5f429c0
+      internalID: 7180279859377007426
       vertices: []
       indices: 
       edges: []
@@ -211,7 +233,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fire_Idle_0: 1730334647341872472
       Fire_Idle_1: 6556149116865652328

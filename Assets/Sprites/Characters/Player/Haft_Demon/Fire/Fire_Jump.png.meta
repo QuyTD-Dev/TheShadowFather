@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,10 +124,10 @@ TextureImporter:
       name: Fire_Jump_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 182
-        width: 154
-        height: 174
+        x: 1
+        y: 183
+        width: 152
+        height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,10 +146,10 @@ TextureImporter:
       name: Fire_Jump_1
       rect:
         serializedVersion: 2
-        x: 178
-        y: 189
-        width: 150
-        height: 168
+        x: 179
+        y: 190
+        width: 148
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,10 +168,10 @@ TextureImporter:
       name: Fire_Jump_2
       rect:
         serializedVersion: 2
-        x: 354
-        y: 165
-        width: 144
-        height: 185
+        x: 355
+        y: 166
+        width: 142
+        height: 183
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,10 +190,10 @@ TextureImporter:
       name: Fire_Jump_3
       rect:
         serializedVersion: 2
-        x: 536
-        y: 166
-        width: 146
-        height: 174
+        x: 537
+        y: 167
+        width: 144
+        height: 172
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,10 +212,10 @@ TextureImporter:
       name: Fire_Jump_4
       rect:
         serializedVersion: 2
-        x: 12
+        x: 13
         y: 0
-        width: 154
-        height: 140
+        width: 152
+        height: 139
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: Fire_Jump_5
       rect:
         serializedVersion: 2
-        x: 193
-        y: 0
-        width: 151
-        height: 135
+        x: 194
+        y: 1
+        width: 149
+        height: 133
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +256,10 @@ TextureImporter:
       name: Fire_Jump_6
       rect:
         serializedVersion: 2
-        x: 370
+        x: 371
         y: 0
-        width: 152
-        height: 125
+        width: 150
+        height: 124
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -270,6 +270,28 @@ TextureImporter:
       bones: []
       spriteID: 92a1701354a49ec40800000000000000
       internalID: 5542042477491853865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fire_Jump_7
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 0
+        width: 148
+        height: 121
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 704cac51e5b1b474094468e5067bfd7d
+      internalID: 7317729500084153090
       vertices: []
       indices: 
       edges: []
@@ -286,7 +308,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Fire_Jump_0: 2397766937267351705
       Fire_Jump_1: -771246798801020671

@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 5fa1c46cc2c8b6541b3fbc358754ba64
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3897923359826010392
+    second: chests_gates_0
+  - first:
+      213: -334839109504995815
+    second: chests_gates_1
+  - first:
+      213: 8479384154192444678
+    second: chests_gates_2
+  - first:
+      213: -5301978029151571025
+    second: chests_gates_3
+  - first:
+      213: 5875016832111582437
+    second: chests_gates_4
+  - first:
+      213: 9194618582499157092
+    second: chests_gates_5
+  - first:
+      213: 7577393816901392086
+    second: chests_gates_6
+  - first:
+      213: -3044393511140997403
+    second: chests_gates_7
+  - first:
+      213: 4930337107547277684
+    second: chests_gates_8
+  - first:
+      213: -2140811207126746643
+    second: chests_gates_9
+  - first:
+      213: -4274075083643764764
+    second: chests_gates_10
+  - first:
+      213: 3018177480103653460
+    second: chests_gates_11
+  - first:
+      213: -1144702449002472187
+    second: chests_gates_12
+  - first:
+      213: -299151459743051551
+    second: chests_gates_13
+  - first:
+      213: 7740961748885624608
+    second: chests_gates_14
+  - first:
+      213: -970619139931274142
+    second: chests_gates_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chests_gates_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 285
+        width: 66
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8116028c4a4381630800000000000000
+      internalID: 3897923359826010392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_1
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 285
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91eeb0d9a996a5bf0800000000000000
+      internalID: -334839109504995815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_2
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 281
+        width: 68
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60d77b866f2dca570800000000000000
+      internalID: 8479384154192444678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_3
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 190
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa3be75d2179b66b0800000000000000
+      internalID: -5301978029151571025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_4
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 190
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec937f7ea0488150800000000000000
+      internalID: 5875016832111582437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_5
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 203
+        width: 65
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4646117b2e8d99f70800000000000000
+      internalID: 9194618582499157092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 191
+        width: 82
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d616ab978f482960800000000000000
+      internalID: 7577393816901392086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_7
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 193
+        width: 69
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e6cfe34b3420c5d0800000000000000
+      internalID: -3044393511140997403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 109
+        width: 65
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 479484e2a731c6440800000000000000
+      internalID: 4930337107547277684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 99
+        width: 67
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9f804bc8f4a42e0800000000000000
+      internalID: -2140811207126746643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 100
+        width: 73
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4efb0104b5f6fa4c0800000000000000
+      internalID: -4274075083643764764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_11
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 2
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45079aa5d68b2e920800000000000000
+      internalID: 3018177480103653460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_12
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 2
+        width: 165
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d10b100333d10f0800000000000000
+      internalID: -1144702449002472187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_13
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 32
+        width: 65
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0d9f3155339dbf0800000000000000
+      internalID: -299151459743051551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_14
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 32
+        width: 68
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 027d63e72bb6d6b60800000000000000
+      internalID: 7740961748885624608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chests_gates_15
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 29
+        width: 68
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2648338e80ba782f0800000000000000
+      internalID: -970619139931274142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chests_gates_0: 3897923359826010392
+      chests_gates_1: -334839109504995815
+      chests_gates_10: -4274075083643764764
+      chests_gates_11: 3018177480103653460
+      chests_gates_12: -1144702449002472187
+      chests_gates_13: -299151459743051551
+      chests_gates_14: 7740961748885624608
+      chests_gates_15: -970619139931274142
+      chests_gates_2: 8479384154192444678
+      chests_gates_3: -5301978029151571025
+      chests_gates_4: 5875016832111582437
+      chests_gates_5: 9194618582499157092
+      chests_gates_6: 7577393816901392086
+      chests_gates_7: -3044393511140997403
+      chests_gates_8: 4930337107547277684
+      chests_gates_9: -2140811207126746643
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

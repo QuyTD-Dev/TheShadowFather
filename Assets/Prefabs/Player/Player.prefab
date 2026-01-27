@@ -83,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -283076855
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: d9432cb88472eb94b91512db165e768d, type: 3}
@@ -212,7 +212,7 @@ MonoBehaviour:
   groundCheckSize: {x: 1, y: 0.2}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   startingForm: 0
   startingElement: 0
 --- !u!1 &7158092003010452678

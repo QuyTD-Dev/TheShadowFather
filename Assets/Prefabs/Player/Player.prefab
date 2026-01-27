@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 214718222529699846}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3568749822538192552}
@@ -82,8 +82,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -283076855
-  m_SortingLayer: 1
+  m_SortingLayerID: 659302643
+  m_SortingLayer: 4
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4723107735738678597, guid: d9432cb88472eb94b91512db165e768d, type: 3}
@@ -212,7 +212,7 @@ MonoBehaviour:
   groundCheckSize: {x: 1, y: 0.2}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   startingForm: 0
   startingElement: 0
 --- !u!1 &7158092003010452678

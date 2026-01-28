@@ -1,0 +1,773 @@
+======================================
+        FULL ANIMATOR DUMP
+======================================
+Controller: EliasAnimator
+
+▶ PARAMETERS
+- Speed | Type: Float | Default: 0
+- IsGrounded | Type: Bool | Default: True
+- VerticalVelocity | Type: Float | Default: 0
+- IsRunning | Type: Bool | Default: False
+- IsDashing | Type: Bool | Default: True
+- Attack1 | Type: Trigger | Default: Trigger
+- Attack2 | Type: Trigger | Default: Trigger
+- FormState | Type: Int | Default: 0
+- ElementType | Type: Int | Default: 0
+
+======================================
+▶ LAYER: Base Layer
+Weight: 0
+Blending: Override
+IK Pass: False
+======================================
+  ▶ STATE MACHINE: Base Layer
+  Default State: Elias_Idle
+    → TRANSITION FROM: Any State
+      To: Elias_Jump
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.05
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: VerticalVelocity Greater 0.1
+    → TRANSITION FROM: Any State
+      To: Elias_Dash
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.05
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: IsDashing If 0
+    → TRANSITION FROM: Any State
+      To: Elias_Attack1
+      Has Exit Time: False
+      Exit Time: 0.754461
+      Duration: 0.05
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: False
+        Condition: Attack1 If 0
+    → TRANSITION FROM: Any State
+      To: Elias_Attack2
+      Has Exit Time: False
+      Exit Time: 0.9
+      Duration: 0.05
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: False
+        Condition: Attack2 If 0
+    → TRANSITION FROM: Any State
+      To: Fire_Attack2
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: Attack2 If 0
+    → TRANSITION FROM: Any State
+      To: Fire_Dash
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: IsDashing If 0
+    → TRANSITION FROM: Any State
+      To: Fire_Jump
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.05
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: VerticalVelocity Greater 0.1
+        Condition: FormState Equals 1
+        Condition: ElementType Equals 0
+    → TRANSITION FROM: Any State
+      To: Fire_Attack1
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.05
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: Attack1 If 0
+    → TRANSITION FROM: Any State
+      To: Frost_Attack2
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: Attack2 If 0
+    → TRANSITION FROM: Any State
+      To: Frost_Dash
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: IsDashing If 0
+    → TRANSITION FROM: Any State
+      To: Frost_Jump
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: VerticalVelocity Greater 0.1
+        Condition: FormState Equals 1
+        Condition: ElementType Equals 1
+    → TRANSITION FROM: Any State
+      To: Frost_Attack1
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: Attack1 If 0
+    → TRANSITION FROM: Any State
+      To: Demon_Attack2
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: Attack2 If 0
+    → TRANSITION FROM: Any State
+      To: Demon_Dash
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: IsDashing If 0
+    → TRANSITION FROM: Any State
+      To: Demon_Jump
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: VerticalVelocity Greater 0.1
+        Condition: FormState Equals 2
+    → TRANSITION FROM: Any State
+      To: Demon_Attack1
+      Has Exit Time: False
+      Exit Time: 0.75
+      Duration: 0.25
+      Fixed Duration: True
+      Interruption Source: None
+      Can Transition To Self: True
+        Condition: Attack1 If 0
+    ▶ STATE MACHINE: Human_States
+    Default State: Elias_Idle
+      ■ STATE: Elias_Idle
+        Motion: Elias_Idle
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Elias_Idle
+          To: Elias_Walk
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Elias_Idle
+          To: Elias_Run
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Elias_Walk
+        Motion: Elias_Walk
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Elias_Walk
+          To: Elias_Idle
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.15
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Elias_Walk
+          To: Elias_Run
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning If 0
+      ■ STATE: Elias_Run
+        Motion: Elias_Run
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Elias_Run
+          To: Elias_Walk
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Elias_Run
+          To: Elias_Idle
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.15
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+      ■ STATE: Elias_Jump
+        Motion: Elias_Jump
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Elias_Jump
+          To: Elias_Idle
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsGrounded If 0
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Elias_Jump
+          To: Elias_Walk
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsGrounded If 0
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Elias_Jump
+          To: Elias_Run
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsGrounded If 0
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Elias_Dash
+        Motion: Elias_Dash
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Elias_Dash
+          To: Elias_Idle
+          Has Exit Time: True
+          Exit Time: 0.9
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsDashing IfNot 0
+      ■ STATE: Elias_Attack1
+        Motion: Elias_Attack1
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Elias_Attack1
+          To: Elias_Idle
+          Has Exit Time: True
+          Exit Time: 0.95
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+      ■ STATE: Elias_Attack2
+        Motion: Elias_Attack2
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Elias_Attack2
+          To: Elias_Idle
+          Has Exit Time: True
+          Exit Time: 0.95
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+    ▶ STATE MACHINE: HalfDemon_Fire_States
+    Default State: Fire_Idle
+      ■ STATE: Fire_Idle
+        Motion: Elias_HalfDemon_Fire_Idle
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Fire_Idle
+          To: Fire_Walk
+          Has Exit Time: True
+          Exit Time: 0.5
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Fire_Idle
+          To: Fire_Run
+          Has Exit Time: True
+          Exit Time: 0.5
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Fire_Walk
+        Motion: Elias_HalfDemon_Fire_Walk
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Fire_Walk
+          To: Fire_Idle
+          Has Exit Time: True
+          Exit Time: 0.7222222
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Fire_Walk
+          To: Fire_Run
+          Has Exit Time: True
+          Exit Time: 0.7222222
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning If 0
+      ■ STATE: Fire_Run
+        Motion: Elias_HalfDemon_Fire_Run
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Fire_Run
+          To: Fire_Idle
+          Has Exit Time: True
+          Exit Time: 0.5833334
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Fire_Run
+          To: Fire_Walk
+          Has Exit Time: True
+          Exit Time: 0.5833334
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning IfNot 0
+      ■ STATE: Fire_Jump
+        Motion: Elias_HalfDemon_Fire_Jump
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Fire_Jump
+          To: Fire_Idle
+          Has Exit Time: True
+          Exit Time: 0.5833334
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+            Condition: IsGrounded If 0
+        → TRANSITION FROM: Fire_Jump
+          To: Fire_Walk
+          Has Exit Time: True
+          Exit Time: 0
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsGrounded If 0
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Fire_Jump
+          To: Fire_Run
+          Has Exit Time: True
+          Exit Time: 0.5833334
+          Duration: 0.1
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsGrounded If 0
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Fire_Attack1
+        Motion: Elias_HalfDemon_Fire_Attack1
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Fire_Attack1
+          To: Fire_Idle
+          Has Exit Time: True
+          Exit Time: 0.5
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+      ■ STATE: Fire_Attack2
+        Motion: Elias_HalfDemon_Fire_Attack2
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Fire_Attack2
+          To: Fire_Idle
+          Has Exit Time: True
+          Exit Time: 0.5833334
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+      ■ STATE: Fire_Dash
+        Motion: Elias_HalfDemon_Fire_Dash
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Fire_Dash
+          To: Fire_Idle
+          Has Exit Time: True
+          Exit Time: 0.53125
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsDashing IfNot 0
+    ▶ STATE MACHINE: HalfDemon_Frost_States
+    Default State: Frost_Idle
+      ■ STATE: Frost_Idle
+        Motion: Elias_HalfDemon_Frost_Idle
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Frost_Idle
+          To: Frost_Walk
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Frost_Idle
+          To: Frost_Run
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Frost_Walk
+        Motion: Elias_HalfDemon_Frost_Walk
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Frost_Walk
+          To: Frost_Idle
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Frost_Walk
+          To: Frost_Run
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning If 0
+      ■ STATE: Frost_Run
+        Motion: Elias_HalfDemon_Frost_Run
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Frost_Run
+          To: Frost_Idle
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Frost_Run
+          To: Frost_Walk
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning IfNot 0
+      ■ STATE: Frost_Jump
+        Motion: Elias_HalfDemon_Frost_Jump
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Frost_Jump
+          To: Frost_Idle
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsGrounded If 0
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Frost_Jump
+          To: Frost_Walk
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsGrounded If 0
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Frost_Jump
+          To: Frost_Run
+          Has Exit Time: True
+          Exit Time: 0.5714285
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsGrounded If 0
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Frost_Attack1
+        Motion: Elias_HalfDemon_Frost_Attack1
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Frost_Attack1
+          To: Frost_Idle
+          Has Exit Time: True
+          Exit Time: 0.4
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+      ■ STATE: Frost_Attack2
+        Motion: Elias_HalfDemon_Frost_Attack2
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Frost_Attack2
+          To: Frost_Idle
+          Has Exit Time: True
+          Exit Time: 0.6428572
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+      ■ STATE: Frost_Dash
+        Motion: Elias_HalfDemon_Frost_Dash
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Frost_Dash
+          To: Frost_Idle
+          Has Exit Time: True
+          Exit Time: 0.4
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsDashing IfNot 0
+    ▶ STATE MACHINE: Demon_States
+    Default State: Demon_Idle
+      ■ STATE: Demon_Idle
+        Motion: Elias_Demon_Idle
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Demon_Idle
+          To: Demon_Walk
+          Has Exit Time: True
+          Exit Time: 0.4
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Demon_Idle
+          To: Demon_Run
+          Has Exit Time: True
+          Exit Time: 0.4
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Demon_Walk
+        Motion: Elias_Demon_Walk
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Demon_Walk
+          To: Demon_Idle
+          Has Exit Time: True
+          Exit Time: 0.7222222
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Demon_Walk
+          To: Demon_Run
+          Has Exit Time: True
+          Exit Time: 0.7222222
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning If 0
+      ■ STATE: Demon_Run
+        Motion: Elias_Demon_Run
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Demon_Run
+          To: Demon_Idle
+          Has Exit Time: True
+          Exit Time: 0.6666666
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Demon_Run
+          To: Demon_Walk
+          Has Exit Time: True
+          Exit Time: 0.6666666
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsRunning If 0
+      ■ STATE: Demon_Jump
+        Motion: Elias_Demon_Jump
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Demon_Jump
+          To: Demon_Idle
+          Has Exit Time: True
+          Exit Time: 0.6666666
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsGrounded If 0
+            Condition: Speed Less 0.1
+        → TRANSITION FROM: Demon_Jump
+          To: Demon_Walk
+          Has Exit Time: True
+          Exit Time: 0.6666666
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: Speed Greater 0.1
+            Condition: IsGrounded If 0
+            Condition: IsRunning IfNot 0
+        → TRANSITION FROM: Demon_Jump
+          To: Demon_Run
+          Has Exit Time: True
+          Exit Time: 0.6666666
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsGrounded If 0
+            Condition: Speed Greater 0.1
+            Condition: IsRunning If 0
+      ■ STATE: Demon_Attack1
+        Motion: Elias_Demon_Attack1
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Demon_Attack1
+          To: Demon_Idle
+          Has Exit Time: True
+          Exit Time: 0.4
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+      ■ STATE: Demon_Attack2
+        Motion: Elias_Demon_Attack2
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Demon_Attack2
+          To: Demon_Idle
+          Has Exit Time: True
+          Exit Time: 0.375
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+      ■ STATE: Demon_Dash
+        Motion: Elias_Demon_Dash
+        Speed: 1
+        Tag: 
+        Write Defaults: True
+        → TRANSITION FROM: Demon_Dash
+          To: Demon_Idle
+          Has Exit Time: True
+          Exit Time: 0.6666666
+          Duration: 0.25
+          Fixed Duration: True
+          Interruption Source: None
+          Can Transition To Self: True
+            Condition: IsDashing IfNot 0

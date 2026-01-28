@@ -137,28 +137,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Shooting_attack-removebg-preview_0
-      rect:
-        serializedVersion: 2
-        x: 37
-        y: 201
-        width: 107
-        height: 138
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 99ce4eabe41c51670800000000000000
-      internalID: 8508919614873595033
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Shooting_attack-removebg-preview_1
       rect:
         serializedVersion: 2
@@ -167,7 +145,7 @@ TextureImporter:
         width: 126
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -189,7 +167,7 @@ TextureImporter:
         width: 112
         height: 135
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -211,7 +189,7 @@ TextureImporter:
         width: 141
         height: 134
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -224,121 +202,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Shooting_attack-removebg-preview_4
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 32
-        width: 119
-        height: 136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6e8ac7293c8021590800000000000000
-      internalID: -7705086376408209178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shooting_attack-removebg-preview_5
-      rect:
-        serializedVersion: 2
-        x: 153
-        y: 95
-        width: 35
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0977dd786ff25a3b0800000000000000
-      internalID: -5501938633875294320
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shooting_attack-removebg-preview_6
-      rect:
-        serializedVersion: 2
-        x: 197
-        y: 32
-        width: 153
-        height: 129
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d03b502a50eae9000800000000000000
-      internalID: 44664385536635661
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shooting_attack-removebg-preview_7
-      rect:
-        serializedVersion: 2
-        x: 368
-        y: 30
-        width: 138
-        height: 135
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 390c7062876446750800000000000000
-      internalID: 6297235660818858131
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Shooting_attack-removebg-preview_8
-      rect:
-        serializedVersion: 2
-        x: 524
-        y: 31
-        width: 111
-        height: 136
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04f08b9d51b6240b0800000000000000
-      internalID: -5745912432980127936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 80794f75293c87c49bd5ad0513316cba
     internalID: 0
     vertices: []
     indices: 

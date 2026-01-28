@@ -1,31 +1,34 @@
 fileFormatVersion: 2
-guid: d063f6a6c29aeec4d8927198e0f93bd3
+guid: 94d9c6d3b006e6a4d8a3187e591527e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7423018167353885141
-    second: Cubs_Run-removebg-preview_0
+      213: -2945374231147302896
+    second: Bear_Skill_2-removebg-preview_0
   - first:
-      213: 730388056579573106
-    second: Cubs_Run-removebg-preview_1
+      213: -5535136686509992286
+    second: Bear_Skill_2-removebg-preview_1
   - first:
-      213: -5274208511758012016
-    second: Cubs_Run-removebg-preview_2
+      213: -4370879323486965085
+    second: Bear_Skill_2-removebg-preview_2
   - first:
-      213: -3263478612505950074
-    second: Cubs_Run-removebg-preview_3
+      213: -7676506318385070682
+    second: Bear_Skill_2-removebg-preview_3
   - first:
-      213: 3318596339981418838
-    second: Cubs_Run-removebg-preview_4
+      213: 1077590358594057275
+    second: Bear_Skill_2-removebg-preview_4
   - first:
-      213: -4025970806926508345
-    second: Cubs_Run-removebg-preview_5
+      213: 775200642369046554
+    second: Bear_Skill_2-removebg-preview_5
   - first:
-      213: 8795121517324052347
-    second: Cubs_Run-removebg-preview_6
+      213: -7949209450723276596
+    second: Bear_Skill_2-removebg-preview_6
   - first:
-      213: 3645143828136635930
-    second: Cubs_Run-removebg-preview_7
+      213: -8441567599258753710
+    second: Bear_Skill_2-removebg-preview_7
+  - first:
+      213: 8829703503571201167
+    second: Bear_Skill_2-removebg-preview_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,133 +137,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_1
+      name: Skill2_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 210
-        width: 148
-        height: 99
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 14
+        y: 197
+        width: 138
+        height: 147
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2750d94511cd22a00800000000000000
-      internalID: 730388056579573106
+      spriteID: 6691ba340c1660a4d924729bd6a4be54
+      internalID: 2124728034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_2
+      name: Skill2_1
       rect:
         serializedVersion: 2
-        x: 289
-        y: 210
-        width: 122
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 168
+        y: 198
+        width: 141
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 09172517d4f3ec6b0800000000000000
-      internalID: -5274208511758012016
+      spriteID: 3ad51ce806f75bd46928b87431ea7fc6
+      internalID: 641046810
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_3
+      name: Skill2_3
       rect:
         serializedVersion: 2
-        x: 460
-        y: 210
-        width: 145
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 322
+        y: 197
+        width: 175
+        height: 152
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6888f791e7bc5b2d0800000000000000
-      internalID: -3263478612505950074
+      spriteID: b699487fc6be0674b975aa19efa4257c
+      internalID: -2123682702
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_4
+      name: Skill2_4
       rect:
         serializedVersion: 2
-        x: 69
-        y: 68
-        width: 147
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 500
+        y: 200
+        width: 181
+        height: 147
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 651018dd9c50e0e20800000000000000
-      internalID: 3318596339981418838
+      spriteID: c2126da474c50a54ab20ee636152891b
+      internalID: -2146472489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_5
+      name: Skill2_5
       rect:
         serializedVersion: 2
-        x: 283
-        y: 52
-        width: 128
-        height: 83
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 4
+        y: 24
+        width: 173
+        height: 131
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ce7d01b1e0e028c0800000000000000
-      internalID: -4025970806926508345
+      spriteID: 5ea2f65bb8e9a0c468b2aca66723cff8
+      internalID: -698019166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_7
+      name: Skill2_6
       rect:
         serializedVersion: 2
-        x: 478
-        y: 52
-        width: 127
-        height: 88
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 182
+        y: 24
+        width: 173
+        height: 125
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a1eaa47bff6269230800000000000000
-      internalID: 3645143828136635930
+      spriteID: aff879271be8da043b6c0bcf6722a813
+      internalID: -1879956622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2_7
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 33
+        width: 129
+        height: 97
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5aea9362b793794e9e099de038d5995
+      internalID: -1671810794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2_8
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 11
+        width: 165
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05bed614fcb659d48b744b6e27d7f267
+      internalID: 449042077
       vertices: []
       indices: 
       edges: []
@@ -269,7 +316,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 407bd8b3215986144aacc9f8a92b973d
+    spriteID: 673dd61c19dce0c4d84f048338a7106b
     internalID: 0
     vertices: []
     indices: 
@@ -277,16 +324,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Cubs_Run-removebg-preview_0: -7423018167353885141
-      Cubs_Run-removebg-preview_1: 730388056579573106
-      Cubs_Run-removebg-preview_2: -5274208511758012016
-      Cubs_Run-removebg-preview_3: -3263478612505950074
-      Cubs_Run-removebg-preview_4: 3318596339981418838
-      Cubs_Run-removebg-preview_5: -4025970806926508345
-      Cubs_Run-removebg-preview_6: 8795121517324052347
-      Cubs_Run-removebg-preview_7: 3645143828136635930
+      Skill2_0: 2124728034
+      Skill2_1: 641046810
+      Skill2_2: -391246847
+      Skill2_3: -2123682702
+      Skill2_4: -2146472489
+      Skill2_5: -698019166
+      Skill2_6: -1879956622
+      Skill2_7: -1671810794
+      Skill2_8: 449042077
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

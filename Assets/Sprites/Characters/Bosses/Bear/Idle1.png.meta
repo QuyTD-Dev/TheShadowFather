@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: d063f6a6c29aeec4d8927198e0f93bd3
+guid: b2d6112bdc5dd9245a4e0f154667d6c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7423018167353885141
-    second: Cubs_Run-removebg-preview_0
+      213: 2546301028672875637
+    second: Idle_bear-removebg-preview_0
   - first:
-      213: 730388056579573106
-    second: Cubs_Run-removebg-preview_1
+      213: -1100853019748645754
+    second: Idle_bear-removebg-preview_1
   - first:
-      213: -5274208511758012016
-    second: Cubs_Run-removebg-preview_2
+      213: 2857402977958698431
+    second: Idle_bear-removebg-preview_2
   - first:
-      213: -3263478612505950074
-    second: Cubs_Run-removebg-preview_3
+      213: 7296287877975393948
+    second: Idle_bear-removebg-preview_3
   - first:
-      213: 3318596339981418838
-    second: Cubs_Run-removebg-preview_4
+      213: -2524434625601282878
+    second: Idle_bear-removebg-preview_4
   - first:
-      213: -4025970806926508345
-    second: Cubs_Run-removebg-preview_5
+      213: -7988295576397822670
+    second: Idle_bear-removebg-preview_5
   - first:
-      213: 8795121517324052347
-    second: Cubs_Run-removebg-preview_6
+      213: 1671157770354289880
+    second: Idle_bear-removebg-preview_6
   - first:
-      213: 3645143828136635930
-    second: Cubs_Run-removebg-preview_7
+      213: -2904385042579616135
+    second: Idle_bear-removebg-preview_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,133 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_1
+      name: Idle1_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 210
-        width: 148
-        height: 99
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 20
+        y: 205
+        width: 142
+        height: 105
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2750d94511cd22a00800000000000000
-      internalID: 730388056579573106
+      spriteID: 6b1d5eaa50e7dce4089d717e2e91fcf7
+      internalID: 99801489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_2
+      name: Idle1_1
       rect:
         serializedVersion: 2
-        x: 289
-        y: 210
-        width: 122
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 188
+        y: 204
+        width: 143
+        height: 111
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 09172517d4f3ec6b0800000000000000
-      internalID: -5274208511758012016
+      spriteID: d872a01fc74752c4d99e89d3ca6d8993
+      internalID: 644125936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_3
+      name: Idle1_2
       rect:
         serializedVersion: 2
-        x: 460
-        y: 210
-        width: 145
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 361
+        y: 199
+        width: 125
+        height: 142
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6888f791e7bc5b2d0800000000000000
-      internalID: -3263478612505950074
+      spriteID: 383dde3b666f7b942843f50c328a3d5c
+      internalID: -1807618400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_4
+      name: Idle1_3
       rect:
         serializedVersion: 2
-        x: 69
-        y: 68
-        width: 147
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 529
+        y: 198
+        width: 124
+        height: 145
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 651018dd9c50e0e20800000000000000
-      internalID: 3318596339981418838
+      spriteID: 3c1155ee23aee9b4b839c5ca8fca89c8
+      internalID: -465650070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_5
+      name: Idle1_4
       rect:
         serializedVersion: 2
-        x: 283
-        y: 52
-        width: 128
-        height: 83
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 20
+        y: 22
+        width: 132
+        height: 145
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ce7d01b1e0e028c0800000000000000
-      internalID: -4025970806926508345
+      spriteID: 88b6ec1b51c18fb42b98d519acb655cd
+      internalID: -1931346011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_7
+      name: Idle1_5
       rect:
         serializedVersion: 2
-        x: 478
-        y: 52
-        width: 127
-        height: 88
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 191
+        y: 24
+        width: 133
+        height: 135
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a1eaa47bff6269230800000000000000
-      internalID: 3645143828136635930
+      spriteID: 647121d3e33e41744a607060506a4d07
+      internalID: -634918335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle1_6
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 24
+        width: 143
+        height: 122
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14e2d8262825d443ababbe020d26b1d
+      internalID: -992048436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idle1_7
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 26
+        width: 146
+        height: 108
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8212ea3134c4d342b105a94de724f1c
+      internalID: -785787281
       vertices: []
       indices: 
       edges: []
@@ -269,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 407bd8b3215986144aacc9f8a92b973d
+    spriteID: 075593e7af0fb7c48be384e08e346120
     internalID: 0
     vertices: []
     indices: 
@@ -277,16 +321,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Cubs_Run-removebg-preview_0: -7423018167353885141
-      Cubs_Run-removebg-preview_1: 730388056579573106
-      Cubs_Run-removebg-preview_2: -5274208511758012016
-      Cubs_Run-removebg-preview_3: -3263478612505950074
-      Cubs_Run-removebg-preview_4: 3318596339981418838
-      Cubs_Run-removebg-preview_5: -4025970806926508345
-      Cubs_Run-removebg-preview_6: 8795121517324052347
-      Cubs_Run-removebg-preview_7: 3645143828136635930
+      Idle1_0: 99801489
+      Idle1_1: 644125936
+      Idle1_2: -1807618400
+      Idle1_3: -465650070
+      Idle1_4: -1931346011
+      Idle1_5: -634918335
+      Idle1_6: -992048436
+      Idle1_7: -785787281
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

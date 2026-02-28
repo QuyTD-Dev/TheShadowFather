@@ -5,7 +5,12 @@ public class RatIdleBehavior : MonoBehaviour
     [Header("Cài đặt chung")]
     public Transform player;
     public float moveSpeed = 3f;
+<<<<<<< Updated upstream
     public float stopDistance = 1.5f;
+=======
+    public float chaseSpeed = 4f; // Lúc rượt thì chạy nhanh hơn đi tuần
+    public float stopDistance = 2f;
+>>>>>>> Stashed changes
 
     [Header("Tấn công")]
     public float attackCooldown = 2f; // Cứ 2 giây cắn 1 phát
@@ -77,5 +82,8 @@ public class RatIdleBehavior : MonoBehaviour
             sr.flipX = true;
         }
     }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 }

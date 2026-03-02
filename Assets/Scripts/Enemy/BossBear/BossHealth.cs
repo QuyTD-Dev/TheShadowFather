@@ -24,7 +24,6 @@ public class BossHealth : MonoBehaviour
 
     void Update()
     {
-        // --- ĐÃ XÓA ĐOẠN INPUT.GETKEYDOWN(KEYCODE.K) ĐỂ TRÁNH LỖI ---
 
         // Bạn chỉ cần dùng chuột kéo thanh Current Health trong Inspector về 0 là được
         if (!isInvulnerable)

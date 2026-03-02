@@ -24,7 +24,7 @@ public class BossController : MonoBehaviour
     public float skillRange = 5.0f;
 
     [Tooltip("Tầm đánh gần (Cận chiến)")]
-    public float attackRange = 1.5f; // Đã tăng nhẹ lên 1.5 để dễ trúng hơn
+    public float attackRange = 1.5f; 
 
     // Biến nội bộ tuần tra
     private float patrolTargetX;
@@ -36,9 +36,9 @@ public class BossController : MonoBehaviour
     private int hitsToSkill = 3;
 
     // Trạng thái
-    private bool isEnraged = false;
+    private bool isEnraged = false; // Trạng thái phase 2
     private bool isDead = false;
-    private float cooldownTimer = 0;
+    private float cooldownTimer = 0; // Hồi chiêu giữa các đòn
 
     [Header("---- Hiệu Ứng Skill ----")]
     public GameObject skill1Prefab;
@@ -78,7 +78,7 @@ public class BossController : MonoBehaviour
 
         // --- 1. TÍNH KHOẢNG CÁCH (FIX LỖI KẸT ĐỘ CAO) ---
         float distanceX = 1000f;      // Khoảng cách theo trục Ngang (Quan trọng nhất)
-        float realDistance = 1000f;   // Khoảng cách thực tế (Để tham khảo)
+        float realDistance = 1000f;  
 
         if (player != null)
         {
@@ -107,7 +107,7 @@ public class BossController : MonoBehaviour
         }
         else
         {
-            // --- 4. LOGIC AI ---
+            // --- 4. LOGIC ---
 
             // TRƯỜNG HỢP A: CÓ NGƯỜI TRONG TẦM NHÌN (Tính theo chiều ngang)
             if (distanceX <= detectionRange)
@@ -215,14 +215,14 @@ public class BossController : MonoBehaviour
 
     // --- LOGIC NHẬN DAMAGE & SKILL ---
 
-    public void TakeDamage(float damage)
-    {
-        if (isDead) return;
-        currentHealth -= damage;
+    //public void TakeDamage(float damage)
+    //{
+    //    if (isDead) return;
+    //    currentHealth -= damage;
 
-        if (currentHealth <= 0 && !isEnraged) StartPhase2();
-        else if (currentHealth <= 0 && isEnraged) Die();
-    }
+    //    if (currentHealth <= 0 && !isEnraged) StartPhase2();
+    //    else if (currentHealth <= 0 && isEnraged) Die();
+    //}
 
     public void StartPhase2()
     {

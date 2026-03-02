@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: d063f6a6c29aeec4d8927198e0f93bd3
+guid: 298829d61e57bca428f4ac27a6e733d2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7423018167353885141
-    second: Cubs_Run-removebg-preview_0
+      213: -6002405468757853583
+    second: Bear_Idlde_2-removebg-preview_0
   - first:
-      213: 730388056579573106
-    second: Cubs_Run-removebg-preview_1
+      213: 8043220583043138601
+    second: Bear_Idlde_2-removebg-preview_1
   - first:
-      213: -5274208511758012016
-    second: Cubs_Run-removebg-preview_2
+      213: -6225303159699265810
+    second: Bear_Idlde_2-removebg-preview_2
   - first:
-      213: -3263478612505950074
-    second: Cubs_Run-removebg-preview_3
+      213: -932253172271718314
+    second: Bear_Idlde_2-removebg-preview_3
   - first:
-      213: 3318596339981418838
-    second: Cubs_Run-removebg-preview_4
+      213: -5940853164311779653
+    second: Bear_Idlde_2-removebg-preview_4
   - first:
-      213: -4025970806926508345
-    second: Cubs_Run-removebg-preview_5
+      213: 1362072967381548790
+    second: Bear_Idlde_2-removebg-preview_5
   - first:
-      213: 8795121517324052347
-    second: Cubs_Run-removebg-preview_6
+      213: -5799239610108981005
+    second: Bear_Idlde_2-removebg-preview_6
   - first:
-      213: 3645143828136635930
-    second: Cubs_Run-removebg-preview_7
+      213: 1637776964890435048
+    second: Bear_Idlde_2-removebg-preview_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,133 +134,177 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_1
+      name: Idlde_2_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 210
-        width: 148
-        height: 99
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 8
+        y: 153
+        width: 113
+        height: 79
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2750d94511cd22a00800000000000000
-      internalID: 730388056579573106
+      spriteID: 3d8b46563e0257b4b9952665f55c8970
+      internalID: -1111783412
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_2
+      name: Idlde_2_1
       rect:
         serializedVersion: 2
-        x: 289
-        y: 210
-        width: 122
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 09172517d4f3ec6b0800000000000000
-      internalID: -5274208511758012016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_3
-      rect:
-        serializedVersion: 2
-        x: 460
-        y: 210
-        width: 145
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6888f791e7bc5b2d0800000000000000
-      internalID: -3263478612505950074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_4
-      rect:
-        serializedVersion: 2
-        x: 69
-        y: 68
-        width: 147
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 651018dd9c50e0e20800000000000000
-      internalID: 3318596339981418838
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_5
-      rect:
-        serializedVersion: 2
-        x: 283
-        y: 52
-        width: 128
+        x: 134
+        y: 153
+        width: 114
         height: 83
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7ce7d01b1e0e028c0800000000000000
-      internalID: -4025970806926508345
+      spriteID: 13929ea62c61e02418982ae059e5f51d
+      internalID: -1907231457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cubs_Run-removebg-preview_7
+      name: Idlde_2_2
       rect:
         serializedVersion: 2
-        x: 478
-        y: 52
-        width: 127
-        height: 88
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 260
+        y: 149
+        width: 104
+        height: 107
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a1eaa47bff6269230800000000000000
-      internalID: 3645143828136635930
+      spriteID: 7fe76097627fc86478848db726755b20
+      internalID: -2081987436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idlde_2_3
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 149
+        width: 102
+        height: 109
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c80364e8de1c342a6cd4ba373fef0c
+      internalID: 182554851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idlde_2_4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 16
+        width: 99
+        height: 110
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f38c0fde6b625641976fde78df7580a
+      internalID: -1892036843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idlde_2_5
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 19
+        width: 99
+        height: 101
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddb5181dd97274643a7333cc75cb242b
+      internalID: -830690596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idlde_2_6
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 18
+        width: 106
+        height: 92
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26aa8fcb6fdbe5747acfb9b471a804af
+      internalID: -525351064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idlde_2_7
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 20
+        width: 109
+        height: 81
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a967928044010849a056d2d031f322b
+      internalID: 2051649658
       vertices: []
       indices: 
       edges: []
@@ -269,7 +313,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 407bd8b3215986144aacc9f8a92b973d
+    spriteID: 2b5f2d80e43471e40b97b078784e8d4c
     internalID: 0
     vertices: []
     indices: 
@@ -277,16 +321,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Cubs_Run-removebg-preview_0: -7423018167353885141
-      Cubs_Run-removebg-preview_1: 730388056579573106
-      Cubs_Run-removebg-preview_2: -5274208511758012016
-      Cubs_Run-removebg-preview_3: -3263478612505950074
-      Cubs_Run-removebg-preview_4: 3318596339981418838
-      Cubs_Run-removebg-preview_5: -4025970806926508345
-      Cubs_Run-removebg-preview_6: 8795121517324052347
-      Cubs_Run-removebg-preview_7: 3645143828136635930
+      Idlde_2_0: -1111783412
+      Idlde_2_1: -1907231457
+      Idlde_2_2: -2081987436
+      Idlde_2_3: 182554851
+      Idlde_2_4: -1892036843
+      Idlde_2_5: -830690596
+      Idlde_2_6: -525351064
+      Idlde_2_7: 2051649658
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

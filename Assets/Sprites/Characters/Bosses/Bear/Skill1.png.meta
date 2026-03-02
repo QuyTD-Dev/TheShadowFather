@@ -1,40 +1,67 @@
 fileFormatVersion: 2
-guid: 8244f0c86b081c54cb4928279af7dc79
+guid: 4f2f203424e48db47a6aacbeac461ffb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2717039254586769483
-    second: death-removebg-preview_0
+      213: 1842162083422747347
+    second: Stomp_Attack-removebg-preview_0
   - first:
-      213: -5610751937563213403
-    second: death-removebg-preview_1
+      213: -6708682199724811740
+    second: Stomp_Attack-removebg-preview_1
   - first:
-      213: -7551222739965037013
-    second: death-removebg-preview_2
+      213: -1243541109867820132
+    second: Stomp_Attack-removebg-preview_2
   - first:
-      213: 5943031077422898146
-    second: death-removebg-preview_3
+      213: -2717861852437758664
+    second: Stomp_Attack-removebg-preview_3
   - first:
-      213: 6545080977301374032
-    second: death-removebg-preview_4
+      213: -4801971392076241088
+    second: Stomp_Attack-removebg-preview_4
   - first:
-      213: 8148977489759107668
-    second: death-removebg-preview_5
+      213: 3721625751937708606
+    second: Stomp_Attack-removebg-preview_5
   - first:
-      213: 3150904565764342679
-    second: death-removebg-preview_6
+      213: -4832352212175665804
+    second: Stomp_Attack-removebg-preview_6
   - first:
-      213: -5006432648811234564
-    second: death-removebg-preview_7
+      213: 5096283704590904318
+    second: Stomp_Attack-removebg-preview_7
   - first:
-      213: -3665345954864079662
-    second: death-removebg-preview_8
+      213: 4350555986079540065
+    second: Stomp_Attack-removebg-preview_8
   - first:
-      213: -9081717719658963926
-    second: death-removebg-preview_9
+      213: 4171343291376597255
+    second: Stomp_Attack-removebg-preview_9
   - first:
-      213: -6017214014445756132
-    second: death-removebg-preview_10
+      213: 3829196833300914612
+    second: Stomp_Attack-removebg-preview_10
+  - first:
+      213: 8109583019224504203
+    second: Stomp_Attack-removebg-preview_11
+  - first:
+      213: 406437767359930901
+    second: Stomp_Attack-removebg-preview_12
+  - first:
+      213: 3456897092459667480
+    second: Stomp_Attack-removebg-preview_13
+  - first:
+      213: 4269811795270864258
+    second: Stomp_Attack-removebg-preview_14
+  - first:
+      213: 8971334667204311387
+    second: Stomp_Attack-removebg-preview_15
+  - first:
+      213: -5295938261504850813
+    second: Stomp_Attack-removebg-preview_16
+  - first:
+      213: 8108110448399226333
+    second: Stomp_Attack-removebg-preview_17
+  - first:
+      213: -940782814688218567
+    second: Stomp_Attack-removebg-preview_18
+  - first:
+      213: -161160277384878781
+    second: Stomp_Attack-removebg-preview_19
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -143,243 +170,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death-removebg-preview_0
+      name: Skill1_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 210
-        width: 121
-        height: 139
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5bf309581332b4ad0800000000000000
-      internalID: -2717039254586769483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-removebg-preview_1
-      rect:
-        serializedVersion: 2
-        x: 194
-        y: 212
-        width: 139
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5a1c5bef6da9222b0800000000000000
-      internalID: -5610751937563213403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-removebg-preview_2
-      rect:
-        serializedVersion: 2
-        x: 362
-        y: 211
-        width: 134
-        height: 104
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b2638841deaa43790800000000000000
-      internalID: -7551222739965037013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-removebg-preview_3
-      rect:
-        serializedVersion: 2
-        x: 559
-        y: 291
-        width: 14
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2eb16e20743e97250800000000000000
-      internalID: 5943031077422898146
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-removebg-preview_4
-      rect:
-        serializedVersion: 2
-        x: 572
-        y: 304
-        width: 11
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0540736b87cc4da50800000000000000
-      internalID: 6545080977301374032
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-removebg-preview_5
-      rect:
-        serializedVersion: 2
-        x: 607
-        y: 296
-        width: 9
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 45afebf0adbf61170800000000000000
-      internalID: 8148977489759107668
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-removebg-preview_6
-      rect:
-        serializedVersion: 2
-        x: 519
-        y: 204
-        width: 157
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7934a8322034abb20800000000000000
-      internalID: 3150904565764342679
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death-removebg-preview_7
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 35
-        width: 127
+        x: 23
+        y: 199
+        width: 118
         height: 89
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: cfa30b7f704958ab0800000000000000
-      internalID: -5006432648811234564
+      spriteID: c0825b5e5f70cef4fa88a0f967bb9b4d
+      internalID: 98406212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death-removebg-preview_8
+      name: Skill1_1
       rect:
         serializedVersion: 2
-        x: 181
-        y: 28
-        width: 152
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 160
+        y: 199
+        width: 109
+        height: 105
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2dc596d1643122dc0800000000000000
-      internalID: -3665345954864079662
+      spriteID: 962847ecf568bd14c90ceb40db1a43f1
+      internalID: -314868549
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death-removebg-preview_9
+      name: Skill1_2
       rect:
         serializedVersion: 2
-        x: 355
-        y: 27
-        width: 151
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 299
+        y: 197
+        width: 92
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a2c5b59d9d147f180800000000000000
-      internalID: -9081717719658963926
+      spriteID: 96273ae9e10263a43a03511855c69580
+      internalID: -1794442967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death-removebg-preview_10
+      name: Skill1_3
       rect:
         serializedVersion: 2
-        x: 524
-        y: 27
-        width: 152
-        height: 80
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 425
+        y: 198
+        width: 92
+        height: 146
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c1165730cbf8e7ca0800000000000000
-      internalID: -6017214014445756132
+      spriteID: 5fa18544b8ecf2943a45af3e5218406e
+      internalID: 664588792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill1_4
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 197
+        width: 126
+        height: 108
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2db7fb4bbde4554baa9fed1062f80d6
+      internalID: 886095117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill1_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 38
+        width: 127
+        height: 102
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c09f76428c91454ab2648c6cd1600c5
+      internalID: -991896027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill1_9
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 43
+        width: 117
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 569b23c09f1394948aafca4bde51da24
+      internalID: -1070675587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill1_10
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 45
+        width: 120
+        height: 91
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef2b07a0080b6774da480a669f10b9f0
+      internalID: -1204078114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill1_14
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 40
+        width: 129
+        height: 94
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b4647909dd7fd345bb4c463e2a10961
+      internalID: -610952524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill1_17
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 41
+        width: 121
+        height: 53
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b09c5a99a40ff4844a0b1b50ee46ea03
+      internalID: -2054545393
       vertices: []
       indices: 
       edges: []
@@ -388,7 +393,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 2576ac7c04a04ed4581a1e99e64d9b5c
     internalID: 0
     vertices: []
     indices: 
@@ -396,19 +401,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      death-removebg-preview_0: -2717039254586769483
-      death-removebg-preview_1: -5610751937563213403
-      death-removebg-preview_10: -6017214014445756132
-      death-removebg-preview_2: -7551222739965037013
-      death-removebg-preview_3: 5943031077422898146
-      death-removebg-preview_4: 6545080977301374032
-      death-removebg-preview_5: 8148977489759107668
-      death-removebg-preview_6: 3150904565764342679
-      death-removebg-preview_7: -5006432648811234564
-      death-removebg-preview_8: -3665345954864079662
-      death-removebg-preview_9: -9081717719658963926
+      Skill1_0: 98406212
+      Skill1_1: -314868549
+      Skill1_10: -1204078114
+      Skill1_11: 1414428005
+      Skill1_12: -242942769
+      Skill1_13: -375909883
+      Skill1_14: -610952524
+      Skill1_15: 876728070
+      Skill1_16: 55145759
+      Skill1_17: -2054545393
+      Skill1_18: -287206046
+      Skill1_19: 140140881
+      Skill1_2: -1794442967
+      Skill1_3: 664588792
+      Skill1_4: 886095117
+      Skill1_5: -991896027
+      Skill1_6: 596361441
+      Skill1_7: 136900648
+      Skill1_8: 2016964822
+      Skill1_9: -1070675587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

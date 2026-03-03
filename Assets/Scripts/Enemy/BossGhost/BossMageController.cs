@@ -37,15 +37,32 @@ public class BossMageController : MonoBehaviour
     {
         if (player == null) return;
 
-        // Xoay mặt chuẩn 2D: Lật Sprite sang trái/phải dựa vào vị trí Player
+        //// Xoay mặt chuẩn 2D: Lật Sprite sang trái/phải dựa vào vị trí Player
+        //if (player.position.x > transform.position.x)
+        //{
+        //    transform.localScale = new Vector3(1, 1, 1); // Nhìn sang phải
+        //}
+        //else if (player.position.x < transform.position.x)
+        //{
+        //    transform.localScale = new Vector3(-1, 1, 1); // Nhìn sang trái
+        //}
+
+        // ĐÃ FIX: Lật mặt nhưng giữ nguyên kích thước bạn đã kéo trong Scene
+        Vector3 characterScale = transform.localScale;
+
         if (player.position.x > transform.position.x)
         {
-            transform.localScale = new Vector3(1, 1, 1); // Nhìn sang phải
+            // Nhìn sang phải: Đảm bảo trục X luôn là số dương
+            characterScale.x = Mathf.Abs(characterScale.x);
         }
         else if (player.position.x < transform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1); // Nhìn sang trái
+            // Nhìn sang trái: Đảm bảo trục X luôn là số âm
+            characterScale.x = -Mathf.Abs(characterScale.x);
         }
+
+        // Gán lại kích thước đã lật cho Boss
+        transform.localScale = characterScale;
 
         // Đo khoảng cách chuẩn 2D (Bỏ qua trục Z)
         float distanceToPlayer = Vector2.Distance(transform.position, player.position);
@@ -103,5 +120,24 @@ public class BossMageController : MonoBehaviour
         // Di chuyển Boss chuẩn 2D
         Vector2 targetPosition = new Vector2(player.position.x, player.position.y);
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        // Vẽ vòng tròn Stop Distance (Màu trắng) - Nơi Boss dừng lại không bước tiếp
+        Gizmos.color = Color.white;
+        Gizmos.DrawWireSphere(transform.position, stopDistance);
+
+        // Vẽ vòng tròn Melee Range (Màu đỏ) - Tầm đánh cận chiến
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, meleeRange);
+
+        // Vẽ vòng tròn Skill Range (Màu vàng) - Tầm tung Skill
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, skillRange);
+
+        // Vẽ vòng tròn Summon Range (Màu xanh dương) - Tầm gọi đạn
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, summonRange);
     }
 }

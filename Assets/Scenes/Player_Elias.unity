@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 753978797}
   - component: {fileID: 753978796}
   - component: {fileID: 753978795}
+  - component: {fileID: 753978799}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -394,6 +395,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &753978799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753978794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eac21abc8be62d428aa2a674003b929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TheShadowFather.Camera.CameraFollow
+  target: {fileID: 1726113158}
+  offset: {x: 0, y: 2, z: -10}
+  smoothSpeed: 0.125
+  useSmoothDamp: 0
+  smoothTime: 0.3
+  useBoundaries: 0
+  minBounds: {x: -50, y: -50}
+  maxBounds: {x: 50, y: 50}
+  enableLookAhead: 0
+  lookAheadDistance: 2
+  lookAheadSpeed: 2
 --- !u!1 &1616680982
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,8 +634,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.87, y: 2.21}
+  m_Offset: {x: -0.1407188, y: 0}
+  m_Size: {x: 1.1716187, y: 2.21}
   m_Direction: 0
 --- !u!50 &1726113161
 Rigidbody2D:

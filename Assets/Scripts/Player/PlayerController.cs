@@ -72,6 +72,8 @@ namespace TheShadowFather.Player
         private bool isAttacking;
         private float attack1CooldownCounter;
         private float attack2CooldownCounter;
+        private float attackTimeoutCounter;
+        private const float ATTACK_TIMEOUT = 1f; // Safety timeout để tránh stuck
         private int currentAttack;
         // Form State
         private PlayerFormState currentForm;
@@ -191,6 +193,19 @@ namespace TheShadowFather.Player
         private void TransformToNextForm()
         {
             isTransforming = true;
+            
+            // CRITICAL FIX: Reset tất cả action flags để tránh stuck states
+            isAttacking = false;
+            isDashing = false;
+            currentAttack = 0;
+            dashTimeCounter = 0f;
+            attackTimeoutCounter = 0f;
+            
+            // NEW FIX: Force về Idle state để transition hoạt động
+            currentSpeed = 0f;
+            horizontalInput = 0f;
+            isRunning = false;
+            
             PlayerFormState previousForm = currentForm;
             switch (currentForm)
             {
@@ -209,6 +224,11 @@ namespace TheShadowFather.Player
                     break;
             }
             UpdateFormAnimator();
+            
+            // DEBUG: Kiểm tra Animator state hiện tại
+            AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+            Debug.Log($"[DEBUG] Current Animator State Hash: {stateInfo.shortNameHash}, IsName check: Human={animator.GetCurrentAnimatorStateInfo(0).IsName("Human_States")}, Fire={animator.GetCurrentAnimatorStateInfo(0).IsName("HalfDemon_Fire_States")}, Demon={animator.GetCurrentAnimatorStateInfo(0).IsName("Demon_States")}");
+            
             OnFormChanged(previousForm, currentForm);
             isTransforming = false;
         }
@@ -365,6 +385,8 @@ namespace TheShadowFather.Player
             isAttacking = true;
             currentAttack = attackType;
             currentSpeed = 0f;
+            attackTimeoutCounter = ATTACK_TIMEOUT; // Set safety timeout
+            
             if (attackType == 1)
             {
                 animator.SetTrigger(Attack1Hash);
@@ -383,6 +405,7 @@ namespace TheShadowFather.Player
         }
         private void UpdateAttackTimers()
         {
+            // Cooldown timers
             if (attack1CooldownCounter > 0f)
             {
                 attack1CooldownCounter -= Time.deltaTime;
@@ -390,6 +413,17 @@ namespace TheShadowFather.Player
             if (attack2CooldownCounter > 0f)
             {
                 attack2CooldownCounter -= Time.deltaTime;
+            }
+            
+            // SAFETY FIX: Timeout để tự động kết thúc attack nếu animation không gọi event
+            if (isAttacking)
+            {
+                attackTimeoutCounter -= Time.deltaTime;
+                if (attackTimeoutCounter <= 0f)
+                {
+                    Debug.LogWarning($"[ATTACK TIMEOUT] Force ending attack {currentAttack}!");
+                    OnAttackAnimationEnd();
+                }
             }
         }
         #endregion
@@ -423,6 +457,14 @@ namespace TheShadowFather.Player
             animator.SetFloat(VerticalVelocityHash, rb.linearVelocity.y);
             animator.SetBool(IsRunningHash, isRunning);
             animator.SetBool(IsDashingHash, isDashing);
+            
+            // DEBUG: Phát hiện state conflicts
+            if (isAttacking && isDashing)
+            {
+                Debug.LogError("[STATE CONFLICT] isAttacking && isDashing both true! Resetting...");
+                isDashing = false;
+            }
+            
             // Form state được cập nhật riêng qua UpdateFormAnimator()
         }
         #endregion

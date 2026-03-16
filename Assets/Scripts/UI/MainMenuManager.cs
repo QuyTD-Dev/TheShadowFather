@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
@@ -27,5 +27,10 @@ public class MainMenuManager : MonoBehaviour
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+    public void BackToMainMenu()
+    {
+        // "MainMenu" phải khớp chính xác với tên Scene bạn đã đặt trong Project
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -1,11 +1,19 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BossHealth : MonoBehaviour
 {
     [Header("---- Cấu hình Máu ----")]
     public float phase1Health = 100f;
     public float phase2Health = 100f;
+
+    [Header("---- Event UI ----")]
+    [Tooltip("Nối với BossHealthBar.UpdateBar để cập nhật thanh máu")]
+    public UnityEvent<int, int> OnHealthChanged;
+
+    [Tooltip("(Tuỳ chọn) Nối với BossHealthBar để kích hoạt hiệu ứng Phase 2")]
+    public BossHealthBar bossHealthBar;
 
     [Header("---- Trạng thái (Kéo về 0 để test) ----")]
     [SerializeField] private float currentHealth;
@@ -48,6 +56,7 @@ public class BossHealth : MonoBehaviour
         if (isInvulnerable || currentHealth <= 0) return;
 
         currentHealth -= damage;
+        OnHealthChanged?.Invoke((int)currentHealth, (int)(isPhase2 ? phase2Health : phase1Health));
         Debug.Log($"[BOSS HP] Bị đánh! Máu còn: {currentHealth}");
 
         if (currentHealth <= 0)
@@ -73,6 +82,12 @@ public class BossHealth : MonoBehaviour
         currentHealth = phase2Health;
         isPhase2 = true;
         isInvulnerable = false;
+
+        // Cập nhật thanh máu Boss sang Phase 2
+        if (bossHealthBar != null)
+            bossHealthBar.OnPhase2Start();
+
+        OnHealthChanged?.Invoke((int)currentHealth, (int)phase2Health);
         Debug.Log($"<color=red>[BOSS HP] Đã sang Phase 2! Máu hồi lại: {currentHealth}</color>");
     }
 

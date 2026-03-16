@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.InputSystem;
 namespace TheShadowFather.Player
 {
@@ -30,10 +30,12 @@ namespace TheShadowFather.Player
         [SerializeField] private float deceleration = 10f;
         [Header("Jump Parameters")]
         [SerializeField] private float jumpForce = 12f;
+        [SerializeField] private float airJumpForce = 5f;   // Lực nhảy lần 2 trên không (nhỏ hơn)
         [SerializeField] private float fallMultiplier = 2.5f;
         [SerializeField] private float lowJumpMultiplier = 2f;
         [SerializeField] private float coyoteTime = 0.15f;
         [SerializeField] private float jumpBufferTime = 0.2f;
+        [SerializeField] private int maxAirJumps = 1;        // Số lần nhảy phép trên không (1 = double jump)
         [Header("Dash Parameters")]
         [SerializeField] private float dashDistance = 8f;
         [SerializeField] private float dashDuration = 0.3f;
@@ -42,9 +44,14 @@ namespace TheShadowFather.Player
         [SerializeField] private float attack1Cooldown = 0.5f;
         [SerializeField] private float attack2Cooldown = 0.7f;
         [Header("Ground Check")]
-        [SerializeField] private Transform groundCheck;
+        [SerializeField] private Transform groundCheck;          // (tùy chọn) gán thêm offset thủ công
         [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f);
-        [SerializeField] private LayerMask groundLayer;
+        [SerializeField] private LayerMask groundLayer;          // Chọn layer của mặt đất
+        // Collider chính của player — dùng để tính vị trí chân tự động
+        private Collider2D playerCollider;
+        // Buffer nội bộ — dùng khi groundLayer chưa được set
+        private readonly Collider2D[] _groundResults = new Collider2D[8];
+        private readonly ContactFilter2D _groundFilter = new ContactFilter2D { useTriggers = false, useLayerMask = false };
         [Header("Form System")]
         [SerializeField] private PlayerFormState startingForm = PlayerFormState.Human;
         [SerializeField] private ElementType startingElement = ElementType.Fire;
@@ -63,6 +70,9 @@ namespace TheShadowFather.Player
         private float coyoteTimeCounter;
         private float jumpBufferCounter;
         private bool jumpRequested;
+        private bool canJump = true;        // Mở khóa khi đang đứng trên đất
+        private float groundCheckCooldown;  // Thời gian tắt ground check sau khi nhảy
+        private int airJumpsRemaining;      // Số lần nhảy trên không còn lại
         // Dash State
         private bool isDashing;
         private float dashTimeCounter;
@@ -94,10 +104,12 @@ namespace TheShadowFather.Player
             rb = GetComponent<Rigidbody2D>();
             animator = GetComponent<Animator>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            // Lấy collider chính của player (BoxCollider2D hoặc CapsuleCollider2D ở root)
+            playerCollider = GetComponent<Collider2D>();
             // Khởi tạo form state
             currentForm = startingForm;
             currentElement = startingElement;
-            ValidateGroundCheck();
+            InitGroundCheck();
         }
         private void Start()
         {
@@ -111,6 +123,7 @@ namespace TheShadowFather.Player
             UpdateGroundedState();
             UpdateCoyoteTime();
             UpdateJumpBuffer();
+            HandleJump();       // ✅ Đặt ở đây để đọc input cùng frame với wasPressedThisFrame
             UpdateDashTimers();
             UpdateAttackTimers();
         }
@@ -123,7 +136,7 @@ namespace TheShadowFather.Player
             else if (!isAttacking)
             {
                 HandleMovement();
-                HandleJump();
+                // HandleJump() đã được chuyển sang Update()
             }
             ApplyBetterJumpPhysics();
             UpdateAnimator();
@@ -143,11 +156,22 @@ namespace TheShadowFather.Player
             horizontalInput = moveInput;
             // Input chạy
             isRunning = Keyboard.current.leftShiftKey.isPressed && Mathf.Abs(horizontalInput) > 0.1f;
-            // Input nhảy
+            // Input nhảy — cho phép buffer khi:
+            //   a) Đang trên đất / coyote window (nhảy thư᨟ng)
+            //   b) Đang trên không và còn lượt air jump (double jump nhỏ)
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
-                jumpRequested = true;
-                jumpBufferCounter = jumpBufferTime;
+                if (isGrounded || coyoteTimeCounter > 0f)
+                {
+                    jumpRequested = true;
+                    jumpBufferCounter = jumpBufferTime;
+                }
+                else if (airJumpsRemaining > 0)
+                {
+                    // Air jump: thực hiện ngay, không cần buffer
+                    PerformAirJump();
+                }
+                // else: hoàn toàn bỏ qua
             }
             // Input dash
             if (Keyboard.current.lKey.wasPressedThisFrame && dashCooldownCounter <= 0f && !isDashing)
@@ -305,22 +329,45 @@ namespace TheShadowFather.Player
         #region Jump
         private void HandleJump()
         {
-            if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f)
+            // Nhảy thư᨟ng từ mặt đất (có coyote time)
+            if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && canJump)
             {
-                PerformJump();
+                PerformGroundJump();
                 jumpBufferCounter = 0f;
+                coyoteTimeCounter = 0f;
+                canJump = false;
             }
+            // Nhả Space khi đang bay lên → cắt ngắn độ cao (variable jump)
             if (Keyboard.current != null && Keyboard.current.spaceKey.wasReleasedThisFrame && rb.linearVelocity.y > 0f)
             {
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, rb.linearVelocity.y * 0.5f);
                 coyoteTimeCounter = 0f;
             }
         }
-        private void PerformJump()
+        /// <summary>Nhảy thư᨟ng từ mặt đất.</summary>
+        private void PerformGroundJump()
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             coyoteTimeCounter = 0f;
+            groundCheckCooldown = 0.15f;
+            canJump = false;
+            airJumpsRemaining = maxAirJumps; // Reset số lượt air jump
+        }
+        /// <summary>
+        /// Double jump — nhảy lần 2 trên không.
+        /// Reset Y velocity trước để cảm giác nhảy sắc nét, không phụ thuộc vận tốc hiện tại.
+        /// </summary>
+        private void PerformAirJump()
+        {
+            // Reset Y velocity → cảm giác double jump sắc nét như nhảy từ đất
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+            rb.AddForce(Vector2.up * airJumpForce, ForceMode2D.Impulse);
+            // Đặt lại coyote để variable jump (nhả Space sớm = nhảy thấp hơn) vẫn work
+            coyoteTimeCounter = 0f;
+            // Ngăn ground check bắt lỗi ngay sau khi double jump
+            groundCheckCooldown = 0.1f;
+            airJumpsRemaining--;
         }
         private void ApplyBetterJumpPhysics()
         {
@@ -428,24 +475,88 @@ namespace TheShadowFather.Player
         }
         #endregion
         #region Ground Check
+        private void InitGroundCheck()
+        {
+            // Nếu đã được gán trong Inspector thì dùng luôn
+            if (groundCheck != null) return;
+
+            // Tự tìm child 'Ground' nếu chưa gán
+            Transform groundChild = transform.Find("Ground");
+            if (groundChild != null)
+            {
+                groundCheck = groundChild;
+                Debug.Log($"[PlayerController] Tự tìm thấy groundCheck từ child '{groundChild.name}'");
+            }
+            else
+            {
+                Debug.LogError($"[PlayerController] Chưa gán groundCheck và không tìm thấy child 'Ground' trên {gameObject.name}!");
+            }
+
+            if (groundLayer == 0)
+                Debug.LogWarning($"[PlayerController] groundLayer chưa được set — sẽ dùng fallback.");
+        }
+
+        /// <summary>
+        /// Tính vị trí ground check chính xác dưới chân player.
+        /// Ưu tiên dùng bounds của playerCollider; fallback về groundCheck.position.
+        /// </summary>
+        private Vector2 GetGroundCheckPosition()
+        {
+            if (playerCollider != null)
+            {
+                Bounds b = playerCollider.bounds;
+                // Điểm giữ a chân player = cạnh dưới của collider, lùi xuống 0.02 để chắc chắn chạm
+                return new Vector2(b.center.x, b.min.y - 0.02f);
+            }
+            // Fallback nếu không tìm thấy collider: dùng Transform groundCheck
+            if (groundCheck != null) return groundCheck.position;
+            return (Vector2)transform.position + Vector2.down;
+        }
+
         private void UpdateGroundedState()
         {
             wasGrounded = isGrounded;
-            isGrounded = Physics2D.OverlapBox(groundCheck.position, groundCheckSize, 0f, groundLayer);
+
+            // Giảm cooldown sau khi nhảy
+            if (groundCheckCooldown > 0f)
+            {
+                groundCheckCooldown -= Time.deltaTime;
+                isGrounded = false;
+                return;
+            }
+
+            Vector2 checkPos = GetGroundCheckPosition();
+
+            if (groundLayer != 0)
+            {
+                isGrounded = Physics2D.OverlapBox(checkPos, groundCheckSize, 0f, groundLayer);
+            }
+            else
+            {
+                int count = Physics2D.OverlapBox(checkPos, groundCheckSize, 0f, _groundFilter, _groundResults);
+                isGrounded = false;
+                for (int i = 0; i < count; i++)
+                {
+                    if (_groundResults[i] != null &&
+                        _groundResults[i].transform.root != transform.root)
+                    {
+                        isGrounded = true;
+                        break;
+                    }
+                }
+            }
+
+            // canJump reset mỗi frame đứng trên đất (an toàn)
+            if (isGrounded)
+            {
+                canJump = true;
+            }
+
+            // airJumpsRemaining và jumpRequested chỉ reset khi HẠ CÁNH THẬT SỰ
             if (!wasGrounded && isGrounded)
             {
+                airJumpsRemaining = maxAirJumps;
                 jumpRequested = false;
-            }
-        }
-        private void ValidateGroundCheck()
-        {
-            if (groundCheck == null)
-            {
-                Debug.LogError($"[PlayerController] Ground Check Transform chưa được gán trên {gameObject.name}!");
-            }
-            if (groundLayer == 0)
-            {
-                Debug.LogWarning($"[PlayerController] Ground Layer chưa được set trên {gameObject.name}!");
             }
         }
         #endregion
@@ -471,11 +582,23 @@ namespace TheShadowFather.Player
         #region Debug
         private void OnDrawGizmosSelected()
         {
-            if (groundCheck != null)
+            // Vẽ hộp ground check tự động tấi vị trí chân player
+            Vector2 pos;
+            if (playerCollider != null)
             {
-                Gizmos.color = isGrounded ? Color.green : Color.red;
-                Gizmos.DrawWireCube(groundCheck.position, groundCheckSize);
+                Bounds b = playerCollider.bounds;
+                pos = new Vector2(b.center.x, b.min.y - 0.02f);
             }
+            else if (groundCheck != null)
+            {
+                pos = groundCheck.position;
+            }
+            else
+            {
+                pos = (Vector2)transform.position + Vector2.down;
+            }
+            Gizmos.color = isGrounded ? Color.green : Color.red;
+            Gizmos.DrawWireCube(pos, groundCheckSize);
         }
         #endregion
     }

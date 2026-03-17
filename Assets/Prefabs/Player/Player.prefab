@@ -204,10 +204,12 @@ MonoBehaviour:
   acceleration: 8
   deceleration: 10
   jumpForce: 12
+  airJumpForce: 5
   fallMultiplier: 2.5
   lowJumpMultiplier: 2
   coyoteTime: 0.15
   jumpBufferTime: 0.2
+  maxAirJumps: 1
   dashDistance: 8
   dashDuration: 0.3
   dashCooldown: 1
@@ -220,6 +222,12 @@ MonoBehaviour:
     m_Bits: 0
   startingForm: 0
   startingElement: 0
+  humanSlashSound: {fileID: 8300000, guid: ba894970d6ba600498d47c80578c1bae, type: 3}
+  fireSlashSound: {fileID: 8300000, guid: b638a713be18683499d07069979b3962, type: 3}
+  frostSlashSound: {fileID: 8300000, guid: 612dab0ee64825b4a8f93f99332f79b6, type: 3}
+  demonSlashSound: {fileID: 8300000, guid: 26eeab1c47e18ec42bd235a404824d4f, type: 3}
+  jumpSound: {fileID: 8300000, guid: 3971a2e3e5b84824fa90e39b0096cb0e, type: 3}
+  dashSound: {fileID: 8300000, guid: 6c0ad5c0328596549b17922840f05411, type: 3}
 --- !u!114 &8816406977863171098
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,10 +6,10 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio Sources")]
     [SerializeField] private AudioSource bgmSource; // Nguồn phát nhạc nền
+    [SerializeField] private AudioSource sfxSource; // Thêm: Nguồn phát hiệu ứng âm thanh (SFX)
 
     private void Awake()
     {
-        // Khởi tạo Singleton để AudioManager không bị phá hủy khi qua Map mới
         if (Instance == null)
         {
             Instance = this;
@@ -21,15 +21,22 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Hàm gọi để phát nhạc nền mới
+    // Hàm phát nhạc nền (giữ nguyên)
     public void PlayMusic(AudioClip clip)
     {
         if (clip == null) return;
-
-        // Nếu bài nhạc yêu cầu đang phát rồi thì bỏ qua để không bị phát lại từ đầu
         if (bgmSource.clip == clip) return;
 
         bgmSource.clip = clip;
         bgmSource.Play();
+    }
+
+    // THÊM MỚI: Hàm phát hiệu ứng âm thanh (SFX)
+    public void PlaySFX(AudioClip clip, float volume = 1f)
+    {
+        if (clip == null) return;
+
+        // Dùng PlayOneShot để các âm thanh SFX (như tiếng chém liên tục) có thể đè lên nhau mà không bị ngắt
+        sfxSource.PlayOneShot(clip, volume);
     }
 }

@@ -17,8 +17,6 @@ public class BossHealth : MonoBehaviour
 
     [Header("---- Trạng thái (Kéo về 0 để test) ----")]
     [SerializeField] private float currentHealth;
-    /// <summary>Máu hiện tại của Boss (chỉ đọc).</summary>
-    public float CurrentHealth => currentHealth;
     [SerializeField] private bool isPhase2 = false;
     [SerializeField] private bool isInvulnerable = false;
 

@@ -43,13 +43,6 @@ namespace TheShadowFather.Player
         [Header("Attack Parameters")]
         [SerializeField] private float attack1Cooldown = 0.5f;
         [SerializeField] private float attack2Cooldown = 0.7f;
-        [Header("Until Skill")]
-        [SerializeField] private GameObject untilProjectilePrefab;      // Prefab lưỡi kiếm (Human)
-        [SerializeField] private GameObject fireUntilProjectilePrefab;  // Prefab rồng lửa (Fire form)
-        [SerializeField] private GameObject frostUntilProjectilePrefab; // Prefab lốc xoáy băng (Frost form)
-        [SerializeField] private GameObject demonUntilEffectPrefab;     // Prefab hiệu ứng AoE (Demon form)
-        [SerializeField] private Transform firePoint;                   // Empty GameObject ở tay/vai player
-        [SerializeField] private float untilCooldown = 1.5f;
         [Header("Ground Check")]
         [SerializeField] private Transform groundCheck;          // (tùy chọn) gán thêm offset thủ công
         [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f);
@@ -92,9 +85,6 @@ namespace TheShadowFather.Player
         private float attackTimeoutCounter;
         private const float ATTACK_TIMEOUT = 1f; // Safety timeout để tránh stuck
         private int currentAttack;
-        // Until Skill State
-        private bool isUsingUntil;
-        private float untilCooldownCounter;
         // Form State
         private PlayerFormState currentForm;
         private ElementType currentElement;
@@ -109,7 +99,6 @@ namespace TheShadowFather.Player
         private static readonly int Attack2Hash = Animator.StringToHash("Attack2");
         private static readonly int FormStateHash = Animator.StringToHash("FormState");
         private static readonly int ElementTypeHash = Animator.StringToHash("ElementType");
-        private static readonly int UntilHash = Animator.StringToHash("Until");
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -137,7 +126,6 @@ namespace TheShadowFather.Player
             HandleJump();       // ✅ Đặt ở đây để đọc input cùng frame với wasPressedThisFrame
             UpdateDashTimers();
             UpdateAttackTimers();
-            UpdateUntilTimers();
         }
         private void FixedUpdate()
         {
@@ -145,7 +133,7 @@ namespace TheShadowFather.Player
             {
                 PerformDash();
             }
-            else if (!isAttacking && !isUsingUntil)
+            else if (!isAttacking)
             {
                 HandleMovement();
                 // HandleJump() đã được chuyển sang Update()
@@ -191,7 +179,7 @@ namespace TheShadowFather.Player
                 StartDash();
             }
             // Input attack
-            if (!isAttacking && !isDashing && !isUsingUntil)
+            if (!isAttacking && !isDashing)
             {
                 if (Keyboard.current.jKey.wasPressedThisFrame && attack1CooldownCounter <= 0f)
                 {
@@ -201,16 +189,6 @@ namespace TheShadowFather.Player
                 {
                     StartAttack(2);
                 }
-            }
-            // Input Until Skill (phím U) — Human, Fire, Frost, Demon
-            if (Keyboard.current.uKey.wasPressedThisFrame
-                && !isUsingUntil && !isAttacking && !isDashing
-                && untilCooldownCounter <= 0f
-                && (currentForm == PlayerFormState.Human
-                    || currentForm == PlayerFormState.HalfDemon
-                    || currentForm == PlayerFormState.Demon))
-            {
-                StartUntilSkill();
             }
         }
         /// <summary>
@@ -492,104 +470,6 @@ namespace TheShadowFather.Player
                 {
                     Debug.LogWarning($"[ATTACK TIMEOUT] Force ending attack {currentAttack}!");
                     OnAttackAnimationEnd();
-                }
-            }
-        }
-        #endregion
-        #region Until Skill
-        private void StartUntilSkill()
-        {
-            isUsingUntil = true;
-            currentSpeed = 0f;
-            attackTimeoutCounter = ATTACK_TIMEOUT;
-            animator.SetTrigger(UntilHash);
-            untilCooldownCounter = untilCooldown;
-        }
-        /// <summary>
-        /// Animation Event — Gọi tại frame 7 của clip Until (mọi form).
-        /// Spawn projectile phù hợp với form hiện tại.
-        /// </summary>
-        public void OnUntilFireProjectile()
-        {
-            if (firePoint == null)
-            {
-                Debug.LogWarning("[UNTIL] Chưa gắn firePoint!");
-                return;
-            }
-
-            float direction = isFacingRight ? 1f : -1f;
-
-            if (currentForm == PlayerFormState.Demon)
-            {
-                // --- DEMON FORM: Hiệu ứng AoE toàn màn hình ---
-                if (demonUntilEffectPrefab == null)
-                {
-                    Debug.LogWarning("[UNTIL] Chưa gắn demonUntilEffectPrefab!");
-                    return;
-                }
-                Instantiate(demonUntilEffectPrefab, transform.position, Quaternion.identity);
-            }
-            else if (currentForm == PlayerFormState.HalfDemon && currentElement == ElementType.Fire)
-            {
-                // --- FIRE FORM: Spawn rồng lửa ---
-                if (fireUntilProjectilePrefab == null)
-                {
-                    Debug.LogWarning("[UNTIL] Chưa gắn fireUntilProjectilePrefab!");
-                    return;
-                }
-                GameObject proj = Instantiate(fireUntilProjectilePrefab, firePoint.position, Quaternion.identity);
-                FireDragonProjectile dragon = proj.GetComponent<FireDragonProjectile>();
-                if (dragon != null)
-                    dragon.Launch(direction);
-            }
-            else if (currentForm == PlayerFormState.HalfDemon && currentElement == ElementType.Frost)
-            {
-                // --- FROST FORM: Spawn lốc xoáy băng ---
-                if (frostUntilProjectilePrefab == null)
-                {
-                    Debug.LogWarning("[UNTIL] Chưa gắn frostUntilProjectilePrefab!");
-                    return;
-                }
-                GameObject proj = Instantiate(frostUntilProjectilePrefab, firePoint.position, Quaternion.identity);
-                FrostTornadoProjectile tornado = proj.GetComponent<FrostTornadoProjectile>();
-                if (tornado != null)
-                    tornado.Launch(direction);
-            }
-            else
-            {
-                // --- HUMAN FORM: Spawn lưỡi kiếm ---
-                if (untilProjectilePrefab == null)
-                {
-                    Debug.LogWarning("[UNTIL] Chưa gắn untilProjectilePrefab!");
-                    return;
-                }
-                GameObject proj = Instantiate(untilProjectilePrefab, firePoint.position, Quaternion.identity);
-                UntilProjectile bullet = proj.GetComponent<UntilProjectile>();
-                if (bullet != null)
-                    bullet.Launch(direction);
-            }
-        }
-        /// <summary>
-        /// Animation Event — Gọi tại frame cuối cùng của clip Human_Until.
-        /// </summary>
-        public void OnUntilAnimationEnd()
-        {
-            isUsingUntil = false;
-        }
-        private void UpdateUntilTimers()
-        {
-            if (untilCooldownCounter > 0f)
-            {
-                untilCooldownCounter -= Time.deltaTime;
-            }
-            // Safety timeout cho Until (dùng chung attackTimeoutCounter)
-            if (isUsingUntil)
-            {
-                attackTimeoutCounter -= Time.deltaTime;
-                if (attackTimeoutCounter <= 0f)
-                {
-                    Debug.LogWarning("[UNTIL TIMEOUT] Force ending Until skill!");
-                    OnUntilAnimationEnd();
                 }
             }
         }

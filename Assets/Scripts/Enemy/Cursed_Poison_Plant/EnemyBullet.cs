@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
@@ -41,12 +41,7 @@ public class EnemyBullet : MonoBehaviour
     {
         if (hitInfo.CompareTag("Player"))
         {
-            Health health = hitInfo.GetComponent<Health>();
-            if (health != null)
-            {
-                health.TakeDamage(damage);
-                Debug.Log($"[EnemyBullet] Trúng Player → -{damage} HP");
-            }
+            Debug.Log("Player trúng đạn!");
             Destroy(gameObject);
         }
         else if (hitInfo.gameObject.layer == LayerMask.NameToLayer("Ground"))

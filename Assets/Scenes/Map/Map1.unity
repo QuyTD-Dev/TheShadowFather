@@ -823,9 +823,10 @@ GameObject:
   - component: {fileID: 175375353}
   - component: {fileID: 175375352}
   - component: {fileID: 175375354}
+  - component: {fileID: 175375356}
   - component: {fileID: 175375355}
   m_Layer: 0
-  m_Name: chests_gates_3 (1)
+  m_Name: Gate3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,8 +928,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!60 &175375355
-PolygonCollider2D:
+--- !u!114 &175375355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175375350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b1c5004de1f9d4c842ff092487c5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Portal
+  destinationPoint: {fileID: 1638695611}
+--- !u!61 &175375356
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -957,7 +971,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -971,35 +985,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.685, y: -0.515}
-      - {x: 0.655, y: -0.305}
-      - {x: 0.625, y: 0.145}
-      - {x: 0.655, y: 0.235}
-      - {x: 0.695, y: 0.545}
-      - {x: 0.66499996, y: 0.575}
-      - {x: 0.435, y: 0.60499996}
-      - {x: 0.325, y: 0.73499995}
-      - {x: 0.145, y: 0.805}
-      - {x: 0.065, y: 0.815}
-      - {x: -0.074999996, y: 0.815}
-      - {x: -0.24499999, y: 0.775}
-      - {x: -0.53499997, y: 0.615}
-      - {x: -0.655, y: 0.615}
-      - {x: -0.755, y: 0.53499997}
-      - {x: -0.705, y: 0.13499999}
-      - {x: -0.635, y: -0.325}
-      - {x: -0.695, y: -0.36499998}
-      - {x: -0.755, y: -0.60499996}
-      - {x: -0.815, y: -0.695}
-      - {x: -0.815, y: -0.78499997}
-      - {x: -0.805, y: -0.815}
-      - {x: 0.515, y: -0.815}
-      - {x: 0.79499996, y: -0.805}
-      - {x: 0.815, y: -0.755}
-      - {x: 0.815, y: -0.675}
-  m_UseDelaunayMesh: 1
+  m_Size: {x: 1.65, y: 1.65}
+  m_EdgeRadius: 0
 --- !u!1 &192933604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1000,7 @@ GameObject:
   - component: {fileID: 192933605}
   - component: {fileID: 192933608}
   m_Layer: 0
-  m_Name: chests_gates_11
+  m_Name: Gate2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1115,8 +1102,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1364335404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &192933608
-PolygonCollider2D:
+--- !u!61 &192933608
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1145,7 +1132,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1159,34 +1146,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.66499996, y: -0.385}
-      - {x: 0.635, y: -0.295}
-      - {x: 0.625, y: 0.105}
-      - {x: 0.705, y: 0.475}
-      - {x: 0.705, y: 0.585}
-      - {x: 0.465, y: 0.625}
-      - {x: 0.325, y: 0.73499995}
-      - {x: 0.095, y: 0.815}
-      - {x: -0.095, y: 0.815}
-      - {x: -0.285, y: 0.765}
-      - {x: -0.475, y: 0.615}
-      - {x: -0.695, y: 0.615}
-      - {x: -0.73499995, y: 0.545}
-      - {x: -0.715, y: 0.155}
-      - {x: -0.635, y: -0.024999999}
-      - {x: -0.655, y: -0.325}
-      - {x: -0.705, y: -0.385}
-      - {x: -0.815, y: -0.715}
-      - {x: -0.815, y: -0.78499997}
-      - {x: -0.73499995, y: -0.815}
-      - {x: 0.505, y: -0.815}
-      - {x: 0.79499996, y: -0.805}
-      - {x: 0.815, y: -0.755}
-      - {x: 0.815, y: -0.66499996}
-      - {x: 0.695, y: -0.505}
-  m_UseDelaunayMesh: 1
+  m_Size: {x: 1.65, y: 1.65}
+  m_EdgeRadius: 0
 --- !u!1 &341271751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,9 +1717,10 @@ GameObject:
   - component: {fileID: 541422176}
   - component: {fileID: 541422175}
   - component: {fileID: 541422174}
+  - component: {fileID: 541422178}
   - component: {fileID: 541422177}
   m_Layer: 0
-  m_Name: chests_gates_3
+  m_Name: Gate1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1860,8 +1822,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1364335404}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &541422177
-PolygonCollider2D:
+--- !u!114 &541422177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541422173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b1c5004de1f9d4c842ff092487c5d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Portal
+  destinationPoint: {fileID: 192933607}
+--- !u!61 &541422178
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1890,7 +1865,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -1904,35 +1879,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.685, y: -0.515}
-      - {x: 0.655, y: -0.305}
-      - {x: 0.625, y: 0.145}
-      - {x: 0.655, y: 0.235}
-      - {x: 0.695, y: 0.545}
-      - {x: 0.66499996, y: 0.575}
-      - {x: 0.435, y: 0.60499996}
-      - {x: 0.325, y: 0.73499995}
-      - {x: 0.145, y: 0.805}
-      - {x: 0.065, y: 0.815}
-      - {x: -0.074999996, y: 0.815}
-      - {x: -0.24499999, y: 0.775}
-      - {x: -0.53499997, y: 0.615}
-      - {x: -0.655, y: 0.615}
-      - {x: -0.755, y: 0.53499997}
-      - {x: -0.705, y: 0.13499999}
-      - {x: -0.635, y: -0.325}
-      - {x: -0.695, y: -0.36499998}
-      - {x: -0.755, y: -0.60499996}
-      - {x: -0.815, y: -0.695}
-      - {x: -0.815, y: -0.78499997}
-      - {x: -0.805, y: -0.815}
-      - {x: 0.515, y: -0.815}
-      - {x: 0.79499996, y: -0.805}
-      - {x: 0.815, y: -0.755}
-      - {x: 0.815, y: -0.675}
-  m_UseDelaunayMesh: 1
+  m_Size: {x: 1.65, y: 1.65}
+  m_EdgeRadius: 0
 --- !u!1 &571055988
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,6 +2650,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 861402490599675277, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342812664076314148, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1342812664076314148, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1366082870037911573, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: target
       value: 
@@ -2712,11 +2672,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5240772149160418111, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 171.7
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: 5240772149160418111, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 74.4143
+      value: 74.3
       objectReference: {fileID: 0}
     - target: {fileID: 5240772149160418111, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3398,7 +3358,7 @@ GameObject:
   - component: {fileID: 1638695612}
   - component: {fileID: 1638695613}
   m_Layer: 0
-  m_Name: chests_gates_11 (1)
+  m_Name: Gate4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3500,8 +3460,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!60 &1638695613
-PolygonCollider2D:
+--- !u!61 &1638695613
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3530,7 +3490,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -3544,34 +3504,8 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.66499996, y: -0.385}
-      - {x: 0.635, y: -0.295}
-      - {x: 0.625, y: 0.105}
-      - {x: 0.705, y: 0.475}
-      - {x: 0.705, y: 0.585}
-      - {x: 0.465, y: 0.625}
-      - {x: 0.325, y: 0.73499995}
-      - {x: 0.095, y: 0.815}
-      - {x: -0.095, y: 0.815}
-      - {x: -0.285, y: 0.765}
-      - {x: -0.475, y: 0.615}
-      - {x: -0.695, y: 0.615}
-      - {x: -0.73499995, y: 0.545}
-      - {x: -0.715, y: 0.155}
-      - {x: -0.635, y: -0.024999999}
-      - {x: -0.655, y: -0.325}
-      - {x: -0.705, y: -0.385}
-      - {x: -0.815, y: -0.715}
-      - {x: -0.815, y: -0.78499997}
-      - {x: -0.73499995, y: -0.815}
-      - {x: 0.505, y: -0.815}
-      - {x: 0.79499996, y: -0.805}
-      - {x: 0.815, y: -0.755}
-      - {x: 0.815, y: -0.66499996}
-      - {x: 0.695, y: -0.505}
-  m_UseDelaunayMesh: 1
+  m_Size: {x: 1.65, y: 1.65}
+  m_EdgeRadius: 0
 --- !u!1 &1682525565
 GameObject:
   m_ObjectHideFlags: 0

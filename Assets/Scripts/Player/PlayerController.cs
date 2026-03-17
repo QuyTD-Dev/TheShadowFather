@@ -55,6 +55,14 @@ namespace TheShadowFather.Player
         [Header("Form System")]
         [SerializeField] private PlayerFormState startingForm = PlayerFormState.Human;
         [SerializeField] private ElementType startingElement = ElementType.Fire;
+        [Header("Audio SFX")]
+        [SerializeField] private AudioClip humanSlashSound;
+        [SerializeField] private AudioClip fireSlashSound;
+        [SerializeField] private AudioClip frostSlashSound;
+        [SerializeField] private AudioClip demonSlashSound;
+        [Header("Movement SFX")]
+        [SerializeField] private AudioClip jumpSound;
+        [SerializeField] private AudioClip dashSound;
         // Component References
         private Rigidbody2D rb;
         private Animator animator;
@@ -353,6 +361,11 @@ namespace TheShadowFather.Player
             groundCheckCooldown = 0.15f;
             canJump = false;
             airJumpsRemaining = maxAirJumps; // Reset số lượt air jump
+            // --- THÊM ĐOẠN NÀY ĐỂ PHÁT ÂM THANH NHẢY ---
+            if (jumpSound != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(jumpSound);
+            }
         }
         /// <summary>
         /// Double jump — nhảy lần 2 trên không.
@@ -368,6 +381,11 @@ namespace TheShadowFather.Player
             // Ngăn ground check bắt lỗi ngay sau khi double jump
             groundCheckCooldown = 0.1f;
             airJumpsRemaining--;
+            // --- THÊM ĐOẠN NÀY ĐỂ PHÁT ÂM THANH NHẢY (LẦN 2) ---
+            if (jumpSound != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(jumpSound); // Dùng chung tiếng nhảy
+            }
         }
         private void ApplyBetterJumpPhysics()
         {
@@ -406,6 +424,11 @@ namespace TheShadowFather.Player
             isDashing = true;
             dashTimeCounter = dashDuration;
             dashCooldownCounter = dashCooldown;
+            // --- THÊM ĐOẠN NÀY ĐỂ PHÁT ÂM THANH LƯỚT ---
+            if (dashSound != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(dashSound);
+            }
         }
         private void PerformDash()
         {
@@ -443,6 +466,35 @@ namespace TheShadowFather.Player
             {
                 animator.SetTrigger(Attack2Hash);
                 attack2CooldownCounter = attack2Cooldown;
+            }
+            PlaySlashSound();
+        }
+        // Hàm xử lý logic chọn âm thanh
+        private void PlaySlashSound()
+        {
+            AudioClip clipToPlay = null;
+
+            switch (currentForm)
+            {
+                case PlayerFormState.Human:
+                    clipToPlay = humanSlashSound;
+                    break;
+                case PlayerFormState.HalfDemon:
+                    // Phân biệt theo Element
+                    if (currentElement == ElementType.Fire)
+                        clipToPlay = fireSlashSound;
+                    else if (currentElement == ElementType.Frost)
+                        clipToPlay = frostSlashSound;
+                    break;
+                case PlayerFormState.Demon:
+                    clipToPlay = demonSlashSound;
+                    break;
+            }
+
+            // Gọi qua AudioManager để phát
+            if (clipToPlay != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(clipToPlay);
             }
         }
         public void OnAttackAnimationEnd()

@@ -62,6 +62,14 @@ namespace TheShadowFather.Player
         [Header("Form System")]
         [SerializeField] private PlayerFormState startingForm = PlayerFormState.Human;
         [SerializeField] private ElementType startingElement = ElementType.Fire;
+        [Header("Audio SFX")]
+        [SerializeField] private AudioClip humanSlashSound;
+        [SerializeField] private AudioClip fireSlashSound;
+        [SerializeField] private AudioClip frostSlashSound;
+        [SerializeField] private AudioClip demonSlashSound;
+        [Header("Movement SFX")]
+        [SerializeField] private AudioClip jumpSound;
+        [SerializeField] private AudioClip dashSound;
         // Component References
         private Rigidbody2D rb;
         private Animator animator;
@@ -110,6 +118,8 @@ namespace TheShadowFather.Player
         private static readonly int FormStateHash = Animator.StringToHash("FormState");
         private static readonly int ElementTypeHash = Animator.StringToHash("ElementType");
         private static readonly int UntilHash = Animator.StringToHash("Until");
+        private Vector3 initialScale; // Lưu kích thước gốc từ Inspector
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -121,6 +131,7 @@ namespace TheShadowFather.Player
             currentForm = startingForm;
             currentElement = startingElement;
             InitGroundCheck();
+            initialScale = transform.localScale; // Lưu lại kích thước bạn chỉnh trong Inspector
         }
         private void Start()
         {
@@ -153,7 +164,7 @@ namespace TheShadowFather.Player
             ApplyBetterJumpPhysics();
             UpdateAnimator();
             // Khóa scale để animation không thay đổi
-            transform.localScale = Vector3.one;
+            transform.localScale = initialScale; // Ép về kích thước ban đầu thay vì Vector3.one
         }
         #region Input Handling
         private void HandleInput()
@@ -169,7 +180,7 @@ namespace TheShadowFather.Player
             // Input chạy
             isRunning = Keyboard.current.leftShiftKey.isPressed && Mathf.Abs(horizontalInput) > 0.1f;
             // Input nhảy — cho phép buffer khi:
-            //   a) Đang trên đất / coyote window (nhảy thư᨟ng)
+            //   a) Đang trên đất / coyote window (nhảy thường)
             //   b) Đang trên không và còn lượt air jump (double jump nhỏ)
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
@@ -351,7 +362,7 @@ namespace TheShadowFather.Player
         #region Jump
         private void HandleJump()
         {
-            // Nhảy thư᨟ng từ mặt đất (có coyote time)
+            // Nhảy thường từ mặt đất (có coyote time)
             if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && canJump)
             {
                 PerformGroundJump();
@@ -366,7 +377,7 @@ namespace TheShadowFather.Player
                 coyoteTimeCounter = 0f;
             }
         }
-        /// <summary>Nhảy thư᨟ng từ mặt đất.</summary>
+        /// <summary>Nhảy thường từ mặt đất.</summary>
         private void PerformGroundJump()
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
@@ -375,6 +386,11 @@ namespace TheShadowFather.Player
             groundCheckCooldown = 0.15f;
             canJump = false;
             airJumpsRemaining = maxAirJumps; // Reset số lượt air jump
+            // --- PHÁT ÂM THANH NHẢY ---
+            if (jumpSound != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(jumpSound);
+            }
         }
         /// <summary>
         /// Double jump — nhảy lần 2 trên không.
@@ -390,6 +406,11 @@ namespace TheShadowFather.Player
             // Ngăn ground check bắt lỗi ngay sau khi double jump
             groundCheckCooldown = 0.1f;
             airJumpsRemaining--;
+            // --- PHÁT ÂM THANH NHẢY (LẦN 2) ---
+            if (jumpSound != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(jumpSound);
+            }
         }
         private void ApplyBetterJumpPhysics()
         {
@@ -428,6 +449,11 @@ namespace TheShadowFather.Player
             isDashing = true;
             dashTimeCounter = dashDuration;
             dashCooldownCounter = dashCooldown;
+            // --- PHÁT ÂM THANH LƯỚT ---
+            if (dashSound != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(dashSound);
+            }
         }
         private void PerformDash()
         {
@@ -465,6 +491,33 @@ namespace TheShadowFather.Player
             {
                 animator.SetTrigger(Attack2Hash);
                 attack2CooldownCounter = attack2Cooldown;
+            }
+            PlaySlashSound();
+        }
+        // Hàm xử lý logic chọn âm thanh
+        private void PlaySlashSound()
+        {
+            AudioClip clipToPlay = null;
+
+            switch (currentForm)
+            {
+                case PlayerFormState.Human:
+                    clipToPlay = humanSlashSound;
+                    break;
+                case PlayerFormState.HalfDemon:
+                    if (currentElement == ElementType.Fire)
+                        clipToPlay = fireSlashSound;
+                    else if (currentElement == ElementType.Frost)
+                        clipToPlay = frostSlashSound;
+                    break;
+                case PlayerFormState.Demon:
+                    clipToPlay = demonSlashSound;
+                    break;
+            }
+
+            if (clipToPlay != null && AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlaySFX(clipToPlay);
             }
         }
         public void OnAttackAnimationEnd()
@@ -625,10 +678,8 @@ namespace TheShadowFather.Player
             if (playerCollider != null)
             {
                 Bounds b = playerCollider.bounds;
-                // Điểm giữ a chân player = cạnh dưới của collider, lùi xuống 0.02 để chắc chắn chạm
                 return new Vector2(b.center.x, b.min.y - 0.02f);
             }
-            // Fallback nếu không tìm thấy collider: dùng Transform groundCheck
             if (groundCheck != null) return groundCheck.position;
             return (Vector2)transform.position + Vector2.down;
         }
@@ -702,7 +753,7 @@ namespace TheShadowFather.Player
         #region Debug
         private void OnDrawGizmosSelected()
         {
-            // Vẽ hộp ground check tự động tấi vị trí chân player
+            // Vẽ hộp ground check tự động tại vị trí chân player
             Vector2 pos;
             if (playerCollider != null)
             {

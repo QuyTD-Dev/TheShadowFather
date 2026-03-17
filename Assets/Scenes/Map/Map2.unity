@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 21449403}
   - component: {fileID: 21449402}
   - component: {fileID: 21449405}
+  - component: {fileID: 21449406}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -256,6 +257,29 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &21449406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21449401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eac21abc8be62d428aa2a674003b929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TheShadowFather.Camera.CameraFollow
+  target: {fileID: 836500694}
+  offset: {x: 0, y: 2, z: -10}
+  smoothSpeed: 0.125
+  useSmoothDamp: 0
+  smoothTime: 0.3
+  useBoundaries: 0
+  minBounds: {x: -50, y: -50}
+  maxBounds: {x: 50, y: 50}
+  enableLookAhead: 0
+  lookAheadDistance: 2
+  lookAheadSpeed: 2
 --- !u!1 &35530779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5237,7 +5261,7 @@ Transform:
   m_GameObject: {fileID: 1281539539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 62.8, y: 78.7, z: 0}
+  m_LocalPosition: {x: -44, y: 75.5, z: 0}
   m_LocalScale: {x: 11.237901, y: 11.266001, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7252,6 +7276,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 659302643
       objectReference: {fileID: 0}
+    - target: {fileID: 1366082870037911573, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 836500694}
     - target: {fileID: 5240772149160418111, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4411428
@@ -7262,11 +7290,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5240772149160418111, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 159.1
+      value: 158.33
       objectReference: {fileID: 0}
     - target: {fileID: 5240772149160418111, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 79.7
+      value: 79.13
       objectReference: {fileID: 0}
     - target: {fileID: 5240772149160418111, guid: ada80a5826dd06c4dba8de818b52c4be, type: 3}
       propertyPath: m_LocalPosition.z

@@ -3,11 +3,14 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     [Header("Cài đặt Debug")]
-    public bool showLogs = true;
+    public bool showLogs = true; // Tích vào đây để bật log, bỏ tích để tắt cho đỡ rối
 
     [Header("Cài đặt chung")]
     public Transform player;
     public float moveSpeed = 2f;
+
+    // THÊM: Biến lưu kích thước gốc để không bị biến dạng
+    private Vector3 originalScale;
 
     [Header("Phạm vi cảm biến")]
     public float chaseRange = 5f;
@@ -39,6 +42,9 @@ public class EnemyAI : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         startPosition = transform.position;
+
+        // LƯU KÍCH THƯỚC GỐC KHI VỪA VÀO GAME
+        originalScale = transform.localScale;
 
         if (showLogs) Debug.Log($"[START] Quái sinh ra tại: {startPosition}. Phạm vi tuần tra: {patrolDistance}m");
 
@@ -98,18 +104,27 @@ public class EnemyAI : MonoBehaviour
 
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
+        // Log khoảng cách mỗi 60 frame (để đỡ spam console)
+        if (showLogs && Time.frameCount % 60 == 0)
+            Debug.Log($"[UPDATE] Khoảng cách tới Player: {distanceToPlayer:F2}m");
+
         if (isAttacking) return;
+
+        // --- LOGIC HÀNH VI ---
 
         if (distanceToPlayer <= attackRange)
         {
+            if (showLogs && Time.frameCount % 60 == 0) Debug.Log("-> Trạng thái: TẤN CÔNG");
             AttackPlayer();
         }
         else if (distanceToPlayer <= chaseRange)
         {
+            if (showLogs && Time.frameCount % 60 == 0) Debug.Log("-> Trạng thái: ĐUỔI THEO");
             ChasePlayer();
         }
         else
         {
+            // Chỉ log Patrol khi chuyển hướng để đỡ spam
             Patrol();
         }
     }
@@ -124,7 +139,8 @@ public class EnemyAI : MonoBehaviour
         {
             targetX = startPosition.x + patrolDistance;
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetX, transform.position.y), moveSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(1, 1, 1);
+            // SỬA: Giữ nguyên size Y, Z, chỉ ép X thành số dương
+            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
 
             if (transform.position.x >= targetX - 0.1f)
             {
@@ -136,7 +152,8 @@ public class EnemyAI : MonoBehaviour
         {
             targetX = startPosition.x - patrolDistance;
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetX, transform.position.y), moveSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(-1, 1, 1);
+            // SỬA: Giữ nguyên size Y, Z, chỉ ép X thành số âm
+            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
 
             if (transform.position.x <= targetX + 0.1f)
             {
@@ -148,8 +165,15 @@ public class EnemyAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        if (transform.position.x < player.position.x) transform.localScale = new Vector3(1, 1, 1);
-        else transform.localScale = new Vector3(-1, 1, 1);
+        // SỬA: Lật mặt dùng originalScale
+        if (transform.position.x < player.position.x)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z); // Quay Phải
+        }
+        else
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z); // Quay Trái
+        }
 
         Vector2 targetPosition = new Vector2(player.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);

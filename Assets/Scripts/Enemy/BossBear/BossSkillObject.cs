@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class BossSkillObject : MonoBehaviour
 {
@@ -49,9 +49,12 @@ public class BossSkillObject : MonoBehaviour
         // Kiểm tra va chạm với Player
         if (hitInfo.CompareTag("Player"))
         {
-            // Gây sát thương (Giả sử Player có script PlayerHealth)
-            // hitInfo.GetComponent<PlayerHealth>().TakeDamage(damage); 
-            Debug.Log($"Skill trúng Player! Trừ {damage} máu.");
+            Health health = hitInfo.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage((int)damage);
+                Debug.Log($"[BossSkill] Trúng Player → -{damage} HP");
+            }
 
             // Tạo hiệu ứng nổ (nếu có)
             if (hitEffect != null) Instantiate(hitEffect, transform.position, Quaternion.identity);

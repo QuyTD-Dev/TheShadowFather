@@ -3,21 +3,14 @@ using UnityEngine.UI;
 
 /// <summary>
 /// Điều khiển thanh máu nổi trên đầu quái (World Space Canvas).
-/// Gắn vào Canvas child của quái. Canvas phải là World Space.
+/// Gắn vào root object của EnemyHealthBar prefab.
 /// Nối sự kiện: Health.OnHealthChanged → UpdateBar(int current, int max)
 /// </summary>
 public class EnemyHealthBar : MonoBehaviour
 {
     [Header("UI References")]
-    [Tooltip("Image fill của thanh máu chính (màu vàng/xanh)")]
-    public Image fillImage;
-
-    [Tooltip("Image fill của delay bar (màu tối hơn, chạy chậm)")]
-    public Image delayImage;
-
-    [Header("Animation")]
-    public float fillSpeed = 6f;
-    public float delaySpeed = 2f;
+    [Tooltip("Kéo Slider thanh máu vào đây")]
+    public Slider healthSlider;
 
     [Header("Hiển thị")]
     [Tooltip("Ẩn thanh máu khi quái đầy máu")]
@@ -31,9 +24,6 @@ public class EnemyHealthBar : MonoBehaviour
     public bool useBillboard = true;
 
     // --- Internal ---
-    private float targetFill = 1f;
-    private float currentFill = 1f;
-    private float currentDelay = 1f;
     private float hideTimer = 0f;
     private bool isVisible = false;
     private Canvas canvas;
@@ -41,8 +31,13 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void Awake()
     {
-        canvas = GetComponent<Canvas>();
+        // Tìm Canvas trong children (vì Canvas là con của root EnemyHealthBar object)
+        canvas = GetComponentInChildren<Canvas>(true);
         mainCamera = Camera.main;
+
+        // Tự tìm Slider nếu chưa gắn
+        if (healthSlider == null)
+            healthSlider = GetComponentInChildren<Slider>(true);
 
         // Ẩn ban đầu nếu cần
         if (hideWhenFull && canvas != null)
@@ -55,28 +50,6 @@ public class EnemyHealthBar : MonoBehaviour
         if (useBillboard && mainCamera != null)
         {
             transform.rotation = mainCamera.transform.rotation;
-        }
-
-        // --- Tween thanh máu chính ---
-        if (!Mathf.Approximately(currentFill, targetFill))
-        {
-            currentFill = Mathf.MoveTowards(currentFill, targetFill, fillSpeed * Time.deltaTime);
-            if (fillImage != null)
-                fillImage.fillAmount = currentFill;
-        }
-
-        // --- Tween delay bar ---
-        if (currentDelay > currentFill)
-        {
-            currentDelay = Mathf.MoveTowards(currentDelay, currentFill, delaySpeed * Time.deltaTime);
-            if (delayImage != null)
-                delayImage.fillAmount = currentDelay;
-        }
-        else
-        {
-            currentDelay = currentFill;
-            if (delayImage != null)
-                delayImage.fillAmount = currentDelay;
         }
 
         // --- Auto-hide countdown ---
@@ -97,14 +70,19 @@ public class EnemyHealthBar : MonoBehaviour
     {
         if (max <= 0) return;
 
-        targetFill = Mathf.Clamp01((float)current / max);
+        float fill = Mathf.Clamp01((float)current / max);
+
+        // Cập nhật Slider
+        if (healthSlider != null)
+        {
+            healthSlider.value = fill;
+        }
 
         bool shouldShow = current < max && current > 0;
 
         if (shouldShow)
         {
             SetVisible(true);
-            // Reset bộ đếm auto-hide
             hideTimer = autoHideDelay;
         }
         else if (current <= 0)

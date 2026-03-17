@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class BossBullet : MonoBehaviour
@@ -30,8 +30,12 @@ public class BossBullet : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log($"[2D] Trúng đạn! Trừ {damage} máu.");
-            // other.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Health health = other.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(damage);
+                Debug.Log($"[BossBullet] Trúng Player → -{damage} HP");
+            }
             Destroy(gameObject);
         }
     }

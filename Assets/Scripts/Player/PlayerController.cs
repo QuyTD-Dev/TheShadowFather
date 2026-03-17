@@ -43,6 +43,13 @@ namespace TheShadowFather.Player
         [Header("Attack Parameters")]
         [SerializeField] private float attack1Cooldown = 0.5f;
         [SerializeField] private float attack2Cooldown = 0.7f;
+        [Header("Until Skill")]
+        [SerializeField] private GameObject untilProjectilePrefab;      // Prefab lưỡi kiếm (Human)
+        [SerializeField] private GameObject fireUntilProjectilePrefab;  // Prefab rồng lửa (Fire form)
+        [SerializeField] private GameObject frostUntilProjectilePrefab; // Prefab lốc xoáy băng (Frost form)
+        [SerializeField] private GameObject demonUntilEffectPrefab;     // Prefab hiệu ứng AoE (Demon form)
+        [SerializeField] private Transform firePoint;                   // Empty GameObject ở tay/vai player
+        [SerializeField] private float untilCooldown = 1.5f;
         [Header("Ground Check")]
         [SerializeField] private Transform groundCheck;          // (tùy chọn) gán thêm offset thủ công
         [SerializeField] private Vector2 groundCheckSize = new Vector2(0.8f, 0.1f);
@@ -93,6 +100,9 @@ namespace TheShadowFather.Player
         private float attackTimeoutCounter;
         private const float ATTACK_TIMEOUT = 1f; // Safety timeout để tránh stuck
         private int currentAttack;
+        // Until Skill State
+        private bool isUsingUntil;
+        private float untilCooldownCounter;
         // Form State
         private PlayerFormState currentForm;
         private ElementType currentElement;
@@ -107,7 +117,8 @@ namespace TheShadowFather.Player
         private static readonly int Attack2Hash = Animator.StringToHash("Attack2");
         private static readonly int FormStateHash = Animator.StringToHash("FormState");
         private static readonly int ElementTypeHash = Animator.StringToHash("ElementType");
-        private Vector3 initialScale; // Thêm vào phần khai báo biến ở trên đầu class
+        private static readonly int UntilHash = Animator.StringToHash("Until");
+        private Vector3 initialScale; // Lưu kích thước gốc từ Inspector
 
         private void Awake()
         {
@@ -137,6 +148,7 @@ namespace TheShadowFather.Player
             HandleJump();       // ✅ Đặt ở đây để đọc input cùng frame với wasPressedThisFrame
             UpdateDashTimers();
             UpdateAttackTimers();
+            UpdateUntilTimers();
         }
         private void FixedUpdate()
         {
@@ -144,7 +156,7 @@ namespace TheShadowFather.Player
             {
                 PerformDash();
             }
-            else if (!isAttacking)
+            else if (!isAttacking && !isUsingUntil)
             {
                 HandleMovement();
                 // HandleJump() đã được chuyển sang Update()
@@ -152,7 +164,6 @@ namespace TheShadowFather.Player
             ApplyBetterJumpPhysics();
             UpdateAnimator();
             // Khóa scale để animation không thay đổi
-            //transform.localScale = Vector3.one;
             transform.localScale = initialScale; // Ép về kích thước ban đầu thay vì Vector3.one
         }
         #region Input Handling
@@ -169,7 +180,7 @@ namespace TheShadowFather.Player
             // Input chạy
             isRunning = Keyboard.current.leftShiftKey.isPressed && Mathf.Abs(horizontalInput) > 0.1f;
             // Input nhảy — cho phép buffer khi:
-            //   a) Đang trên đất / coyote window (nhảy thư᨟ng)
+            //   a) Đang trên đất / coyote window (nhảy thường)
             //   b) Đang trên không và còn lượt air jump (double jump nhỏ)
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
             {
@@ -191,7 +202,7 @@ namespace TheShadowFather.Player
                 StartDash();
             }
             // Input attack
-            if (!isAttacking && !isDashing)
+            if (!isAttacking && !isDashing && !isUsingUntil)
             {
                 if (Keyboard.current.jKey.wasPressedThisFrame && attack1CooldownCounter <= 0f)
                 {
@@ -201,6 +212,16 @@ namespace TheShadowFather.Player
                 {
                     StartAttack(2);
                 }
+            }
+            // Input Until Skill (phím U) — Human, Fire, Frost, Demon
+            if (Keyboard.current.uKey.wasPressedThisFrame
+                && !isUsingUntil && !isAttacking && !isDashing
+                && untilCooldownCounter <= 0f
+                && (currentForm == PlayerFormState.Human
+                    || currentForm == PlayerFormState.HalfDemon
+                    || currentForm == PlayerFormState.Demon))
+            {
+                StartUntilSkill();
             }
         }
         /// <summary>
@@ -341,7 +362,7 @@ namespace TheShadowFather.Player
         #region Jump
         private void HandleJump()
         {
-            // Nhảy thư᨟ng từ mặt đất (có coyote time)
+            // Nhảy thường từ mặt đất (có coyote time)
             if (jumpBufferCounter > 0f && coyoteTimeCounter > 0f && canJump)
             {
                 PerformGroundJump();
@@ -356,7 +377,7 @@ namespace TheShadowFather.Player
                 coyoteTimeCounter = 0f;
             }
         }
-        /// <summary>Nhảy thư᨟ng từ mặt đất.</summary>
+        /// <summary>Nhảy thường từ mặt đất.</summary>
         private void PerformGroundJump()
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
@@ -365,7 +386,7 @@ namespace TheShadowFather.Player
             groundCheckCooldown = 0.15f;
             canJump = false;
             airJumpsRemaining = maxAirJumps; // Reset số lượt air jump
-            // --- THÊM ĐOẠN NÀY ĐỂ PHÁT ÂM THANH NHẢY ---
+            // --- PHÁT ÂM THANH NHẢY ---
             if (jumpSound != null && AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlaySFX(jumpSound);
@@ -385,10 +406,10 @@ namespace TheShadowFather.Player
             // Ngăn ground check bắt lỗi ngay sau khi double jump
             groundCheckCooldown = 0.1f;
             airJumpsRemaining--;
-            // --- THÊM ĐOẠN NÀY ĐỂ PHÁT ÂM THANH NHẢY (LẦN 2) ---
+            // --- PHÁT ÂM THANH NHẢY (LẦN 2) ---
             if (jumpSound != null && AudioManager.Instance != null)
             {
-                AudioManager.Instance.PlaySFX(jumpSound); // Dùng chung tiếng nhảy
+                AudioManager.Instance.PlaySFX(jumpSound);
             }
         }
         private void ApplyBetterJumpPhysics()
@@ -428,7 +449,7 @@ namespace TheShadowFather.Player
             isDashing = true;
             dashTimeCounter = dashDuration;
             dashCooldownCounter = dashCooldown;
-            // --- THÊM ĐOẠN NÀY ĐỂ PHÁT ÂM THANH LƯỚT ---
+            // --- PHÁT ÂM THANH LƯỚT ---
             if (dashSound != null && AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlaySFX(dashSound);
@@ -484,7 +505,6 @@ namespace TheShadowFather.Player
                     clipToPlay = humanSlashSound;
                     break;
                 case PlayerFormState.HalfDemon:
-                    // Phân biệt theo Element
                     if (currentElement == ElementType.Fire)
                         clipToPlay = fireSlashSound;
                     else if (currentElement == ElementType.Frost)
@@ -495,7 +515,6 @@ namespace TheShadowFather.Player
                     break;
             }
 
-            // Gọi qua AudioManager để phát
             if (clipToPlay != null && AudioManager.Instance != null)
             {
                 AudioManager.Instance.PlaySFX(clipToPlay);
@@ -526,6 +545,104 @@ namespace TheShadowFather.Player
                 {
                     Debug.LogWarning($"[ATTACK TIMEOUT] Force ending attack {currentAttack}!");
                     OnAttackAnimationEnd();
+                }
+            }
+        }
+        #endregion
+        #region Until Skill
+        private void StartUntilSkill()
+        {
+            isUsingUntil = true;
+            currentSpeed = 0f;
+            attackTimeoutCounter = ATTACK_TIMEOUT;
+            animator.SetTrigger(UntilHash);
+            untilCooldownCounter = untilCooldown;
+        }
+        /// <summary>
+        /// Animation Event — Gọi tại frame 7 của clip Until (mọi form).
+        /// Spawn projectile phù hợp với form hiện tại.
+        /// </summary>
+        public void OnUntilFireProjectile()
+        {
+            if (firePoint == null)
+            {
+                Debug.LogWarning("[UNTIL] Chưa gắn firePoint!");
+                return;
+            }
+
+            float direction = isFacingRight ? 1f : -1f;
+
+            if (currentForm == PlayerFormState.Demon)
+            {
+                // --- DEMON FORM: Hiệu ứng AoE toàn màn hình ---
+                if (demonUntilEffectPrefab == null)
+                {
+                    Debug.LogWarning("[UNTIL] Chưa gắn demonUntilEffectPrefab!");
+                    return;
+                }
+                Instantiate(demonUntilEffectPrefab, transform.position, Quaternion.identity);
+            }
+            else if (currentForm == PlayerFormState.HalfDemon && currentElement == ElementType.Fire)
+            {
+                // --- FIRE FORM: Spawn rồng lửa ---
+                if (fireUntilProjectilePrefab == null)
+                {
+                    Debug.LogWarning("[UNTIL] Chưa gắn fireUntilProjectilePrefab!");
+                    return;
+                }
+                GameObject proj = Instantiate(fireUntilProjectilePrefab, firePoint.position, Quaternion.identity);
+                FireDragonProjectile dragon = proj.GetComponent<FireDragonProjectile>();
+                if (dragon != null)
+                    dragon.Launch(direction);
+            }
+            else if (currentForm == PlayerFormState.HalfDemon && currentElement == ElementType.Frost)
+            {
+                // --- FROST FORM: Spawn lốc xoáy băng ---
+                if (frostUntilProjectilePrefab == null)
+                {
+                    Debug.LogWarning("[UNTIL] Chưa gắn frostUntilProjectilePrefab!");
+                    return;
+                }
+                GameObject proj = Instantiate(frostUntilProjectilePrefab, firePoint.position, Quaternion.identity);
+                FrostTornadoProjectile tornado = proj.GetComponent<FrostTornadoProjectile>();
+                if (tornado != null)
+                    tornado.Launch(direction);
+            }
+            else
+            {
+                // --- HUMAN FORM: Spawn lưỡi kiếm ---
+                if (untilProjectilePrefab == null)
+                {
+                    Debug.LogWarning("[UNTIL] Chưa gắn untilProjectilePrefab!");
+                    return;
+                }
+                GameObject proj = Instantiate(untilProjectilePrefab, firePoint.position, Quaternion.identity);
+                UntilProjectile bullet = proj.GetComponent<UntilProjectile>();
+                if (bullet != null)
+                    bullet.Launch(direction);
+            }
+        }
+        /// <summary>
+        /// Animation Event — Gọi tại frame cuối cùng của clip Human_Until.
+        /// </summary>
+        public void OnUntilAnimationEnd()
+        {
+            isUsingUntil = false;
+        }
+        private void UpdateUntilTimers()
+        {
+            if (untilCooldownCounter > 0f)
+            {
+                untilCooldownCounter -= Time.deltaTime;
+            }
+            // Safety timeout cho Until (dùng chung attackTimeoutCounter)
+            if (isUsingUntil)
+            {
+                attackTimeoutCounter -= Time.deltaTime;
+                if (attackTimeoutCounter <= 0f)
+                {
+                    Debug.LogWarning("[UNTIL TIMEOUT] Force ending Until skill!");
+                    OnUntilAnimationEnd();
                 }
             }
         }
@@ -561,10 +678,8 @@ namespace TheShadowFather.Player
             if (playerCollider != null)
             {
                 Bounds b = playerCollider.bounds;
-                // Điểm giữ a chân player = cạnh dưới của collider, lùi xuống 0.02 để chắc chắn chạm
                 return new Vector2(b.center.x, b.min.y - 0.02f);
             }
-            // Fallback nếu không tìm thấy collider: dùng Transform groundCheck
             if (groundCheck != null) return groundCheck.position;
             return (Vector2)transform.position + Vector2.down;
         }
@@ -638,7 +753,7 @@ namespace TheShadowFather.Player
         #region Debug
         private void OnDrawGizmosSelected()
         {
-            // Vẽ hộp ground check tự động tấi vị trí chân player
+            // Vẽ hộp ground check tự động tại vị trí chân player
             Vector2 pos;
             if (playerCollider != null)
             {

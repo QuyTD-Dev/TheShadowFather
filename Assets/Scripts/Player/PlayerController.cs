@@ -107,6 +107,8 @@ namespace TheShadowFather.Player
         private static readonly int Attack2Hash = Animator.StringToHash("Attack2");
         private static readonly int FormStateHash = Animator.StringToHash("FormState");
         private static readonly int ElementTypeHash = Animator.StringToHash("ElementType");
+        private Vector3 initialScale; // Thêm vào phần khai báo biến ở trên đầu class
+
         private void Awake()
         {
             rb = GetComponent<Rigidbody2D>();
@@ -118,6 +120,7 @@ namespace TheShadowFather.Player
             currentForm = startingForm;
             currentElement = startingElement;
             InitGroundCheck();
+            initialScale = transform.localScale; // Lưu lại kích thước bạn chỉnh trong Inspector
         }
         private void Start()
         {
@@ -149,7 +152,8 @@ namespace TheShadowFather.Player
             ApplyBetterJumpPhysics();
             UpdateAnimator();
             // Khóa scale để animation không thay đổi
-            transform.localScale = Vector3.one;
+            //transform.localScale = Vector3.one;
+            transform.localScale = initialScale; // Ép về kích thước ban đầu thay vì Vector3.one
         }
         #region Input Handling
         private void HandleInput()

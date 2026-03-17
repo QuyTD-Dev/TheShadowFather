@@ -5,9 +5,12 @@ public class EnemyAI : MonoBehaviour
     [Header("Cài đặt Debug")]
     public bool showLogs = true; // Tích vào đây để bật log, bỏ tích để tắt cho đỡ rối
 
-    [Header("Cài đặt chung")]
+    [Header("Cài đặt chung")]
     public Transform player;
     public float moveSpeed = 2f;
+
+    // THÊM: Biến lưu kích thước gốc để không bị biến dạng
+    private Vector3 originalScale;
 
     [Header("Phạm vi cảm biến")]
     public float chaseRange = 5f;
@@ -30,6 +33,9 @@ public class EnemyAI : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         startPosition = transform.position;
+
+        // LƯU KÍCH THƯỚC GỐC KHI VỪA VÀO GAME
+        originalScale = transform.localScale;
 
         if (showLogs) Debug.Log($"[START] Quái sinh ra tại: {startPosition}. Phạm vi tuần tra: {patrolDistance}m");
 
@@ -54,15 +60,15 @@ public class EnemyAI : MonoBehaviour
 
         distanceToPlayer = Vector2.Distance(transform.position, player.position);
 
-        // Log khoảng cách mỗi 60 frame (để đỡ spam console)
-        if (showLogs && Time.frameCount % 60 == 0)
+        // Log khoảng cách mỗi 60 frame (để đỡ spam console)
+        if (showLogs && Time.frameCount % 60 == 0)
             Debug.Log($"[UPDATE] Khoảng cách tới Player: {distanceToPlayer:F2}m");
 
         if (isAttacking) return;
 
-        // --- LOGIC HÀNH VI ---
+        // --- LOGIC HÀNH VI ---
 
-        if (distanceToPlayer <= attackRange)
+        if (distanceToPlayer <= attackRange)
         {
             if (showLogs && Time.frameCount % 60 == 0) Debug.Log("-> Trạng thái: TẤN CÔNG");
             AttackPlayer();
@@ -74,8 +80,8 @@ public class EnemyAI : MonoBehaviour
         }
         else
         {
-            // Chỉ log Patrol khi chuyển hướng để đỡ spam
-            Patrol();
+            // Chỉ log Patrol khi chuyển hướng để đỡ spam
+            Patrol();
         }
     }
 
@@ -89,12 +95,14 @@ public class EnemyAI : MonoBehaviour
         {
             targetX = startPosition.x + patrolDistance;
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetX, transform.position.y), moveSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(1, 1, 1);
+            //transform.localScale = new Vector3(1, 1, 1);
+            // SỬA: Giữ nguyên size Y, Z, chỉ ép X thành số dương
+            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
 
-            // Log vị trí khi đi tuần
-            // if (showLogs) Debug.Log($"[PATROL] Đang đi sang PHẢI. Vị trí: {transform.position.x:F2} / Mục tiêu: {targetX}");
+            // Log vị trí khi đi tuần
+            // if (showLogs) Debug.Log($"[PATROL] Đang đi sang PHẢI. Vị trí: {transform.position.x:F2} / Mục tiêu: {targetX}");
 
-            if (transform.position.x >= targetX - 0.1f)
+            if (transform.position.x >= targetX - 0.1f)
             {
                 isMovingRight = false;
                 if (showLogs) Debug.Log($"[PATROL] Đã chạm biên PHẢI ({transform.position.x:F2}). Quay đầu sang TRÁI.");
@@ -104,11 +112,13 @@ public class EnemyAI : MonoBehaviour
         {
             targetX = startPosition.x - patrolDistance;
             transform.position = Vector2.MoveTowards(transform.position, new Vector2(targetX, transform.position.y), moveSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(-1, 1, 1);
+            //transform.localScale = new Vector3(-1, 1, 1);
+            // SỬA: Giữ nguyên size Y, Z, chỉ ép X thành số âm
+            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z);
 
-            // if (showLogs) Debug.Log($"[PATROL] Đang đi sang TRÁI. Vị trí: {transform.position.x:F2} / Mục tiêu: {targetX}");
+            // if (showLogs) Debug.Log($"[PATROL] Đang đi sang TRÁI. Vị trí: {transform.position.x:F2} / Mục tiêu: {targetX}");
 
-            if (transform.position.x <= targetX + 0.1f)
+            if (transform.position.x <= targetX + 0.1f)
             {
                 isMovingRight = true;
                 if (showLogs) Debug.Log($"[PATROL] Đã chạm biên TRÁI ({transform.position.x:F2}). Quay đầu sang PHẢI.");
@@ -118,9 +128,18 @@ public class EnemyAI : MonoBehaviour
 
     void ChasePlayer()
     {
-        // Quay mặt
-        if (transform.position.x < player.position.x) transform.localScale = new Vector3(1, 1, 1);
-        else transform.localScale = new Vector3(-1, 1, 1);
+        // Quay mặt
+        //if (transform.position.x < player.position.x) transform.localScale = new Vector3(1, 1, 1);
+        //else transform.localScale = new Vector3(-1, 1, 1);
+        // SỬA: Lật mặt dùng originalScale
+        if (transform.position.x < player.position.x)
+        {
+            transform.localScale = new Vector3(Mathf.Abs(originalScale.x), originalScale.y, originalScale.z); // Quay Phải
+        }
+        else
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(originalScale.x), originalScale.y, originalScale.z); // Quay Trái
+        }
 
         Vector2 targetPosition = new Vector2(player.position.x, transform.position.y);
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
@@ -131,9 +150,9 @@ public class EnemyAI : MonoBehaviour
     {
         if (Time.time - lastAttackTime < attackCooldown)
         {
-            // Log lý do chưa đánh
-            // if (showLogs) Debug.Log($"[ATTACK] Đang hồi chiêu... Còn {attackCooldown - (Time.time - lastAttackTime):F1}s");
-            anim.SetFloat("Speed", 0f);
+            // Log lý do chưa đánh
+            // if (showLogs) Debug.Log($"[ATTACK] Đang hồi chiêu... Còn {attackCooldown - (Time.time - lastAttackTime):F1}s");
+            anim.SetFloat("Speed", 0f);
             return;
         }
 
@@ -154,20 +173,20 @@ public class EnemyAI : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        // Vẽ phạm vi phát hiện
-        Gizmos.color = Color.yellow;
+        // Vẽ phạm vi phát hiện
+        Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, chaseRange);
 
-        // Vẽ phạm vi đánh
-        Gizmos.color = Color.red;
+        // Vẽ phạm vi đánh
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        // Vẽ phạm vi TUẦN TRA (Màu xanh lá) - Chỉ vẽ khi game đang chạy (vì cần startPosition)
-        if (Application.isPlaying)
+        // Vẽ phạm vi TUẦN TRA (Màu xanh lá) - Chỉ vẽ khi game đang chạy (vì cần startPosition)
+        if (Application.isPlaying)
         {
             Gizmos.color = Color.green;
             Gizmos.DrawLine(new Vector3(startPosition.x - patrolDistance, startPosition.y, 0),
-                            new Vector3(startPosition.x + patrolDistance, startPosition.y, 0));
+                    new Vector3(startPosition.x + patrolDistance, startPosition.y, 0));
         }
     }
 }

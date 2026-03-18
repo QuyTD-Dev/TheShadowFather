@@ -7,6 +7,7 @@ public class Boss3Controller : MonoBehaviour
     public Animator anim;
     public Transform player;
     private Rigidbody2D rb;
+    private Collider2D[] bossColliders;
 
     [Header("Hệ thống Máu & Phase")]
     public int maxHp = 1000;
@@ -16,28 +17,29 @@ public class Boss3Controller : MonoBehaviour
     private int phase2Threshold;
     private int phase3Threshold;
 
-    [Header("Cài đặt Phase 1 & 3")]
+    // CỜ ĐÁNH DẤU CHỐNG NHẢY PHASE
+    private bool isPhase2Triggered = false;
+    private bool isPhase3Triggered = false;
+
+    [Header("Cài đặt Phase 1")]
     public float meleeRange = 4.0f;
     public float attackCooldown = 3.0f;
-
-    [Header("Vũ khí & Sát thương")]
     public Transform firePoint;
     public GameObject bulletPrefab;
     public GameObject meleeHitbox;
-
-    [Header("Đồng bộ Hoạt ảnh Ground")]
     public float shootDelay = 0.5f;
     public float meleeDelay = 0.4f;
     public float meleeDuration = 0.2f;
 
     [Header("Cài đặt Phase 2 (Trên Không)")]
     public Transform aerialFlyPoint;
-    public float takeoffSpeed = 5f;
+    public float takeoffSpeed = 8f;
     public float aerialAttackCooldown = 2.0f;
 
-    [Header("Cài đặt Phase 3 (Bẫy Lửa)")]
-    // Kéo các object FireTrap trên map vào mảng này trong Inspector
+    [Header("Cài đặt Phase 3 (Bẫy Lửa & Cuồng Nộ)")]
     public FireTrap[] fireTraps;
+    public float enragedAttackCooldown = 1.5f;
+    public float enragedRoarCooldown = 5f;
 
     public enum BossState { Idle, Attacking, Transitioning, Flying, Dead }
     public BossState currentState = BossState.Idle;
@@ -46,11 +48,8 @@ public class Boss3Controller : MonoBehaviour
     private float roarTimer = 10f;
     private float aerialAttackTimer;
 
-    // Biến lưu trữ Coroutine để có thể Stop chúng khi đổi Phase đột ngột
     private Coroutine currentAttackRoutine;
     private Coroutine flyRoutine;
-
-    // Lưu trữ thông số Vật lý gốc
     private float originalGravity;
     private RigidbodyType2D originalBodyType;
 
@@ -58,11 +57,12 @@ public class Boss3Controller : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        bossColliders = GetComponents<Collider2D>();
 
         if (rb != null)
         {
             originalGravity = rb.gravityScale;
-            originalBodyType = rb.bodyType; // Lưu lại kiểu Body (thường là Dynamic)
+            originalBodyType = rb.bodyType;
         }
 
         if (player == null)
@@ -73,33 +73,26 @@ public class Boss3Controller : MonoBehaviour
 
         if (meleeHitbox != null) meleeHitbox.SetActive(false);
 
+        // Chốt cứng thông số
         currentHp = maxHp;
-        phase2Threshold = (int)(maxHp * 0.7f); // 70%
-        phase3Threshold = (int)(maxHp * 0.4f); // 40%
+        phase2Threshold = 700;
+        phase3Threshold = 400;
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.T)) TakeDamage(100);
+        if (Input.GetKeyDown(KeyCode.Y)) TakeDamageFromMinion(100);
+
         if (currentState == BossState.Dead || player == null) return;
 
         CheckPhaseTransition();
 
-        // Bấm T để trừ máu test (chỉ có tác dụng ở Phase 1 và 3)
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(100);
-        }
-
-        // Bấm Y để giả lập quái nhỏ chết, trừ máu Boss ở Phase 2
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            TakeDamageFromMinion(100);
-        }
-
         switch (currentState)
         {
             case BossState.Idle:
-                if (currentPhase != BossPhase.Phase2) GroundCombatLogic();
+                if (currentPhase == BossPhase.Phase1) GroundCombatLogic();
+                else if (currentPhase == BossPhase.Phase3) EnragedGroundCombatLogic();
                 break;
 
             case BossState.Attacking:
@@ -112,7 +105,6 @@ public class Boss3Controller : MonoBehaviour
                 break;
 
             case BossState.Transitioning:
-                // Đang bay lên, không chạy AI
                 break;
         }
     }
@@ -149,7 +141,6 @@ public class Boss3Controller : MonoBehaviour
     void AerialCombatLogic()
     {
         LookAtPlayer();
-
         if (aerialAttackTimer > 0)
         {
             aerialAttackTimer -= Time.deltaTime;
@@ -159,18 +150,49 @@ public class Boss3Controller : MonoBehaviour
             anim.SetTrigger("FlyingAttack");
             currentAttackRoutine = StartCoroutine(ShootRoutine());
             aerialAttackTimer = aerialAttackCooldown;
-            Debug.Log("Boss bắn tỉa từ trên không!");
         }
     }
 
-    // Đòn đánh của Player gọi vào hàm này (Bất tử ở Phase 2)
+    void EnragedGroundCombatLogic()
+    {
+        roarTimer -= Time.deltaTime;
+        LookAtPlayer();
+        float distance = Vector2.Distance(transform.position, player.position);
+
+        if (distance <= meleeRange)
+        {
+            anim.SetTrigger("Melee");
+            ChangeState(BossState.Attacking, enragedAttackCooldown);
+            currentAttackRoutine = StartCoroutine(MeleeAttackRoutine());
+        }
+        else
+        {
+            if (roarTimer <= 0)
+            {
+                anim.SetTrigger("Roar");
+                ChangeState(BossState.Attacking, enragedAttackCooldown + 1f);
+                roarTimer = enragedRoarCooldown;
+            }
+            else
+            {
+                anim.SetTrigger("Ranged");
+                ChangeState(BossState.Attacking, enragedAttackCooldown);
+                currentAttackRoutine = StartCoroutine(EnragedShootRoutine());
+            }
+        }
+    }
+
     public void TakeDamage(int damageAmount)
     {
-        if (currentState == BossState.Dead || currentPhase == BossPhase.Phase2) return;
+        // Nhắc nhở: Đòn đánh thường vô hiệu hóa trong Phase 2!
+        if (currentState == BossState.Dead || currentPhase == BossPhase.Phase2)
+        {
+            Debug.Log("Boss đang ở Phase 2 (trên không), miễn nhiễm đòn đánh thường!");
+            return;
+        }
         ApplyDamage(damageAmount);
     }
 
-    // Quái nhỏ dưới đất khi chết sẽ gọi hàm này (Được phép trừ máu ở Phase 2)
     public void TakeDamageFromMinion(int damageAmount)
     {
         if (currentState == BossState.Dead) return;
@@ -180,32 +202,38 @@ public class Boss3Controller : MonoBehaviour
     private void ApplyDamage(int amount)
     {
         currentHp -= amount;
-        Debug.Log("Boss HP: " + currentHp);
+        Debug.Log(">>> Boss bị đánh! Máu còn: " + currentHp);
         if (currentHp <= 0) Die();
     }
 
+    // ==================== HỆ THỐNG CHUYỂN PHASE (ĐÃ SỬA LỖI) ====================
+
     void CheckPhaseTransition()
     {
-        if (currentPhase == BossPhase.Phase1 && currentHp <= phase2Threshold)
+        // 1. Kiểm tra Phase 3 TRƯỚC TIÊN (Ưu tiên cao nhất, cắt đứt mọi logic)
+        if (currentHp <= phase3Threshold && !isPhase3Triggered)
         {
-            StartPhase2Transition();
-        }
-        else if (currentPhase == BossPhase.Phase2 && currentHp <= phase3Threshold)
-        {
+            isPhase3Triggered = true;
             StartPhase3Transition();
+            return; // Dừng hàm tại đây, chắc chắn không kiểm tra các điều kiện bên dưới nữa
+        }
+
+        // 2. Kiểm tra độc lập Phase 2
+        if (currentHp <= phase2Threshold && currentHp > phase3Threshold && !isPhase2Triggered)
+        {
+            isPhase2Triggered = true;
+            StartPhase2Transition();
         }
     }
 
     void StartPhase2Transition()
     {
-        Debug.Log("<color=magenta>PHASE 2 BẮT ĐẦU: XÓA TRỌNG LỰC & CẤT CÁNH!</color>");
+        Debug.Log("<color=magenta>KÍCH HOẠT PHASE 2: CẤT CÁNH!</color>");
         currentPhase = BossPhase.Phase2;
 
-        // Dừng ngay lập tức các đòn đánh đang dang dở
         if (currentAttackRoutine != null) StopCoroutine(currentAttackRoutine);
         if (meleeHitbox != null) meleeHitbox.SetActive(false);
 
-        // Chuyển Vật Lý sang Kinematic để loại bỏ hoàn toàn cản trở từ môi trường
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
@@ -213,70 +241,80 @@ public class Boss3Controller : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Kinematic;
         }
 
+        foreach (Collider2D col in bossColliders)
+            if (col != null) col.enabled = false;
+
         anim.SetTrigger("TakeOff");
         anim.SetBool("IsFlying", true);
-
         ChangeState(BossState.Transitioning, 0f);
 
-        // Quản lý tiến trình bay để có thể hủy nếu đổi phase
         if (flyRoutine != null) StopCoroutine(flyRoutine);
         flyRoutine = StartCoroutine(FlyUpToStationRoutine());
     }
 
     IEnumerator FlyUpToStationRoutine()
     {
-        if (aerialFlyPoint == null)
-        {
-            Debug.LogError("Chưa gán điểm FlyPoint_Phase2!");
-            yield break;
-        }
+        if (takeoffSpeed <= 0f) takeoffSpeed = 8f;
+        Vector3 targetPos = (aerialFlyPoint != null) ?
+            new Vector3(aerialFlyPoint.position.x, aerialFlyPoint.position.y, transform.position.z) :
+            transform.position + new Vector3(0, 5f, 0);
 
         yield return new WaitForSeconds(0.5f);
 
-        while (Vector3.Distance(transform.position, aerialFlyPoint.position) > 0.1f)
+        while (Vector3.Distance(transform.position, targetPos) > 0.1f)
         {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                aerialFlyPoint.position,
-                takeoffSpeed * Time.deltaTime
-            );
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, takeoffSpeed * Time.deltaTime);
             yield return null;
         }
 
-        transform.position = aerialFlyPoint.position;
+        transform.position = targetPos;
         ChangeState(BossState.Flying, 0f);
         aerialAttackTimer = 1f;
-        Debug.Log("Đã lơ lửng thành công!");
+        Debug.Log("<color=magenta>ĐĐA ĐẠT ĐỘ CAO PHASE 2!</color>");
     }
 
     void StartPhase3Transition()
     {
-        Debug.Log("<color=red>PHASE 3 BẮT ĐẦU: TRẢ LẠI VẬT LÝ, RƠI XUỐNG VÀ BẬT BẪY!</color>");
+        Debug.Log("<color=red>KÍCH HOẠT PHASE 3: RƠI XUỐNG VÀ BẬT BẪY!</color>");
+
+        // Gán trạng thái ngay lập tức
         currentPhase = BossPhase.Phase3;
 
-        // BẮT BUỘC: Dừng tiến trình bay nếu nó vẫn đang chạy
+        // 1. Dừng ngay lập tức các hành động trên không
         if (currentAttackRoutine != null) StopCoroutine(currentAttackRoutine);
         if (flyRoutine != null) StopCoroutine(flyRoutine);
 
+        // 2. Xử lý Animator an toàn
+        anim.ResetTrigger("FlyingAttack");
         anim.SetBool("IsFlying", false);
 
-        // Trả lại Vật lý như cũ để Boss rơi bịch xuống đất
+        // 3. Phục hồi vật lý để Boss rơi xuống đất
         if (rb != null)
         {
-            rb.bodyType = originalBodyType; // Trả lại Dynamic
-            rb.gravityScale = originalGravity; // Trả lại trọng lực
+            rb.linearVelocity = Vector2.zero;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = (originalGravity > 0) ? originalGravity : 3f;
         }
 
-        // Kích hoạt bẫy
+        foreach (Collider2D col in bossColliders)
+            if (col != null) col.enabled = true;
+
+        StartCoroutine(Phase3DelayTrapRoutine());
+    }
+
+    IEnumerator Phase3DelayTrapRoutine()
+    {
+        ChangeState(BossState.Transitioning, 0f);
+        yield return new WaitForSeconds(1.5f);
+
+        Debug.Log("<color=red>BOSS ĐÃ CHẠM ĐẤT - MƯA BOM BẮT ĐẦU!</color>");
         if (fireTraps != null)
         {
             foreach (FireTrap trap in fireTraps)
-            {
                 if (trap != null) trap.ActivateTrap();
-            }
         }
 
-        ChangeState(BossState.Idle, 1f); // Reset về Idle để kích hoạt lại GroundCombatLogic
+        ChangeState(BossState.Idle, 1f);
     }
 
     void LookAtPlayer()
@@ -291,7 +329,16 @@ public class Boss3Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(shootDelay);
         if (firePoint != null && bulletPrefab != null)
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    IEnumerator EnragedShootRoutine()
+    {
+        yield return new WaitForSeconds(shootDelay / 2);
+        if (firePoint != null && bulletPrefab != null)
         {
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+            yield return new WaitForSeconds(0.2f);
             Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         }
     }
@@ -321,19 +368,19 @@ public class Boss3Controller : MonoBehaviour
 
         if (rb != null)
         {
-            rb.bodyType = originalBodyType;
-            rb.gravityScale = originalGravity;
+            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.gravityScale = (originalGravity > 0) ? originalGravity : 3f;
         }
 
-        // Tắt bẫy khi Boss chết
+        foreach (Collider2D col in bossColliders)
+            if (col != null) col.enabled = true;
+
         if (fireTraps != null)
         {
             foreach (FireTrap trap in fireTraps)
-            {
                 if (trap != null) trap.DeactivateTrap();
-            }
         }
 
-        Debug.Log("Boss đã bị tiêu diệt!");
+        Debug.Log("BOSS BỊ TIÊU DIỆT TẬN GỐC!");
     }
 }

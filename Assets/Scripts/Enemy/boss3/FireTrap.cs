@@ -8,13 +8,15 @@ public class FireTrap : MonoBehaviour
     public float dropInterval = 2f;
 
     private Coroutine dropRoutine;
-    private Animator anim; // Tùy chọn để rung lắc bẫy trước khi rớt
+    private Animator anim;
 
+    // BỎ TRỐNG hàm Start, KHÔNG ĐƯỢC gọi thả bom ở đây
     void Start()
     {
         anim = GetComponent<Animator>();
     }
 
+    // Hàm này chỉ được gọi bởi Boss khi đã sang Phase 3
     public void ActivateTrap()
     {
         if (dropRoutine == null)
@@ -34,14 +36,17 @@ public class FireTrap : MonoBehaviour
 
     IEnumerator DropBombRoutine()
     {
-        // Đợi chênh lệch một chút để các bẫy không rớt đạn cùng một lúc
+        // Random một chút để các bẫy không rớt cùng 1 nhịp
         yield return new WaitForSeconds(Random.Range(0f, 1f));
 
         while (true)
         {
-            if (anim != null) anim.SetTrigger("Drop"); // Gọi animation Ceilling Trap
+            if (anim != null) anim.SetTrigger("Drop");
 
-            Instantiate(bombPrefab, dropPoint.position, Quaternion.identity);
+            if (bombPrefab != null && dropPoint != null)
+            {
+                Instantiate(bombPrefab, dropPoint.position, Quaternion.identity);
+            }
             yield return new WaitForSeconds(dropInterval);
         }
     }

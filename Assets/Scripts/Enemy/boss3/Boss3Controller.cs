@@ -1,164 +1,146 @@
 using UnityEngine;
+using System.Collections;
 
 public class Boss3Controller : MonoBehaviour
 {
-    private Animator anim;
+    [Header("Tham chiếu cơ bản")]
+    public Animator anim;
+    public Transform player;
 
-    // 1. Định nghĩa các trạng thái của Boss
-    public enum BossState { Idle, Attacking, TakeOff, Flying, FlyingAttack, Dead }
+    [Header("Cài đặt Phase 1")]
+    public float meleeRange = 2.5f;
+    public float attackCooldown = 3.0f;
+
+    [Header("Vũ khí & Sát thương")]
+    public Transform firePoint;
+    public GameObject bulletPrefab;
+    public GameObject meleeHitbox;
+
+    [Header("Đồng bộ Hoạt ảnh")]
+    public float shootDelay = 0.5f;
+    public float meleeDelay = 0.4f;
+    public float meleeDuration = 0.2f;
+
+    public enum BossState { Idle, Attacking, Dead }
     public BossState currentState = BossState.Idle;
 
-    [Header("Cài đặt AI")]
-    public Transform player; // Kéo thả nhân vật người chơi vào đây trong Inspector
-    public float meleeRange = 2.5f; // Khoảng cách chém trúng
-    public float attackCooldown = 2.5f; // Thời gian nghỉ giữa 2 đòn đánh
-
-    private float stateTimer = 0f;
-    private int maxHp = 100;
-    private int currentHp;
-    private bool isPhase2 = false;
+    // Đã sửa: Cho Boss thời gian chờ 1 giây khi mới vào game
+    private float stateTimer = 1.0f;
+    private float roarTimer = 10f;
 
     void Start()
     {
         anim = GetComponent<Animator>();
-        currentHp = maxHp;
 
-        // Nếu quên chưa kéo Player vào Inspector, code sẽ tự tìm object có tag "Player"
         if (player == null)
         {
             GameObject p = GameObject.FindGameObjectWithTag("Player");
             if (p != null) player = p.transform;
+            else Debug.LogError("LỖI: Không tìm thấy Player! Hãy kiểm tra lại Tag của nhân vật.");
         }
+
+        if (meleeHitbox != null) meleeHitbox.SetActive(false);
     }
 
     void Update()
     {
-        // Nếu sếp đã "tạch" thì không làm gì nữa
-        if (currentState == BossState.Dead) return;
+        if (currentState == BossState.Dead || player == null) return;
 
-        // Bộ đếm thời gian lùi dần cho các trạng thái
+        roarTimer -= Time.deltaTime;
+
+        // BỘ NÃO FSM (Đã sửa lỗi vòng lặp)
         if (stateTimer > 0)
         {
             stateTimer -= Time.deltaTime;
         }
-
-        // 2. Vòng lặp State Machine (Bộ não chính)
-        switch (currentState)
+        else
         {
-            case BossState.Idle:
-                // Nếu hết thời gian chờ, bắt đầu ra quyết định đánh
-                if (stateTimer <= 0)
-                {
+            // Tự động phân luồng theo trạng thái hiện tại
+            switch (currentState)
+            {
+                case BossState.Idle:
+                    // Rảnh rỗi -> Bắt đầu suy nghĩ và ra đòn
                     DecideNextAction();
-                }
-                break;
+                    break;
 
-            case BossState.Attacking:
-                // Diễn xong hoạt ảnh đánh dưới đất -> Quay về chờ
-                if (stateTimer <= 0)
-                {
-                    ChangeState(BossState.Idle, attackCooldown);
-                }
-                break;
-
-            case BossState.TakeOff:
-                // Diễn xong hoạt ảnh cất cánh -> Chuyển sang lơ lửng
-                if (stateTimer <= 0)
-                {
-                    ChangeState(BossState.Flying, attackCooldown);
-                }
-                break;
-
-            case BossState.Flying:
-                // Đang bay lơ lửng, hết thời gian chờ -> Lao xuống đánh
-                if (stateTimer <= 0)
-                {
-                    anim.SetTrigger("FlyingAttack");
-                    ChangeState(BossState.FlyingAttack, 1.5f); // 1.5s là thời gian skill bay chém
-                }
-                break;
-
-            case BossState.FlyingAttack:
-                // Đánh trên không xong -> Quay về lơ lửng
-                if (stateTimer <= 0)
-                {
-                    ChangeState(BossState.Flying, attackCooldown);
-                }
-                break;
+                case BossState.Attacking:
+                    // Đánh xong (Hết thời gian cooldown) -> Quay lại trạng thái Idle để đánh tiếp
+                    ChangeState(BossState.Idle, 0f);
+                    break;
+            }
         }
     }
 
-    // 3. Hàm suy nghĩ: Boss sẽ làm gì tiếp theo?
     void DecideNextAction()
     {
-        if (player == null) return;
+        LookAtPlayer();
 
-        // Đo khoảng cách giữa Boss và Player
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+        float distance = Vector2.Distance(transform.position, player.position);
 
-        // Chuyển Phase 2 nếu máu dưới 50% và chưa bay
-        if (currentHp <= maxHp / 2 && !isPhase2)
+        // IN RA CONSOLE ĐỂ KIỂM TRA
+        Debug.Log("Boss 3 đang đo khoảng cách: " + distance + " | Tầm đánh gần là: " + meleeRange);
+
+        if (distance <= meleeRange)
         {
-            isPhase2 = true;
-            anim.SetTrigger("TakeOff");
-            anim.SetBool("IsFlying", true);
-            ChangeState(BossState.TakeOff, 1.2f); // Chờ 1.2s cho hoạt ảnh cất cánh diễn xong
-            return;
-        }
-
-        // Nếu Player đứng quá gần -> Chém cận chiến
-        if (distanceToPlayer <= meleeRange)
-        {
+            Debug.Log("==> KẾT LUẬN: ĐÁNH GẦN (MELEE)");
             anim.SetTrigger("Melee");
-            ChangeState(BossState.Attacking, 1.0f); // 1.0s là thời gian hoạt ảnh chém
+            ChangeState(BossState.Attacking, attackCooldown);
+            StartCoroutine(MeleeAttackRoutine());
         }
         else
         {
-            // Nếu ở xa -> Tỉ lệ 70% bắn xa, 30% gầm thét
-            int randomSkill = Random.Range(0, 100);
-            if (randomSkill < 70)
+            if (roarTimer <= 0)
             {
-                anim.SetTrigger("Ranged");
-                ChangeState(BossState.Attacking, 1.2f);
+                Debug.Log("==> KẾT LUẬN: GẦM THÉT (ROAR)");
+                anim.SetTrigger("Roar");
+                ChangeState(BossState.Attacking, attackCooldown + 1f);
+                roarTimer = 10f;
             }
             else
             {
-                anim.SetTrigger("Roar");
-                ChangeState(BossState.Attacking, 2.0f);
+                Debug.Log("==> KẾT LUẬN: BẮN XA (RANGED)");
+                anim.SetTrigger("Ranged");
+                ChangeState(BossState.Attacking, attackCooldown);
+                StartCoroutine(ShootRoutine());
             }
         }
     }
 
-    // Hàm tiện ích để chuyển trạng thái và set luôn thời gian chờ
+    void LookAtPlayer()
+    {
+        if (player.position.x > transform.position.x)
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        else
+            transform.eulerAngles = new Vector3(0, 180, 0);
+    }
+
+    IEnumerator ShootRoutine()
+    {
+        yield return new WaitForSeconds(shootDelay);
+
+        if (firePoint != null && bulletPrefab != null)
+        {
+            Debug.Log("Phóng đạn!");
+            Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
+    }
+
+    IEnumerator MeleeAttackRoutine()
+    {
+        yield return new WaitForSeconds(meleeDelay);
+
+        if (meleeHitbox != null)
+        {
+            Debug.Log("Bật sát thương lưỡi hái!");
+            meleeHitbox.SetActive(true);
+            yield return new WaitForSeconds(meleeDuration);
+            meleeHitbox.SetActive(false);
+        }
+    }
+
     void ChangeState(BossState newState, float waitTime)
     {
         currentState = newState;
         stateTimer = waitTime;
-    }
-
-    // 4. Hàm nhận sát thương (Gọi từ vũ khí của Player)
-    public void TakeDamage(int damage)
-    {
-        if (currentState == BossState.Dead) return;
-
-        currentHp -= damage;
-
-        if (currentHp <= 0)
-        {
-            Die();
-        }
-    }
-
-    void Die()
-    {
-        ChangeState(BossState.Dead, 0f);
-        anim.SetTrigger("Die");
-        anim.SetBool("IsFlying", false); // Rớt xuống đất nếu đang bay
-
-        // Disable collider chặn đường để Player đi qua
-        Collider2D col = GetComponent<Collider2D>();
-        if (col != null) col.enabled = false;
-
-        Debug.Log("Boss 3 Night Lord đã bị tiêu diệt!");
     }
 }

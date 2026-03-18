@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
     [Header("Scene Names")]
-    public string firstSceneName = "IntroVideo";
+    public string firstSceneName = "StarterVillage";
     public string tutorialSceneName = "Tutorial";
 
     public void PlayGame()

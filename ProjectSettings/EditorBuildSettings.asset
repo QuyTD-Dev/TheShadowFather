@@ -12,8 +12,23 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: a5e91abfa1906354fa9604f45a500fe6
   - enabled: 1
+    path: Assets/Scenes/StarterVillage.unity
+    guid: 60b672bb732d5ba4db4a567239eaaece
+  - enabled: 1
     path: Assets/Scenes/IntroVideo/IntroVideo.unity
     guid: 6b78d8768511e154c933dad23b278bf1
+  - enabled: 1
+    path: Assets/Scenes/Map/Map1.unity
+    guid: a947bda3454e1b44eaa0cd836978e32b
+  - enabled: 1
+    path: Assets/Scenes/Map/Map2.unity
+    guid: ca5242d13103afb46a461c650650835f
+  - enabled: 1
+    path: Assets/Scenes/Map/Map3.unity
+    guid: ace54a141e2d2c940ba261f7b6624a32
+  - enabled: 1
+    path: Assets/Scenes/AriaHouse.unity
+    guid: d0ad60effa285ca4f9b239d4feefa91c
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 9bfe54e33c9797048a58c7d26e80c7b7

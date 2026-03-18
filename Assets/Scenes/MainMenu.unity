@@ -634,7 +634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa6e3e06eb70cc45bd798ebc1e628f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
-  firstSceneName: IntroVideo
+  firstSceneName: StarterVillage
   tutorialSceneName: Tutorial
 --- !u!4 &315650679
 Transform:

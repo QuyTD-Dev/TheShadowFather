@@ -45,8 +45,8 @@ public class EnemyHealthBar : MonoBehaviour
         mainCamera = Camera.main;
 
         // Ẩn ban đầu nếu cần
-        if (hideWhenFull && canvas != null)
-            canvas.enabled = false;
+        //if (hideWhenFull && canvas != null)
+        //    canvas.enabled = false;
     }
 
     private void LateUpdate()

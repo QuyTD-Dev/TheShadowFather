@@ -9,8 +9,8 @@ public class WolfAI : MonoBehaviour
     public float waitTime = 2f;
 
     [Header("Cài Đặt Chiến Đấu")]
-    public float attackRange = 2.5f;
-    public float stopDistance = 1.8f;
+    public float attackRange = 5f;
+    public float stopDistance = 2.5f;
     public float attackCooldown = 1.5f;
 
     private Animator anim;
@@ -19,8 +19,12 @@ public class WolfAI : MonoBehaviour
     private Vector3 targetPoint;
 
     private bool isMovingRight = true;
-    private bool isWaitingAtPatrolPoint = false; // Đổi tên biến cho rõ nghĩa
-    private float lastAttackTime = -999f;
+    private bool isWaiting = false;
+    private bool isDead = false;
+    private float nextAttackTime = 0f;
+
+    // Biến mới giúp quản lý trạng thái mượt mà hơn
+    private bool isChasing = false;
 
     void Start()
     {
@@ -30,90 +34,111 @@ public class WolfAI : MonoBehaviour
         FindPlayer();
     }
 
+    void FindPlayer()
+    {
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null)
+        {
+            player = p.transform;
+            // BƯỚC ĐIỀU TRA 1: In ra màn hình xem Sói đang nhắm vào ai?
+            Debug.Log("⚠️ Sói đã tìm thấy mục tiêu mang Tag Player tên là: " + p.name);
+        }
+    }
+
     void Update()
     {
-        if (player == null) FindPlayer();
+        if (isDead) return;
 
-        float distanceToPlayer = 9999f;
-        if (player != null) distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        // --- MÁY TRẠNG THÁI ---
-
-        // 1. TRẠNG THÁI TẤN CÔNG
-        if (player != null && distanceToPlayer <= attackRange)
+        if (player == null)
         {
-            // Reset trạng thái tuần tra để tránh lỗi kẹt khi quay lại
-            isWaitingAtPatrolPoint = false;
-            AttackBehavior(distanceToPlayer);
+            FindPlayer();
+            return;
         }
-        // 2. TRẠNG THÁI TUẦN TRA
+
+        // BƯỚC ĐIỀU TRA 2: Tách biệt hẳn trục X và Y để Sói không bị mù khi Player nhảy/đứng trên dốc
+        float distanceX = Mathf.Abs(player.position.x - transform.position.x);
+        float distanceY = Mathf.Abs(player.position.y - transform.position.y);
+
+        // NẾU PLAYER TRONG TẦM NGANG VÀ KHÔNG BỊ BAY QUÁ CAO (Sai số chiều cao 3.0f)
+        if (distanceX <= attackRange && distanceY <= 3.0f)
+        {
+            if (!isChasing)
+            {
+                isChasing = true;
+                isWaiting = false;
+                StopAllCoroutines();
+                Debug.Log("🐺 BẮT ĐẦU RƯỢT ĐUỔI: " + player.name); // Báo hiệu đã nhìn thấy
+            }
+            EngagePlayer(distanceX);
+        }
         else
         {
+            if (isChasing)
+            {
+                isChasing = false;
+                CalculateTargetPoint(); // Mất dấu -> làm lại điểm tuần tra
+                Debug.Log("🐺 MẤT DẤU MỤC TIÊU -> QUAY VỀ TUẦN TRA");
+            }
             PatrolBehavior();
         }
     }
 
-    void FindPlayer()
+    void EngagePlayer(float distanceX)
     {
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
-        if (p != null) player = p.transform;
+        FacePlayer();
+
+        // Nếu sói rượt mà không cắn, hãy BỎ DẤU // ở dòng dưới để xem Sói tính khoảng cách bị sai số bao nhiêu:
+        // Debug.Log($"Đang áp sát... Khoảng cách X hiện tại: {distanceX} | Yêu cầu cắn <= {stopDistance}");
+
+        if (distanceX > stopDistance)
+        {
+            // Vẫn còn xa -> CHẠY ĐẾN
+            anim.SetBool("IsPatrolling", true);
+            Vector2 targetPos = new Vector2(player.position.x, transform.position.y);
+            transform.position = Vector2.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // ÁP SÁT -> CẮN NGAY
+            anim.SetBool("IsPatrolling", false);
+
+            if (Time.time > nextAttackTime)
+            {
+                anim.SetTrigger("Attack");
+                Debug.Log("CHÓP! Sói đã cắn thành công: " + player.name);
+
+                nextAttackTime = Time.time + attackCooldown;
+            }
+        }
     }
 
     void PatrolBehavior()
     {
-        // Nếu đang nghỉ tại điểm tuần tra thì không đi
-        if (isWaitingAtPatrolPoint)
-        {
-            anim.SetBool("IsPatrolling", false);
-            return;
-        }
+        if (isWaiting) return;
 
         anim.SetBool("IsPatrolling", true);
+        Vector2 patrolTarget = new Vector2(targetPoint.x, transform.position.y);
+        transform.position = Vector2.MoveTowards(transform.position, patrolTarget, moveSpeed * Time.deltaTime);
 
-        // Di chuyển
-        transform.position = Vector2.MoveTowards(transform.position, targetPoint, moveSpeed * Time.deltaTime);
-
-        // Kiểm tra đến đích
-        if (Vector2.Distance(transform.position, targetPoint) < 0.1f)
+        if (Mathf.Abs(transform.position.x - targetPoint.x) < 0.1f)
         {
             StartCoroutine(WaitAndFlip());
         }
     }
 
-    void AttackBehavior(float distance)
-    {
-        // Khi đánh thì tắt animation chạy
-        anim.SetBool("IsPatrolling", false);
-
-        FacePlayer();
-
-        // Chỉ di chuyển tiếp cận nếu còn xa, nếu gần rồi (stopDistance) thì đứng yên cắn
-        if (distance > stopDistance)
-        {
-            anim.SetBool("IsPatrolling", true); // Bật chạy để tiếp cận
-            transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-        }
-
-        // Logic đòn đánh
-        if (Time.time >= lastAttackTime + attackCooldown)
-        {
-            lastAttackTime = Time.time;
-            anim.SetTrigger("Attack");
-        }
-    }
-
     IEnumerator WaitAndFlip()
     {
-        isWaitingAtPatrolPoint = true; // Bắt đầu nghỉ
+        isWaiting = true;
         anim.SetBool("IsPatrolling", false);
 
         yield return new WaitForSeconds(waitTime);
 
-        // Chỉ lật và đi tiếp nếu KHÔNG đang đánh nhau
-        // (Nếu đang đánh nhau thì biến này đã bị set false ở Update rồi)
-        Flip();
-        CalculateTargetPoint();
-        isWaitingAtPatrolPoint = false; // Hết nghỉ
+        if (!isDead && !isChasing)
+        {
+            Flip();
+            CalculateTargetPoint();
+        }
+        isWaiting = false;
     }
 
     void CalculateTargetPoint()
@@ -124,7 +149,6 @@ public class WolfAI : MonoBehaviour
 
     void FacePlayer()
     {
-        if (player == null) return;
         if (player.position.x > transform.position.x && !isMovingRight) Flip();
         else if (player.position.x < transform.position.x && isMovingRight) Flip();
     }
@@ -137,9 +161,25 @@ public class WolfAI : MonoBehaviour
         transform.localScale = scale;
     }
 
+    public void OnDie()
+    {
+        if (isDead) return;
+        isDead = true;
+
+        StopAllCoroutines();
+        anim.SetTrigger("Die");
+        anim.SetBool("IsPatrolling", false);
+
+        Collider2D coll = GetComponent<Collider2D>();
+        if (coll != null) coll.enabled = false;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, stopDistance);
     }
 }

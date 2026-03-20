@@ -153,7 +153,10 @@ namespace TheShadowFather.Player
             UpdateAnimator();
             // Khóa scale để animation không thay đổi
             //transform.localScale = Vector3.one;
-            transform.localScale = initialScale; // Ép về kích thước ban đầu thay vì Vector3.one
+            //transform.localScale = initialScale; // Ép về kích thước ban đầu thay vì Vector3.one
+            // ✅ THÊM 2 DÒNG NÀY ĐỂ LẬT TOÀN BỘ NHÂN VẬT (Bao gồm cả Hitbox chém):
+            float targetScaleX = isFacingRight ? Mathf.Abs(initialScale.x) : -Mathf.Abs(initialScale.x);
+            transform.localScale = new Vector3(targetScaleX, initialScale.y, initialScale.z);
         }
         #region Input Handling
         private void HandleInput()
@@ -335,7 +338,7 @@ namespace TheShadowFather.Player
         private void Flip()
         {
             isFacingRight = !isFacingRight;
-            spriteRenderer.flipX = !isFacingRight;
+            //spriteRenderer.flipX = !isFacingRight;
         }
         #endregion
         #region Jump

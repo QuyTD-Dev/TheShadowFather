@@ -2192,6 +2192,15 @@ MonoBehaviour:
   destinationPortal: {fileID: 1295305855}
   spawnPoint: {fileID: 0}
   nextCameraZone: {fileID: 1375119894}
+  requiredEnemies:
+  - {fileID: 1818864848}
+  - {fileID: 560516700}
+  - {fileID: 971946008}
+  - {fileID: 567345708}
+  - {fileID: 1419991894}
+  - {fileID: 832686974}
+  - {fileID: 571184374}
+  portalVisuals: {fileID: 0}
 --- !u!1 &238842324
 GameObject:
   m_ObjectHideFlags: 0
@@ -9810,6 +9819,8 @@ MonoBehaviour:
   destinationPortal: {fileID: 0}
   spawnPoint: {fileID: 0}
   nextCameraZone: {fileID: 0}
+  requiredEnemies: []
+  portalVisuals: {fileID: 0}
 --- !u!1 &907570354
 GameObject:
   m_ObjectHideFlags: 0
@@ -12174,6 +12185,8 @@ MonoBehaviour:
   destinationPortal: {fileID: 0}
   spawnPoint: {fileID: 1248971997}
   nextCameraZone: {fileID: 0}
+  requiredEnemies: []
+  portalVisuals: {fileID: 0}
 --- !u!1 &1306805261
 GameObject:
   m_ObjectHideFlags: 0
@@ -19246,6 +19259,8 @@ MonoBehaviour:
   destinationPortal: {fileID: 0}
   spawnPoint: {fileID: 547286777}
   nextCameraZone: {fileID: 0}
+  requiredEnemies: []
+  portalVisuals: {fileID: 0}
 --- !u!1 &2071818675
 GameObject:
   m_ObjectHideFlags: 0
@@ -19764,6 +19779,12 @@ MonoBehaviour:
   destinationPortal: {fileID: 2038990251}
   spawnPoint: {fileID: 0}
   nextCameraZone: {fileID: 90720747}
+  requiredEnemies:
+  - {fileID: 2083392863}
+  - {fileID: 44461351}
+  - {fileID: 282626821}
+  - {fileID: 1202195843}
+  portalVisuals: {fileID: 0}
 --- !u!1 &2091468820
 GameObject:
   m_ObjectHideFlags: 0

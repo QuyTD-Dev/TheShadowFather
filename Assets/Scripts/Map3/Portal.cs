@@ -3,89 +3,100 @@ using System.Collections;
 
 public class Portal : MonoBehaviour
 {
-    [Header("Điểm đến")]
-    public Transform destinationPoint;
+    [Header("CỔNG ĐÍCH ĐẾN")]
+    [Tooltip("Kéo Object Cổng đích vào đây")]
+    public Portal destinationPortal;
+
+    [Header("ĐIỂM XUẤT HIỆN Ở CỔNG NÀY")]
+    [Tooltip("Kéo Object SpawnPoint con của cổng NÀY vào đây")]
+    public Transform spawnPoint;
+
+    [Header("CAMERA ZONE (Chỉ dành cho Cổng Cuối)")]
+    [Tooltip("Kéo BoxCollider2D vùng camera cảnh TIẾP THEO vào đây")]
+    public BoxCollider2D nextCameraZone;
 
     private bool isTeleporting = false;
-    public GameObject cameraToTurnOff;
-    public GameObject cameraToTurnOn;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // LOG 1: Bắt được bất cứ cái gì chạm vào cổng
-        Debug.Log($"[Portal - {gameObject.name}] Có vật thể chạm vào: {collision.gameObject.name} | Tag hiện tại: {collision.tag}");
+        if (!collision.CompareTag("Player")) return;
+        if (isTeleporting) return;
 
-        // Kiểm tra 1: Xem có đúng Tag Player không
-        if (!collision.CompareTag("Player"))
+        if (destinationPortal == null)
         {
-            Debug.LogWarning($"[Portal - {gameObject.name}] TỪ CHỐI: Vật thể không có tag 'Player'.");
-            return; // Dừng luôn, không chạy tiếp
-        }
-
-        // Kiểm tra 2: Xem cổng có đang bị khóa không
-        if (isTeleporting)
-        {
-            Debug.LogWarning($"[Portal - {gameObject.name}] TỪ CHỐI: Cổng đang trong thời gian khóa (isTeleporting = true).");
+            Debug.LogError($"[Portal] Lỗi: {gameObject.name} chưa gán Destination Portal!");
             return;
         }
 
-        // Kiểm tra 3: Xem đã kéo thả cổng đích vào Inspector chưa
-        if (destinationPoint == null)
-        {
-            Debug.LogError($"[Portal - {gameObject.name}] LỖI: Chưa gán Destination Point trong Inspector!");
-            return;
-        }
-
-        // Vượt qua mọi bài test -> Cho phép dịch chuyển
-        Debug.Log($"[Portal - {gameObject.name}] ĐỦ ĐIỀU KIỆN! Bắt đầu dịch chuyển player...");
         StartCoroutine(TeleportProcess(collision.transform));
     }
 
     IEnumerator TeleportProcess(Transform playerTransform)
     {
         isTeleporting = true;
-        Debug.Log($"[Portal - {gameObject.name}] Đang dịch chuyển {playerTransform.name} sang: {destinationPoint.name}");
 
-        // Khóa cổng đích
-        Portal destinationPortal = destinationPoint.GetComponentInParent<Portal>();
-        if (destinationPortal != null)
+        // 1. Khóa cổng đích
+        destinationPortal.LockPortal();
+
+        // 2. Dịch chuyển Player đến điểm an toàn
+        if (destinationPortal.spawnPoint != null)
         {
-            Debug.Log($"[Portal - {gameObject.name}] Đã tìm thấy cổng đích ({destinationPortal.name}), tiến hành khóa nó lại.");
-            destinationPortal.LockPortal();
+            playerTransform.position = destinationPortal.spawnPoint.position;
         }
         else
         {
-            Debug.Log($"[Portal - {gameObject.name}] Cổng đích không có script Portal, bỏ qua bước khóa cổng đích.");
+            playerTransform.position = destinationPortal.transform.position;
+            Debug.LogWarning($"[Portal] {destinationPortal.name} bị thiếu Spawn Point!");
         }
 
-        // Dịch chuyển
-        playerTransform.position = destinationPoint.position;
-        Debug.Log($"[Portal - {gameObject.name}] Đã thay đổi vị trí player thành công!");
-
-        // ==========================================
-        // THÊM CODE ĐỔI CAMERA VÀO ĐÂY
-        // ==========================================
-        if (cameraToTurnOff != null)
+        // ========================================================
+        // 3. XỬ LÝ SỬA LỖI CAMERA LEM MAP (CRITICAL FIX)
+        // ========================================================
+        if (nextCameraZone != null)
         {
-            cameraToTurnOff.SetActive(false); // Tắt cam map cũ
-            Debug.Log($"[Portal] Đã tắt camera: {cameraToTurnOff.name}");
+            CameraFollow camFollow = Camera.main.GetComponent<CameraFollow>();
+            if (camFollow != null)
+            {
+                // A. Cập nhật giới hạn mới cho Camera trước
+                camFollow.SetNewBounds(nextCameraZone);
+
+                // B. Tự tính toán tọa độ an toàn (Clamped) cho Camera ở vùng mới NGAY LẬP TỨC
+                Camera cam = Camera.main;
+                float camHeight = cam.orthographicSize;
+                float camWidth = cam.orthographicSize * cam.aspect;
+
+                Bounds bounds = nextCameraZone.bounds;
+
+                // Tính toán 4 bức tường giới hạn dựa trên Zone mới
+                float minX = bounds.min.x + camWidth;
+                float maxX = bounds.max.x - camWidth;
+                float minY = bounds.min.y + camHeight;
+                float maxY = bounds.max.y - camHeight;
+
+                // Xử lý an toàn nếu Map quá nhỏ so với màn hình
+                if (minX > maxX) minX = maxX = bounds.center.x;
+                if (minY > maxY) minY = maxY = bounds.center.y;
+
+                // C. Lấy tọa độ muốn đến (tọa độ Elias + offset của CameraFollow)
+                // Cần lấy offset từ CameraFollow để đảm bảo tính đồng bộ
+                Vector3 targetDesiredPos = playerTransform.position + camFollow.offset;
+
+                // D. ÉP BIÊN (CLAMP) tọa độ đó vĩnh viễn nằm trong Zone mới
+                float clampedX = Mathf.Clamp(targetDesiredPos.x, minX, maxX);
+                float clampedY = Mathf.Clamp(targetDesiredPos.y, minY, maxY);
+
+                // E. Cưỡng ép Camera nhảy đến tọa độ ĐÃ ĐƯỢC ÉP BIÊN AN TOÀN
+                cam.transform.position = new Vector3(clampedX, clampedY, cam.transform.position.z);
+            }
         }
 
-        if (cameraToTurnOn != null)
-        {
-            cameraToTurnOn.SetActive(true);   // Bật cam map mới
-            Debug.Log($"[Portal] Đã bật camera: {cameraToTurnOn.name}");
-        }
-
+        // Delay 0.5s để Player kịp di chuyển ra khỏi vùng Trigger cổng đích
         yield return new WaitForSeconds(0.5f);
-
         isTeleporting = false;
-        Debug.Log($"[Portal - {gameObject.name}] Đã mở khóa cổng hiện tại.");
     }
 
     public void LockPortal()
     {
-        Debug.Log($"[Portal - {gameObject.name}] Đang bị khóa tạm thời bởi một cổng khác.");
         StartCoroutine(LockRoutine());
     }
 
@@ -94,6 +105,5 @@ public class Portal : MonoBehaviour
         isTeleporting = true;
         yield return new WaitForSeconds(0.5f);
         isTeleporting = false;
-        Debug.Log($"[Portal - {gameObject.name}] Đã mở khóa trở lại.");
     }
 }

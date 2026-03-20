@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic; // Thêm thư viện này để dùng List
 
 public class Boss3Controller : MonoBehaviour
 {
@@ -29,10 +30,22 @@ public class Boss3Controller : MonoBehaviour
     public float meleeDelay = 0.4f;
     public float meleeDuration = 0.2f;
 
-    [Header("Cài đặt Phase 2 (Trên Không)")]
+    // --- THÊM MỚI: Cài đặt sát thương nhận vào ---
+    [Tooltip("Lượng máu Boss mất đi mỗi khi bị Player chém trúng")]
+    public int damageTakenPerHit = 25;
+
+    [Header("Cài đặt Phase 2 (Trên Không & Quái)")]
     public Transform aerialFlyPoint;
     public float takeoffSpeed = 8f;
     public float aerialAttackCooldown = 2.0f;
+
+    // --- THÊM MỚI: Quản lý Quái ---
+    public GameObject wolfPrefab;
+    public GameObject plantPrefab;
+    [Tooltip("Kéo 6 Transform (điểm xuất hiện) vào đây để sinh quái")]
+    public Transform[] minionSpawnPoints;
+    private List<GameObject> activeMinions = new List<GameObject>();
+    private bool isCheckingMinions = false; // Cờ kiểm tra xem quái chết hết chưa
 
     [Header("Cài đặt Phase 3 (Bẫy Lửa & Cuồng Nộ)")]
     public FireTrap[] fireTraps;
@@ -73,22 +86,21 @@ public class Boss3Controller : MonoBehaviour
 
         // Khởi tạo thông số gốc
         currentHp = maxHp;
-        phase2Threshold = 700;
-        phase3Threshold = 400;
+        phase2Threshold = 700; // Còn 70% -> Lên trời
+        phase3Threshold = 400; // Còn 40% -> Rớt xuống
     }
 
     void Update()
     {
-        // Các phím Test (Lưu ý: Bấm phím Y để test máu khi Boss ở Phase 2)
+        // Vẫn giữ phím T để test nhanh nếu muốn (đã bỏ phím Y vì giờ hệ thống tự động chạy)
         if (Input.GetKeyDown(KeyCode.T)) TakeDamage(100);
-        if (Input.GetKeyDown(KeyCode.Y)) TakeDamageFromMinion(100);
 
         if (currentState == BossState.Dead) return;
 
-        // BƯỚC 1: LUÔN KIỂM TRA CHUYỂN PHASE TRƯỚC TIÊN (Không bị ảnh hưởng bởi Player)
+        // BƯỚC 1: LUÔN KIỂM TRA CHUYỂN PHASE
         CheckPhaseTransition();
 
-        // BƯỚC 2: Nếu Player chết, Boss không tấn công nữa nhưng vẫn chờ bị đánh
+        // BƯỚC 2: Nếu Player chết, Boss không tấn công
         if (player == null) return;
 
         // BƯỚC 3: Xử lý chiến đấu bình thường
@@ -105,7 +117,12 @@ public class Boss3Controller : MonoBehaviour
                 break;
 
             case BossState.Flying:
-                if (currentPhase == BossPhase.Phase2) AerialCombatLogic();
+                if (currentPhase == BossPhase.Phase2)
+                {
+                    AerialCombatLogic();
+                    // --- THÊM MỚI: Liên tục kiểm tra đệ tử ---
+                    CheckMinionStatus();
+                }
                 break;
 
             case BossState.Transitioning:
@@ -113,20 +130,79 @@ public class Boss3Controller : MonoBehaviour
         }
     }
 
-    // ==================== LOGIC CHUYỂN PHASE (KHÔNG DÙNG BOOL, AN TOÀN TUYỆT ĐỐI) ====================
+    // ==================== LOGIC NHẬN SÁT THƯƠNG TỪ PLAYER ====================
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (currentState == BossState.Dead) return;
+
+        // Bắt va chạm với vũ khí của Player
+        if (collision.CompareTag("PlayerWeapon") || collision.gameObject.name.Contains("Sword") || collision.gameObject.name.Contains("Hitbox"))
+        {
+            TakeDamage(damageTakenPerHit);
+        }
+    }
+
+    // ==================== LOGIC QUẢN LÝ QUÁI PHASE 2 ====================
+
+    void SpawnPhase2Minions()
+    {
+        activeMinions.Clear();
+
+        // Sinh quái tại các điểm đã đánh dấu
+        for (int i = 0; i < minionSpawnPoints.Length; i++)
+        {
+            if (minionSpawnPoints[i] == null) continue;
+
+            // Đan xen: Điểm chẵn sinh Sói, Điểm lẻ sinh Cây (Hoặc tùy bạn)
+            GameObject prefabToSpawn = (i % 2 == 0) ? wolfPrefab : plantPrefab;
+
+            if (prefabToSpawn != null)
+            {
+                GameObject minion = Instantiate(prefabToSpawn, minionSpawnPoints[i].position, Quaternion.identity);
+                activeMinions.Add(minion);
+            }
+        }
+
+        isCheckingMinions = true; // Bắt đầu chấm công
+        Debug.Log($"<color=orange>BOSS ĐÃ TRIỆU HỒI {activeMinions.Count} QUÁI VẬT!</color>");
+    }
+
+    void CheckMinionStatus()
+    {
+        if (!isCheckingMinions) return;
+
+        bool allDead = true;
+        foreach (GameObject minion in activeMinions)
+        {
+            // Nếu có ít nhất 1 con chưa bị Destroy (chưa biến thành null)
+            if (minion != null)
+            {
+                allDead = false;
+                break;
+            }
+        }
+
+        if (allDead)
+        {
+            isCheckingMinions = false;
+            Debug.Log("<color=orange>TOÀN BỘ QUÁI ĐÃ CHẾT! BOSS MẤT 30% MÁU!</color>");
+            // Trừ 300 máu (30% của 1000). Việc trừ máu này sẽ kích hoạt Phase 3 ở hàm CheckPhaseTransition
+            TakeDamageFromMinion(300);
+        }
+    }
+
+
+    // ==================== LOGIC CHUYỂN PHASE ====================
 
     void CheckPhaseTransition()
     {
-        // ƯU TIÊN 1: Chuyển Phase 3
-        // Nếu máu <= 400 và Boss hiện KHÔNG ở Phase 3 => Ép vào Phase 3
         if (currentHp <= phase3Threshold && currentPhase != BossPhase.Phase3)
         {
             StartPhase3Transition();
-            return; // Đảm bảo ngắt luôn, không chạy xuống kiểm tra Phase 2
+            return;
         }
 
-        // ƯU TIÊN 2: Chuyển Phase 2
-        // Nếu máu <= 700, lớn hơn 400 và Boss đang ở Phase 1 => Kích hoạt Phase 2
         if (currentHp <= phase2Threshold && currentHp > phase3Threshold && currentPhase == BossPhase.Phase1)
         {
             StartPhase2Transition();
@@ -136,7 +212,7 @@ public class Boss3Controller : MonoBehaviour
     void StartPhase2Transition()
     {
         Debug.Log("<color=magenta>KÍCH HOẠT PHASE 2: CẤT CÁNH!</color>");
-        currentPhase = BossPhase.Phase2; // Gán trạng thái ngay lập tức
+        currentPhase = BossPhase.Phase2;
 
         if (currentAttackRoutine != null) StopCoroutine(currentAttackRoutine);
         if (meleeHitbox != null) meleeHitbox.SetActive(false);
@@ -185,25 +261,25 @@ public class Boss3Controller : MonoBehaviour
         ChangeState(BossState.Flying, 0f);
         aerialAttackTimer = 1f;
         Debug.Log("<color=magenta>ĐÃ ĐẠT ĐỘ CAO PHASE 2!</color>");
+
+        // --- THÊM MỚI: Khi bay tới nơi thì tiến hành gọi đệ tử ra ---
+        SpawnPhase2Minions();
     }
 
     void StartPhase3Transition()
     {
         Debug.Log("<color=red>KÍCH HOẠT PHASE 3: RƠI XUỐNG VÀ BẬT BẪY!</color>");
-        currentPhase = BossPhase.Phase3; // Gán trạng thái ngay lập tức
+        currentPhase = BossPhase.Phase3;
 
-        // Dừng mọi đòn đánh và quá trình bay của Phase 2
         if (currentAttackRoutine != null) StopCoroutine(currentAttackRoutine);
         if (flyRoutine != null) StopCoroutine(flyRoutine);
 
-        // Hủy animation bay một cách an toàn
         if (anim != null)
         {
             anim.ResetTrigger("FlyingAttack");
             anim.SetBool("IsFlying", false);
         }
 
-        // Bật lại vật lý để rớt xuống mặt đất
         if (rb != null)
         {
             rb.linearVelocity = Vector2.zero;
@@ -211,7 +287,6 @@ public class Boss3Controller : MonoBehaviour
             rb.gravityScale = (originalGravity > 0) ? originalGravity : 3f;
         }
 
-        // Bật lại vùng va chạm
         if (bossColliders != null)
         {
             foreach (Collider2D col in bossColliders)
@@ -330,7 +405,11 @@ public class Boss3Controller : MonoBehaviour
     private void ApplyDamage(int amount)
     {
         currentHp -= amount;
-        Debug.Log(">>> Boss bị đánh! Máu còn: " + currentHp);
+        Debug.Log(">>> Boss bị mất máu! Máu hiện tại: " + currentHp);
+
+        // Nếu Boss có Animation bị đánh (Tùy chọn)
+        // if (anim != null) anim.SetTrigger("Hit"); 
+
         if (currentHp <= 0) Die();
     }
 
@@ -396,7 +475,7 @@ public class Boss3Controller : MonoBehaviour
         if (bossColliders != null)
         {
             foreach (Collider2D col in bossColliders)
-                if (col != null) col.enabled = true;
+                if (col != null) col.enabled = false; // Tắt luôn va chạm khi chết
         }
 
         if (fireTraps != null)

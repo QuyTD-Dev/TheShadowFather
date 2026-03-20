@@ -2,22 +2,24 @@ using UnityEngine;
 
 public class SimpleWolfAI : MonoBehaviour
 {
-    [Header("KÉO NHÂN VẬT VÀO Ô TRỐNG BÊN DƯỚI")]
-    public Transform player;
+    // ĐÃ ẨN Ô NÀY ĐI, SÓI SẼ TỰ ĐỘNG TÌM PLAYER
+    private Transform player;
 
     [Header("Cài đặt Hành Động")]
     public float moveSpeed = 3f;
-    public float attackRangeX = 3.5f; // Có thể để 3.5 hoặc 4.0
+    public float attackRangeX = 1.5f;
     public float chaseRange = 7f;
     public float attackCooldown = 1.5f;
 
     [Header("Cài Đặt Máu & Chết")]
-    public int maxHealth = 3;
+    public int maxHealth = 500;
     private int currentHealth;
     private bool isDead = false;
 
+    [Tooltip("Lượng máu Sói mất đi mỗi khi bị Player chém trúng")]
+    public int damageTakenPerHit = 25;
+
     [Header("Chỉnh sửa Hình Ảnh")]
-    [Tooltip("Tắt dấu tick này nếu con sói vẫn bị ngược đầu/đuôi")]
     public bool isFacingRightByDefault = true;
 
     private Animator anim;
@@ -34,34 +36,40 @@ public class SimpleWolfAI : MonoBehaviour
         baseScale = transform.localScale;
 
         currentHealth = maxHealth;
+
+        // TỰ ĐỘNG TÌM PLAYER NGAY KHI VỪA ĐƯỢC BOSS ĐẺ RA
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+        if (p != null) player = p.transform;
     }
 
     void Update()
     {
         if (isDead || player == null) return;
 
-        Vector2 myCenter = col != null ? col.bounds.center : (Vector2)transform.position;
         Collider2D playerCol = player.GetComponent<Collider2D>();
-        Vector2 playerCenter = playerCol != null ? playerCol.bounds.center : (Vector2)player.position;
+        if (playerCol == null) return;
+
+        Vector2 myCenter = col.bounds.center;
+        Vector2 playerCenter = playerCol.bounds.center;
 
         float distanceToPlayer = Vector2.Distance(myCenter, playerCenter);
         float distanceX = Mathf.Abs(myCenter.x - playerCenter.x);
 
+        Bounds myBounds = col.bounds;
+        myBounds.Expand(0.1f);
+        bool isTouchingPlayer = myBounds.Intersects(playerCol.bounds);
+
         if (distanceToPlayer <= chaseRange)
         {
-            // --- Xoay mặt nhân vật ---
             float sizeX = Mathf.Abs(baseScale.x);
             if (playerCenter.x > myCenter.x)
                 transform.localScale = new Vector3(isFacingRightByDefault ? sizeX : -sizeX, baseScale.y, baseScale.z);
             else
                 transform.localScale = new Vector3(isFacingRightByDefault ? -sizeX : sizeX, baseScale.y, baseScale.z);
 
-            // --- KIỂM TRA TẦM CẮN ---
-            if (distanceX <= attackRangeX)
+            if (distanceX <= attackRangeX || isTouchingPlayer)
             {
                 anim.SetBool("IsPatrolling", false);
-
-                // SỬA LỖI ĐẨY: Ép phanh vật lý chuẩn
                 rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
 
                 if (Time.time >= nextAttackTime)
@@ -73,8 +81,6 @@ public class SimpleWolfAI : MonoBehaviour
             else
             {
                 anim.SetBool("IsPatrolling", true);
-
-                // SỬA LỖI ĐẨY VÀ NHẬN SÁT THƯƠNG: Dùng Vector Vật Lý (velocity) để chạy thay vì dịch chuyển
                 float moveDirection = (playerCenter.x > myCenter.x) ? 1f : -1f;
                 rb.linearVelocity = new Vector2(moveDirection * moveSpeed, rb.linearVelocity.y);
             }
@@ -86,19 +92,13 @@ public class SimpleWolfAI : MonoBehaviour
         }
     }
 
-    // =========================================================
-    // HỆ THỐNG NHẬN SÁT THƯƠNG (CÓ TÍCH HỢP BÁO LỖI)
-    // =========================================================
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (isDead) return;
 
-        // DÒNG NÀY ĐỂ MÁY QUÉT KIỂM TRA XEM SÓI ĐÃ CHẠM VÀO CÁI GÌ
-        Debug.Log("🔍 Sói vừa va chạm với: " + collision.gameObject.name + " | Tag: " + collision.tag);
-
         if (collision.CompareTag("PlayerWeapon") || collision.gameObject.name.Contains("Sword") || collision.gameObject.name.Contains("Hitbox"))
         {
-            TakeDamage(1);
+            TakeDamage(damageTakenPerHit); // TRỪ MÁU THEO CHỈ SỐ MỚI
         }
     }
 
@@ -128,20 +128,6 @@ public class SimpleWolfAI : MonoBehaviour
         if (col != null) col.enabled = false;
 
         anim.SetTrigger("Die");
-        Debug.Log("💀 Sói đã chết!");
-
         Destroy(gameObject, 1.5f);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Collider2D c = GetComponent<Collider2D>();
-        Vector2 center = c != null ? c.bounds.center : (Vector2)transform.position;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(center, chaseRange);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(center, attackRangeX);
     }
 }

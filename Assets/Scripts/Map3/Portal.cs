@@ -7,6 +7,8 @@ public class Portal : MonoBehaviour
     public Transform destinationPoint;
 
     private bool isTeleporting = false;
+    public GameObject cameraToTurnOff;
+    public GameObject cameraToTurnOn;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -59,6 +61,21 @@ public class Portal : MonoBehaviour
         // Dịch chuyển
         playerTransform.position = destinationPoint.position;
         Debug.Log($"[Portal - {gameObject.name}] Đã thay đổi vị trí player thành công!");
+
+        // ==========================================
+        // THÊM CODE ĐỔI CAMERA VÀO ĐÂY
+        // ==========================================
+        if (cameraToTurnOff != null)
+        {
+            cameraToTurnOff.SetActive(false); // Tắt cam map cũ
+            Debug.Log($"[Portal] Đã tắt camera: {cameraToTurnOff.name}");
+        }
+
+        if (cameraToTurnOn != null)
+        {
+            cameraToTurnOn.SetActive(true);   // Bật cam map mới
+            Debug.Log($"[Portal] Đã bật camera: {cameraToTurnOn.name}");
+        }
 
         yield return new WaitForSeconds(0.5f);
 
